@@ -1,0 +1,1 @@
+qrcode-generator license: MIT (see package.json) - https://github.com/kazuhikoarase/qrcode-generator
