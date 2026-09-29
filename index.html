@@ -328,6 +328,14 @@ footer{border-top:1px solid var(--line);margin-top:40px;background:var(--card)}
 .toast{background:var(--ink);color:var(--bg);border-radius:12px;padding:10px 20px;font-size:13.5px;font-weight:600;opacity:0;translate:0 12px;transition:.25s;box-shadow:var(--shadow)}
 .toast.show{opacity:1;translate:0 0}
 .toast.err{background:var(--err);color:#fff}
+.seg{display:flex;gap:6px;background:var(--acc-soft);padding:4px;border-radius:12px;margin-bottom:14px}
+.seg button{flex:1;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:600;font-size:13.5px;padding:10px 8px;border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--card);color:var(--acc);box-shadow:var(--shadow)}
+.dg-row{border:1px solid var(--line);border-radius:var(--r-sm);padding:12px;margin-top:10px}
+.dg-name{font-weight:800;margin-bottom:8px}
+.dg-in{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.dg-tx{margin:8px 0 0;padding:0 18px;line-height:2}
+
 .page{padding:30px 0}
 .page h1{font-size:26px;font-weight:800;margin-bottom:14px}
 .page p{color:var(--muted);font-size:14px;margin-bottom:12px}
@@ -337,11 +345,11 @@ footer{border-top:1px solid var(--line);margin-top:40px;background:var(--card)}
 </style>
 </head>
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><defs><symbol id="i-alert-triangle" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></symbol><symbol id="i-arrow-left-right" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4" /> <path d="M4 7h16" /> <path d="m16 21 4-4-4-4" /> <path d="M20 17H4" /></symbol><symbol id="i-binary" viewBox="0 0 24 24"><rect x="14" y="14" width="4" height="6" rx="2" /> <rect x="6" y="4" width="4" height="6" rx="2" /> <path d="M6 20h4" /> <path d="M14 10h4" /> <path d="M6 14h2v6" /> <path d="M14 4h2v6" /></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /> <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /> <path d="m3.3 7 8.7 5 8.7-5" /> <path d="M12 22V12" /></symbol><symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1" /> <path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1" /></symbol><symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" /> <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" /> <path d="M2 21h20" /> <path d="M7 8v3" /> <path d="M12 8v3" /> <path d="M17 8v3" /> <path d="M7 4h0.01" /> <path d="M12 4h0.01" /> <path d="M17 4h0.01" /></symbol><symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2" /> <line x1="8" x2="16" y1="6" y2="6" /> <line x1="16" x2="16" y1="14" y2="18" /> <path d="M16 10h.01" /> <path d="M12 10h.01" /> <path d="M8 10h.01" /> <path d="M12 14h.01" /> <path d="M8 14h.01" /> <path d="M12 18h.01" /> <path d="M8 18h.01" /></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /></symbol><symbol id="i-calendar-days" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /> <path d="M8 14h.01" /> <path d="M12 14h.01" /> <path d="M16 14h.01" /> <path d="M8 18h.01" /> <path d="M12 18h.01" /> <path d="M16 18h.01" /></symbol><symbol id="i-case-sensitive" viewBox="0 0 24 24"><path d="m3 15 4-8 4 8" /> <path d="M4 13h6" /> <circle cx="18" cy="12" r="3" /> <path d="M21 9v6" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol><symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <polyline points="12 6 12 12 16 14" /></symbol><symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol><symbol id="i-cloud-drizzle" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 19v1" /> <path d="M8 14v1" /> <path d="M16 19v1" /> <path d="M16 14v1" /> <path d="M12 21v1" /> <path d="M12 16v1" /></symbol><symbol id="i-cloud-fog" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 17H7" /> <path d="M17 21H9" /></symbol><symbol id="i-cloud-lightning" viewBox="0 0 24 24"><path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973" /> <path d="m13 12-3 5h4l-3 5" /></symbol><symbol id="i-cloud-rain" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 14v6" /> <path d="M8 14v6" /> <path d="M12 16v6" /></symbol><symbol id="i-cloud-snow" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 15h.01" /> <path d="M8 19h.01" /> <path d="M12 17h.01" /> <path d="M12 21h.01" /> <path d="M16 15h.01" /> <path d="M16 19h.01" /></symbol><symbol id="i-cloud-sun" viewBox="0 0 24 24"><path d="M12 2v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="M20 12h2" /> <path d="m19.07 4.93-1.41 1.41" /> <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128" /> <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z" /></symbol><symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" /> <polyline points="8 6 2 12 8 18" /></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol><symbol id="i-crop" viewBox="0 0 24 24"><path d="M6 2v14a2 2 0 0 0 2 2h14" /> <path d="M18 22V8a2 2 0 0 0-2-2H2" /></symbol><symbol id="i-dices" viewBox="0 0 24 24"><rect width="12" height="12" x="2" y="10" rx="2" ry="2" /> <path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" /> <path d="M6 18h.01" /> <path d="M10 14h.01" /> <path d="M15 6h.01" /> <path d="M18 9h.01" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="7 10 12 15 17 10" /> <line x1="12" x2="12" y1="15" y2="3" /></symbol><symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" /></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /> <polyline points="14 2 14 8 20 8" /></symbol><symbol id="i-fingerprint" viewBox="0 0 24 24"><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4" /> <path d="M5 19.5C5.5 18 6 15 6 12c0-.7.12-1.37.34-2" /> <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" /> <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" /> <path d="M8.65 22c.21-.66.45-1.32.57-2" /> <path d="M14 13.12c0 2.38 0 6.38-1 8.88" /> <path d="M2 16h.01" /> <path d="M21.8 16c.2-2 .131-5.354 0-6" /> <path d="M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2" /></symbol><symbol id="i-frame" viewBox="0 0 24 24"><line x1="22" x2="2" y1="6" y2="6" /> <line x1="22" x2="2" y1="18" y2="18" /> <line x1="6" x2="6" y1="2" y2="22" /> <line x1="18" x2="18" y1="2" y2="22" /></symbol><symbol id="i-fuel" viewBox="0 0 24 24"><line x1="3" x2="15" y1="22" y2="22" /> <line x1="4" x2="14" y1="9" y2="9" /> <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" /> <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5" /></symbol><symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4" /> <path d="M3.34 19a10 10 0 1 1 17.32 0" /></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /></symbol><symbol id="i-hard-drive" viewBox="0 0 24 24"><line x1="22" x2="2" y1="12" y2="12" /> <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /> <line x1="6" x2="6.01" y1="16" y2="16" /> <line x1="10" x2="10.01" y1="16" y2="16" /></symbol><symbol id="i-hash" viewBox="0 0 24 24"><line x1="4" x2="20" y1="9" y2="9" /> <line x1="4" x2="20" y1="15" y2="15" /> <line x1="10" x2="8" y1="3" y2="21" /> <line x1="16" x2="14" y1="3" y2="21" /></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></symbol><symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /> <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /> <path d="M12 7v5l4 2" /></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> <polyline points="9 22 9 12 15 12 15 22" /></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /></symbol><symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5" /> <path d="m21 2-9.6 9.6" /> <path d="m15.5 7.5 3 3L22 7l-3-3" /></symbol><symbol id="i-landmark" viewBox="0 0 24 24"><line x1="3" x2="21" y1="22" y2="22" /> <line x1="6" x2="6" y1="18" y2="11" /> <line x1="10" x2="10" y1="18" y2="11" /> <line x1="14" x2="14" y1="18" y2="11" /> <line x1="18" x2="18" y1="18" y2="11" /> <polygon points="12 2 20 7 4 7" /></symbol><symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" /></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /></symbol><symbol id="i-list" viewBox="0 0 24 24"><line x1="8" x2="21" y1="6" y2="6" /> <line x1="8" x2="21" y1="12" y2="12" /> <line x1="8" x2="21" y1="18" y2="18" /> <line x1="3" x2="3.01" y1="6" y2="6" /> <line x1="3" x2="3.01" y1="12" y2="12" /> <line x1="3" x2="3.01" y1="18" y2="18" /></symbol><symbol id="i-list-ordered" viewBox="0 0 24 24"><line x1="10" x2="21" y1="6" y2="6" /> <line x1="10" x2="21" y1="12" y2="12" /> <line x1="10" x2="21" y1="18" y2="18" /> <path d="M4 6h1v4" /> <path d="M4 10h2" /> <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" /></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol><symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1" /> <rect x="2" y="16" width="6" height="6" rx="1" /> <rect x="9" y="2" width="6" height="6" rx="1" /> <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /> <path d="M12 12V8" /></symbol><symbol id="i-paintbrush" viewBox="0 0 24 24"><path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3Z" /> <path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7" /> <path d="M14.5 17.5 4.5 15" /></symbol><symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" /> <circle cx="17.5" cy="10.5" r=".5" /> <circle cx="8.5" cy="7.5" r=".5" /> <circle cx="6.5" cy="12.5" r=".5" /> <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" /></symbol><symbol id="i-pause" viewBox="0 0 24 24"><rect width="4" height="16" x="6" y="4" /> <rect width="4" height="16" x="14" y="4" /></symbol><symbol id="i-percent" viewBox="0 0 24 24"><line x1="19" x2="5" y1="5" y2="19" /> <circle cx="6.5" cy="6.5" r="2.5" /> <circle cx="17.5" cy="17.5" r="2.5" /></symbol><symbol id="i-pipette" viewBox="0 0 24 24"><path d="m2 22 1-1h3l9-9" /> <path d="M3 21v-3l9-9" /> <path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z" /></symbol><symbol id="i-qr-code" viewBox="0 0 24 24"><rect width="5" height="5" x="3" y="3" rx="1" /> <rect width="5" height="5" x="16" y="3" rx="1" /> <rect width="5" height="5" x="3" y="16" rx="1" /> <path d="M21 16h-3a2 2 0 0 0-2 2v3" /> <path d="M21 21v.01" /> <path d="M12 7v3a2 2 0 0 1-2 2H7" /> <path d="M3 12h.01" /> <path d="M12 3h.01" /> <path d="M12 16v.01" /> <path d="M16 12h1" /> <path d="M21 12v.01" /> <path d="M12 21v-1" /></symbol><symbol id="i-quote" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" /> <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" /></symbol><symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1Z" /> <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /> <path d="M12 17V7" /></symbol><symbol id="i-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /></symbol><symbol id="i-regex" viewBox="0 0 24 24"><path d="M17 3v10" /> <path d="m12.67 5.5 8.66 5" /> <path d="m12.67 10.5 8.66-5" /> <path d="M9 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2z" /></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4" /> <path d="M3 11v-1a4 4 0 0 1 4-4h14" /> <path d="m7 22-4-4 4-4" /> <path d="M21 13v1a4 4 0 0 1-4 4H3" /></symbol><symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></symbol><symbol id="i-share-2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" /> <circle cx="6" cy="12" r="3" /> <circle cx="18" cy="19" r="3" /> <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" /> <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" /></symbol><symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /> <path d="m18 2 4 4-4 4" /> <path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /> <path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /> <path d="m18 14 4 4-4 4" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /> <path d="M5 3v4" /> <path d="M19 17v4" /> <path d="M3 5h4" /> <path d="M17 19h4" /></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></symbol><symbol id="i-tag" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" /> <path d="M7 7h.01" /></symbol><symbol id="i-thermometer" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" /></symbol><symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" /></symbol><symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /> <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /> <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /> <line x1="10" x2="10" y1="11" y2="17" /> <line x1="14" x2="14" y1="11" y2="17" /></symbol><symbol id="i-type" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7" /> <line x1="9" x2="15" y1="20" y2="20" /> <line x1="12" x2="12" y1="4" y2="20" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" /> <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" /> <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" /></symbol><symbol id="i-wand-2" viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z" /> <path d="m14 7 3 3" /> <path d="M5 6v4" /> <path d="M19 14v4" /> <path d="M10 2v2" /> <path d="M7 8H3" /> <path d="M21 16h-4" /> <path d="M11 3H9" /></symbol><symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol><symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol><symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /> <path d="M9 18c-4.51 2-5-2-7-2" /></symbol></defs></svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><defs><symbol id="i-alert-triangle" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></symbol><symbol id="i-arrow-left-right" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4" /> <path d="M4 7h16" /> <path d="m16 21 4-4-4-4" /> <path d="M20 17H4" /></symbol><symbol id="i-binary" viewBox="0 0 24 24"><rect x="14" y="14" width="4" height="6" rx="2" /> <rect x="6" y="4" width="4" height="6" rx="2" /> <path d="M6 20h4" /> <path d="M14 10h4" /> <path d="M6 14h2v6" /> <path d="M14 4h2v6" /></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /> <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /> <path d="m3.3 7 8.7 5 8.7-5" /> <path d="M12 22V12" /></symbol><symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1" /> <path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1" /></symbol><symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" /> <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" /> <path d="M2 21h20" /> <path d="M7 8v3" /> <path d="M12 8v3" /> <path d="M17 8v3" /> <path d="M7 4h0.01" /> <path d="M12 4h0.01" /> <path d="M17 4h0.01" /></symbol><symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2" /> <line x1="8" x2="16" y1="6" y2="6" /> <line x1="16" x2="16" y1="14" y2="18" /> <path d="M16 10h.01" /> <path d="M12 10h.01" /> <path d="M8 10h.01" /> <path d="M12 14h.01" /> <path d="M8 14h.01" /> <path d="M12 18h.01" /> <path d="M8 18h.01" /></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /></symbol><symbol id="i-calendar-days" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /> <path d="M8 14h.01" /> <path d="M12 14h.01" /> <path d="M16 14h.01" /> <path d="M8 18h.01" /> <path d="M12 18h.01" /> <path d="M16 18h.01" /></symbol><symbol id="i-case-sensitive" viewBox="0 0 24 24"><path d="m3 15 4-8 4 8" /> <path d="M4 13h6" /> <circle cx="18" cy="12" r="3" /> <path d="M21 9v6" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol><symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <polyline points="12 6 12 12 16 14" /></symbol><symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol><symbol id="i-cloud-drizzle" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 19v1" /> <path d="M8 14v1" /> <path d="M16 19v1" /> <path d="M16 14v1" /> <path d="M12 21v1" /> <path d="M12 16v1" /></symbol><symbol id="i-cloud-fog" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 17H7" /> <path d="M17 21H9" /></symbol><symbol id="i-cloud-lightning" viewBox="0 0 24 24"><path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973" /> <path d="m13 12-3 5h4l-3 5" /></symbol><symbol id="i-cloud-rain" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 14v6" /> <path d="M8 14v6" /> <path d="M12 16v6" /></symbol><symbol id="i-cloud-snow" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 15h.01" /> <path d="M8 19h.01" /> <path d="M12 17h.01" /> <path d="M12 21h.01" /> <path d="M16 15h.01" /> <path d="M16 19h.01" /></symbol><symbol id="i-cloud-sun" viewBox="0 0 24 24"><path d="M12 2v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="M20 12h2" /> <path d="m19.07 4.93-1.41 1.41" /> <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128" /> <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z" /></symbol><symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" /> <polyline points="8 6 2 12 8 18" /></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol><symbol id="i-crop" viewBox="0 0 24 24"><path d="M6 2v14a2 2 0 0 0 2 2h14" /> <path d="M18 22V8a2 2 0 0 0-2-2H2" /></symbol><symbol id="i-dices" viewBox="0 0 24 24"><rect width="12" height="12" x="2" y="10" rx="2" ry="2" /> <path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" /> <path d="M6 18h.01" /> <path d="M10 14h.01" /> <path d="M15 6h.01" /> <path d="M18 9h.01" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="7 10 12 15 17 10" /> <line x1="12" x2="12" y1="15" y2="3" /></symbol><symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" /></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /> <polyline points="14 2 14 8 20 8" /></symbol><symbol id="i-fingerprint" viewBox="0 0 24 24"><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4" /> <path d="M5 19.5C5.5 18 6 15 6 12c0-.7.12-1.37.34-2" /> <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" /> <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" /> <path d="M8.65 22c.21-.66.45-1.32.57-2" /> <path d="M14 13.12c0 2.38 0 6.38-1 8.88" /> <path d="M2 16h.01" /> <path d="M21.8 16c.2-2 .131-5.354 0-6" /> <path d="M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2" /></symbol><symbol id="i-frame" viewBox="0 0 24 24"><line x1="22" x2="2" y1="6" y2="6" /> <line x1="22" x2="2" y1="18" y2="18" /> <line x1="6" x2="6" y1="2" y2="22" /> <line x1="18" x2="18" y1="2" y2="22" /></symbol><symbol id="i-fuel" viewBox="0 0 24 24"><line x1="3" x2="15" y1="22" y2="22" /> <line x1="4" x2="14" y1="9" y2="9" /> <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" /> <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5" /></symbol><symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4" /> <path d="M3.34 19a10 10 0 1 1 17.32 0" /></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /></symbol><symbol id="i-hard-drive" viewBox="0 0 24 24"><line x1="22" x2="2" y1="12" y2="12" /> <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /> <line x1="6" x2="6.01" y1="16" y2="16" /> <line x1="10" x2="10.01" y1="16" y2="16" /></symbol><symbol id="i-hash" viewBox="0 0 24 24"><line x1="4" x2="20" y1="9" y2="9" /> <line x1="4" x2="20" y1="15" y2="15" /> <line x1="10" x2="8" y1="3" y2="21" /> <line x1="16" x2="14" y1="3" y2="21" /></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></symbol><symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /> <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /> <path d="M12 7v5l4 2" /></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> <polyline points="9 22 9 12 15 12 15 22" /></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /></symbol><symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5" /> <path d="m21 2-9.6 9.6" /> <path d="m15.5 7.5 3 3L22 7l-3-3" /></symbol><symbol id="i-landmark" viewBox="0 0 24 24"><line x1="3" x2="21" y1="22" y2="22" /> <line x1="6" x2="6" y1="18" y2="11" /> <line x1="10" x2="10" y1="18" y2="11" /> <line x1="14" x2="14" y1="18" y2="11" /> <line x1="18" x2="18" y1="18" y2="11" /> <polygon points="12 2 20 7 4 7" /></symbol><symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" /></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /></symbol><symbol id="i-list" viewBox="0 0 24 24"><line x1="8" x2="21" y1="6" y2="6" /> <line x1="8" x2="21" y1="12" y2="12" /> <line x1="8" x2="21" y1="18" y2="18" /> <line x1="3" x2="3.01" y1="6" y2="6" /> <line x1="3" x2="3.01" y1="12" y2="12" /> <line x1="3" x2="3.01" y1="18" y2="18" /></symbol><symbol id="i-list-ordered" viewBox="0 0 24 24"><line x1="10" x2="21" y1="6" y2="6" /> <line x1="10" x2="21" y1="12" y2="12" /> <line x1="10" x2="21" y1="18" y2="18" /> <path d="M4 6h1v4" /> <path d="M4 10h2" /> <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" /></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol><symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1" /> <rect x="2" y="16" width="6" height="6" rx="1" /> <rect x="9" y="2" width="6" height="6" rx="1" /> <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /> <path d="M12 12V8" /></symbol><symbol id="i-paintbrush" viewBox="0 0 24 24"><path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3Z" /> <path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7" /> <path d="M14.5 17.5 4.5 15" /></symbol><symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" /> <circle cx="17.5" cy="10.5" r=".5" /> <circle cx="8.5" cy="7.5" r=".5" /> <circle cx="6.5" cy="12.5" r=".5" /> <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" /></symbol><symbol id="i-pause" viewBox="0 0 24 24"><rect width="4" height="16" x="6" y="4" /> <rect width="4" height="16" x="14" y="4" /></symbol><symbol id="i-percent" viewBox="0 0 24 24"><line x1="19" x2="5" y1="5" y2="19" /> <circle cx="6.5" cy="6.5" r="2.5" /> <circle cx="17.5" cy="17.5" r="2.5" /></symbol><symbol id="i-pipette" viewBox="0 0 24 24"><path d="m2 22 1-1h3l9-9" /> <path d="M3 21v-3l9-9" /> <path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z" /></symbol><symbol id="i-qr-code" viewBox="0 0 24 24"><rect width="5" height="5" x="3" y="3" rx="1" /> <rect width="5" height="5" x="16" y="3" rx="1" /> <rect width="5" height="5" x="3" y="16" rx="1" /> <path d="M21 16h-3a2 2 0 0 0-2 2v3" /> <path d="M21 21v.01" /> <path d="M12 7v3a2 2 0 0 1-2 2H7" /> <path d="M3 12h.01" /> <path d="M12 3h.01" /> <path d="M12 16v.01" /> <path d="M16 12h1" /> <path d="M21 12v.01" /> <path d="M12 21v-1" /></symbol><symbol id="i-quote" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" /> <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" /></symbol><symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1Z" /> <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /> <path d="M12 17V7" /></symbol><symbol id="i-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /></symbol><symbol id="i-regex" viewBox="0 0 24 24"><path d="M17 3v10" /> <path d="m12.67 5.5 8.66 5" /> <path d="m12.67 10.5 8.66-5" /> <path d="M9 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2z" /></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4" /> <path d="M3 11v-1a4 4 0 0 1 4-4h14" /> <path d="m7 22-4-4 4-4" /> <path d="M21 13v1a4 4 0 0 1-4 4H3" /></symbol><symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></symbol><symbol id="i-share-2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" /> <circle cx="6" cy="12" r="3" /> <circle cx="18" cy="19" r="3" /> <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" /> <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" /></symbol><symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /> <path d="m18 2 4 4-4 4" /> <path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /> <path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /> <path d="m18 14 4 4-4 4" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /> <path d="M5 3v4" /> <path d="M19 17v4" /> <path d="M3 5h4" /> <path d="M17 19h4" /></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></symbol><symbol id="i-tag" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" /> <path d="M7 7h.01" /></symbol><symbol id="i-thermometer" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" /></symbol><symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" /></symbol><symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /> <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /> <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /> <line x1="10" x2="10" y1="11" y2="17" /> <line x1="14" x2="14" y1="11" y2="17" /></symbol><symbol id="i-type" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7" /> <line x1="9" x2="15" y1="20" y2="20" /> <line x1="12" x2="12" y1="4" y2="20" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" /> <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" /> <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" /></symbol><symbol id="i-wand-2" viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z" /> <path d="m14 7 3 3" /> <path d="M5 6v4" /> <path d="M19 14v4" /> <path d="M10 2v2" /> <path d="M7 8H3" /> <path d="M21 16h-4" /> <path d="M11 3H9" /></symbol><symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol><symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol><symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /> <path d="M9 18c-4.51 2-5-2-7-2" /></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /> <path d="M12 8v13" /> <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /> <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol><symbol id="i-banknote" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" /></symbol><symbol id="i-contact" viewBox="0 0 24 24"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <circle cx="12" cy="10" r="2" /> <line x1="8" x2="8" y1="2" y2="4" /> <line x1="16" x2="16" y1="2" y2="4" /></symbol><symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /></symbol><symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z" /> <path d="M11 3 8 9l4 13 4-13-3-6" /> <path d="M2 9h20" /></symbol><symbol id="i-key-round" viewBox="0 0 24 24"><path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z" /> <circle cx="16.5" cy="7.5" r=".5" /></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="M7 21h10" /> <path d="M12 3v18" /> <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></symbol><symbol id="i-baby" viewBox="0 0 24 24"><path d="M9 12h.01" /> <path d="M15 12h.01" /> <path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" /> <path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" /></symbol></defs></svg>
 <header id="hdr">
   <div class="wrap hrow">
     <a class="logo" href="#/" aria-label="آذردان — خانه">
-      <span class="logo-mark"><svg class="icon"><use href="#i-wrench"></use></svg></span>
+      <span class="logo-mark"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M41 63 C46 59.5 54 59.5 59 63 L69 82 C69 86 63.8 89 58 89 L42 89 C36.2 89 31 86 31 82 Z" fill="#ffffff"/><path d="M50 13 C41 23.8 33.5 33.7 33.5 45.2 C33.5 56.7 40.6 64.5 50 64.5 C59.4 64.5 66.5 56.7 66.5 45.2 C66.5 38.5 63.3 33.8 59.5 28.5 C59.9 33.5 56.6 36.2 53.5 34.8 C50.4 33.4 50.8 28.1 54.4 22.4 C52.4 18.8 51 15.8 50 13 Z" fill="#ffffff"/><path d="M50 31 C46 37.3 43.7 42.3 43.7 47.4 C43.7 53.8 46.4 57.7 50 57.7 C53.6 57.7 56.3 53.8 56.3 47.4 C56.3 44.6 55.3 42.5 53.9 40.2 C53.8 42.8 52 44 50.6 43 C49.2 42 49.4 39.1 51.3 35.8 C50.8 34.1 50.3 32.5 50 31 Z" fill="#0a5f47" opacity="0.42"/></svg></span>
       <span class="logo-t">آذردان<small>ابزارهای آنلاین رایگان</small></span>
     </a>
     <nav class="nav" aria-label="منوی اصلی">
@@ -423,7 +431,7 @@ const $=(s,el=document)=>el.querySelector(s);
 const $$=(s,el=document)=>[...el.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ic=n=>`<svg class="icon"><use href="#i-${n}"></use></svg>`;
-const APP_VER='3.0.0';
+const APP_VER='3.2.0';
 const store={
   get(k,d){try{const v=localStorage.getItem('abzarak:'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
   set(k,v){try{localStorage.setItem('abzarak:'+k,JSON.stringify(v))}catch(e){}}
@@ -454,7 +462,7 @@ const fmt=(n,d=2)=>{
   else s=String(Number(Number(n).toFixed(d)));
   const neg=s.startsWith('-');if(neg)s=s.slice(1);
   const parts=s.split('.');
-  return (neg?'−':'')+faD(parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,'٬'))+(parts[1]?'٫'+parts[1]:'');
+  return faD((neg?'−':'')+parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,'٬')+(parts[1]?'٫'+parts[1]:''));
 };
 const norm=s=>String(s??'').toLowerCase()
   .replace(/[۰-۹]/g,d=>d.charCodeAt(0)-0x06F0).replace(/[٠-٩]/g,d=>d.charCodeAt(0)-0x0660)
@@ -497,7 +505,8 @@ function g2d(gy,gm,gd){
 function d2g(jdn){
   let j=4*jdn+139361631;j+=_div(_div(4*jdn+183187720,146097)*3,4)*4-3908;
   const i=_div(_mod(j,1461),4)*5+308;
-  return{gy:_div(j,1461)-100100+_div(8-_div(i,153),6),gm:_div(i,153)%12+1,gd:_mod(_div(i,153),5)+1};
+  const gd=_div(_mod(i,153),5)+1,gm=_mod(_div(i,153),12)+1;
+  return{gy:_div(j,1461)-100100+_div(8-gm,6),gm,gd};
 }
 const j2d=(jy,jm,jd)=>{const r=jalCal(jy);return g2d(r.gy,3,r.march)+(jm-1)*31-_div(jm,7)*(jm-7)+jd-1};
 function d2j(jdn){
@@ -694,6 +703,24 @@ const maskOf=p=>p===0?0:((0xFFFFFFFF<<(32-p))>>>0);
 const ipClass=v=>{const o=v>>>24;if(o<128)return 'A';if(o<192)return 'B';if(o<224)return 'C';if(o<240)return 'D';return 'E'};
 const isPrivate=v=>{const o=v>>>24,o2=(v>>>16)&255;return o===10||(o===172&&o2>=16&&o2<=31)||(o===192&&o2===168)||o===127};
 const bin32=v=>{let s='';for(let i=31;i>=0;i--)s+=((v>>>i)&1);return s};
+const secureInt=n=>{
+  if(n<=1)return 0;
+  const lim=Math.floor(4294967296/n)*n,buf=new Uint32Array(1);
+  do{crypto.getRandomValues(buf)}while(buf[0]>=lim);
+  return buf[0]%n;
+};
+const fmtP=(n,sig=7)=>{
+  if(n===null||isNaN(n)||!isFinite(n))return '—';
+  if(n===0)return '۰';
+  const a=Math.abs(n);
+  if(a>=1e15||a<1e-9)return faD(Number(n).toExponential(3));
+  const dec=Math.max(0,Math.min(12,sig-1-Math.floor(Math.log10(a))));
+  let str=Number(n).toFixed(dec);
+  if(str.includes('.'))str=str.replace(/0+$/,'').replace(/\.$/,'');
+  const neg=str.startsWith('-');if(neg)str=str.slice(1);
+  const parts=str.split('.');
+  return faD((neg?'−':'')+parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,'٬')+(parts[1]?'٫'+parts[1]:''));
+};
 function unitMount(units,toBase,fromBase){
   return formTool({
     live:true,history:true,
@@ -706,11 +733,11 @@ function unitMount(units,toBase,fromBase){
       if(v.v===null)return null;
       if(!units.find(u=>u.k===v.from)||!units.find(u=>u.k===v.to))return null;
       const base=toBase(v.v,v.from),out=fromBase(base,v.to);
-      const rows=units.map(u=>[u.n,`<code>${+fromBase(base,u.k).toPrecision(10)}</code>`]);
+      const rows=units.map(u=>[u.n,fmtP(fromBase(base,u.k))]);
       return{
-        html:`${fmt(out)} <span style="font-size:13px;color:var(--muted);font-weight:500">${units.find(u=>u.k===v.to).n}</span>`,
+        html:`${fmtP(out)} <span style="font-size:13px;color:var(--muted);font-weight:500">${units.find(u=>u.k===v.to).n}</span>`,
         copy:String(+out.toPrecision(10)),
-        sub:`${fmt(v.v)} ${units.find(u=>u.k===v.from).n} =`,
+        sub:`${fmtP(v.v)} ${units.find(u=>u.k===v.from).n} =`,
         table:[['واحد','مقدار'],...rows],
         hist:`${v.v} ${v.from} → ${+out.toPrecision(10)} ${v.to}`
       };
@@ -723,7 +750,7 @@ const NW_H=['','صد','دویست','سیصد','چهارصد','پانصد','شش�
 function numToWords(n){
   n=Math.floor(Math.abs(n));
   if(n===0)return 'صفر';
-  const scales=['','هزار','میلیون','میلیارد','بیلیون','بیلیارد','تریلیون'];
+  const scales=['','هزار','میلیون','میلیارد','تریلیون','کوادریلیون'];
   const groups=[];let x=n;
   while(x>0){groups.push(x%1000);x=Math.floor(x/1000)}
   const parts=[];
@@ -996,7 +1023,7 @@ T('age','محاسبه سن','Age Calculator','محاسبه دقیق سن بر ا
       html:`${faD(a.y)} سال و ${faD(a.m)} ماه و ${faD(a.d)} روز`,
       copy:`${a.y} سال ${a.m} ماه ${a.d} روز`,
       sub:`متولد ${weekdayFaOf(b.jy,b.jm,b.jd)} — ${fmtJ(b)}`,
-      table:[['سن دقیق',`${faD(a.y)} سال، ${faD(a.m)} ماه، ${faD(a.d)} روز`],['روز تولد',weekdayFaOf(b.jy,b.jm,b.jd)],['کل روزهای زندگی',faD(a.total.toLocaleString('en-US'))],['تولد بعدی',daysLeft===0?'امروز است!':`${faD(daysLeft)} روز دیگر (${weekdayFaOf(nextJ.jy,nextJ.jm,nextJ.jd)})`]],
+      table:[['سن دقیق',`${faD(a.y)} سال، ${faD(a.m)} ماه، ${faD(a.d)} روز`],['روز تولد',weekdayFaOf(b.jy,b.jm,b.jd)],['کل روزهای زندگی',fmt(a.total,0)],['تولد بعدی',daysLeft===0?'امروز است!':`${faD(daysLeft)} روز دیگر (${weekdayFaOf(nextJ.jy,nextJ.jm,nextJ.jd)})`]],
       hist:`سن از ${v.b}: ${a.y} سال`
     };
   }
@@ -1014,24 +1041,24 @@ mkUnit('unit-length','تبدیل طول','Length Converter','تبدیل طول �
   (v,u)=>v/{mm:0.001,cm:0.01,m:1,km:1000,in:0.0254,ft:0.3048,mi:1609.344}[u],
   'مقدار و دو واحد مبدا/مقصد را انتخاب کنید؛ جدول تبدیل به همه واحدها هم نمایش داده می‌شود.','۵ کیلومتر = ۵٬۰۰۰ متر = ۳٫۱۰۷ مایل');
 mkUnit('unit-weight','تبدیل وزن','Weight Converter','تبدیل وزن بین گرم، کیلوگرم، تن، اونس و پوند','scale',['وزن','weight','کیلوگرم','kg','گرم','پوند'],
-  [{k:'mg',n:'میلی‌گرم'},{k:'g',n:'گرم'},{k:'kg',n:'کیلوگرم'},{k:'t',n:'تن'},{k:'oz',n:'اونس'},{k:'lb',n:'پوند'}],
-  (v,u)=>v*({mg:1e-6,g:0.001,kg:1,t:1000,oz:0.0283495,lb:0.453592}[u]),
-  (v,u)=>v/{mg:1e-6,g:0.001,kg:1,t:1000,oz:0.0283495,lb:0.453592}[u],
+  [{k:'mg',n:'میلی‌گرم'},{k:'g',n:'گرم'},{k:'kg',n:'کیلوگرم'},{k:'t',n:'تن'},{k:'mesq',n:'مثقال'},{k:'oz',n:'اونس'},{k:'lb',n:'پوند'}],
+  (v,u)=>v*({mg:1e-6,g:0.001,kg:1,t:1000,mesq:0.004608,oz:0.028349523,lb:0.45359237}[u]),
+  (v,u)=>v/{mg:1e-6,g:0.001,kg:1,t:1000,mesq:0.004608,oz:0.028349523,lb:0.45359237}[u],
   'وزن را وارد و واحدها را انتخاب کنید.','۷۵ کیلوگرم = ۱۶۵٫۳۵ پوند');
 mkUnit('unit-volume','تبدیل حجم','Volume Converter','تبدیل حجم بین لیتر، متر مکعب، گالن و فنجان','beaker',['حجم','volume','لیتر','litre','گالن'],
   [{k:'ml',n:'میلی‌لیتر'},{k:'l',n:'لیتر'},{k:'m3',n:'متر مکعب'},{k:'cm3',n:'سانتی‌متر مکعب'},{k:'gal',n:'گالن آمریکا'},{k:'cup',n:'فنجان (۲۴۰ml)'}],
-  (v,u)=>v*({ml:0.001,l:1,m3:1000,cm3:0.001,gal:3.78541,cup:0.24}[u]),
-  (v,u)=>v/{ml:0.001,l:1,m3:1000,cm3:0.001,gal:3.78541,cup:0.24}[u],
+  (v,u)=>v*({ml:0.001,l:1,m3:1000,cm3:0.001,gal:3.785411784,cup:0.24}[u]),
+  (v,u)=>v/{ml:0.001,l:1,m3:1000,cm3:0.001,gal:3.785411784,cup:0.24}[u],
   'حجم را وارد و واحدها را انتخاب کنید.','۲ گالن ≈ ۷٫۵۷ لیتر');
-mkUnit('unit-area','تبدیل مساحت','Area Converter','تبدیل مساحت بین متر مربع، هکتار، فوت مربع و جریب','square',['مساحت','area','متر مربع','هکتار','جریب'],
-  [{k:'m2',n:'متر مربع'},{k:'km2',n:'کیلومتر مربع'},{k:'ha',n:'هکتار'},{k:'ft2',n:'فوت مربع'},{k:'acre',n:'جریب'}],
-  (v,u)=>v*({m2:1,km2:1e6,ha:10000,ft2:0.092903,acre:4046.86}[u]),
-  (v,u)=>v/{m2:1,km2:1e6,ha:10000,ft2:0.092903,acre:4046.86}[u],
+mkUnit('unit-area','تبدیل مساحت','Area Converter','تبدیل مساحت بین متر مربع، هکتار، فوت مربع و ایکر','square',['مساحت','area','متر مربع','هکتار','ایکر','acre'],
+  [{k:'m2',n:'متر مربع'},{k:'km2',n:'کیلومتر مربع'},{k:'ha',n:'هکتار'},{k:'ft2',n:'فوت مربع'},{k:'acre',n:'ایکر (Acre)'}],
+  (v,u)=>v*({m2:1,km2:1e6,ha:10000,ft2:0.09290304,acre:4046.8564224}[u]),
+  (v,u)=>v/{m2:1,km2:1e6,ha:10000,ft2:0.09290304,acre:4046.8564224}[u],
   'مساحت را وارد کنید (مثلاً زمین یا ملک).','۲ هکتار = ۲۰٬۰۰۰ متر مربع');
 mkUnit('unit-speed','تبدیل سرعت','Speed Converter','تبدیل سرعت بین متر/کیلومتر/مایل بر ساعت و گره','gauge',['سرعت','speed','کیلومتر بر ساعت','kmh','mph','گره'],
   [{k:'ms',n:'متر بر ثانیه'},{k:'kmh',n:'کیلومتر بر ساعت'},{k:'mph',n:'مایل بر ساعت'},{k:'kn',n:'گره (ناوتی)'}],
-  (v,u)=>v*({ms:1,kmh:0.277778,mph:0.44704,kn:0.514444}[u]),
-  (v,u)=>v/{ms:1,kmh:0.277778,mph:0.44704,kn:0.514444}[u],
+  (v,u)=>v*({ms:1,kmh:1/3.6,mph:0.44704,kn:1852/3600}[u]),
+  (v,u)=>v/{ms:1,kmh:1/3.6,mph:0.44704,kn:1852/3600}[u],
   'سرعت را وارد کنید.','۱۰۰ km/h ≈ ۲۷٫۷۸ m/s');
 T('unit-temperature','تبدیل دما','Temperature Converter','تبدیل دما بین سلسیوس، فارنهایت و کلوین','conv','thermometer',['دما','temperature','celsius','fahrenheit','kelvin','سلسیوس','فارنهایت','کلوین'],
   unitMount([{k:'c',n:'سلسیوس (°C)'},{k:'f',n:'فارنهایت (°F)'},{k:'k',n:'کلوین (K)'}],
@@ -1039,27 +1066,61 @@ T('unit-temperature','تبدیل دما','Temperature Converter','تبدیل د�
     (v,u)=>u==='c'?v:(u==='f'?v*9/5+32:v+273.15)),
   {g:'دما را وارد و واحد مبدا را انتخاب کنید (مقدار منفی هم مجاز است).',x:'۳۷°C = ۹۸٫۶°F'});
 
-T('date-converter','تبدیل تاریخ شمسی/میلادی','Date Converter','تبدیل دوطرفه و زنده تاریخ شمسی به میلادی و برعکس','conv','calendar',['تبدیل تاریخ','date converter','تاریخ','jalali','gregorian'],function(root,t){
-  root.innerHTML=`<div class="fade"><div class="panel"><div class="fgrid">
-    <div class="field"><label for="din">تاریخ شمسی</label><div class="iwrap"><input id="din" placeholder="۱۴۰۳/۰۵/۰۲" autocomplete="off"></div></div>
-    <div class="field"><label for="dout">تاریخ میلادی</label><div class="iwrap"><input id="dout" placeholder="2024/07/23" style="direction:ltr" autocomplete="off"></div></div>
-  </div><div class="res ok" data-res hidden></div></div></div>`;
-  const i=$('#din',root),o=$('#dout',root),res=$('[data-res]',root);
-  let last=1;
-  function show(j){
-    const g=toG(j.jy,j.jm,j.jd);
-    res.hidden=false;res.className='res ok';
-    res.innerHTML=`<div class="res-head"><span>${weekdayFaOf(j.jy,j.jm,j.jd)}</span><div class="res-actions"><button class="btn sm ghost" data-copy>${ic('copy')} کپی</button></div></div>
-    <div class="res-body" style="font-size:17px">شمسی: ${fmtJ(j)} — میلادی: ${faD(g.gy+'/'+pad2(g.gm)+'/'+pad2(g.gd))}</div>
-    <div class="sub">${JMONTHS[j.jm-1]} ${faD(j.jd)} ${faD(j.jy)} — ${GMONTHS[g.gm-1]} ${faD(g.gd)} ${faD(g.gy)}</div>`;
-    $('[data-copy]',res).addEventListener('click',()=>copyText(`${j.jy}/${pad2(j.jm)}/${pad2(j.jd)} | ${g.gy}/${pad2(g.gm)}/${pad2(g.gd)}`));
-    refreshIcons();
-    if(last===1)o.value=`${g.gy}/${pad2(g.gm)}/${pad2(g.gd)}`;
-    else i.value=fmtJ(j);
+T('date-converter','تبدیل تاریخ شمسی/میلادی','Date Converter','تبدیل دقیق تاریخ شمسی به میلادی و میلادی به شمسی، با نام روز هفته','conv','calendar',['تبدیل تاریخ','date converter','تاریخ','jalali','gregorian','شمسی به میلادی','میلادی به شمسی'],function(root,t){
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div class="seg" role="tablist" aria-label="جهت تبدیل">
+      <button type="button" role="tab" data-mode="j2g" class="on" aria-selected="true">شمسی ← میلادی</button>
+      <button type="button" role="tab" data-mode="g2j" aria-selected="false">میلادی ← شمسی</button>
+    </div>
+    <div class="fgrid">
+      <div class="field full"><label for="dcin" data-lbl>تاریخ شمسی</label>
+        <div class="iwrap"><input id="dcin" inputmode="numeric" autocomplete="off" placeholder="۱۴۰۵/۰۷/۰۶"></div>
+        <span class="fhint" data-hint>قالب‌های ۱۴۰۵/۷/۶ و ۱۴۰۵-۰۷-۰۶ پذیرفته می‌شود.</span></div>
+    </div>
+    <div class="pactions"><button type="button" class="btn ghost sm" data-today>${ic('calendar')} تاریخ امروز</button></div>
+    <div class="res idle" data-res hidden></div></div></div>`;
+  const inp=$('#dcin',root),res=$('[data-res]',root),lbl=$('[data-lbl]',root),hint=$('[data-hint]',root);
+  let mode='j2g';
+  const todayG=()=>{const d=new Date();return{gy:d.getFullYear(),gm:d.getMonth()+1,gd:d.getDate()}};
+  function setMode(m){
+    mode=m;
+    $$('[data-mode]',root).forEach(b=>{const on=b.dataset.mode===m;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});
+    if(m==='j2g'){lbl.textContent='تاریخ شمسی';inp.placeholder='۱۴۰۵/۰۷/۰۶';inp.style.direction='';hint.textContent='قالب‌های ۱۴۰۵/۷/۶ و ۱۴۰۵-۰۷-۰۶ پذیرفته می‌شود.'}
+    else{lbl.textContent='تاریخ میلادی';inp.placeholder='2026/09/28';inp.style.direction='ltr';hint.textContent='قالب‌های 2026/9/28 و 2026-09-28 پذیرفته می‌شود.'}
+    inp.value='';res.hidden=true;inp.focus();
   }
-  i.addEventListener('input',()=>{last=1;const j=parseJ(i.value);if(j)show(j);else if(!i.value)res.hidden=true});
-  o.addEventListener('input',()=>{last=2;const g=parseG(o.value);if(g)show(toJ(g.gy,g.gm,g.gd));else if(!o.value)res.hidden=true});
-},{g:'در هر کادر بنویسید تا کادر دیگر به‌صورت زنده تبدیل شود. قالب‌های ۱۴۰۳/۵/۲ و 2024-07-23 پشتیبانی می‌شوند.',x:'۱۴۰۳/۰۱/۰۱ ← 2024-03-20',faq:[['الگوریتم تبدیل چیست؟','تبدیل بر اساس الگوریتم استاندارد تقویم جلالی انجام می‌شود که برای بازه وسیعی از سال‌ها دقیق است.'],['سال کبیسه پشتیبانی می‌شود؟','بله؛ سال‌های کبیسه شمسی با اسفند ۳۰ روزه به‌درستی محاسبه می‌شوند.']]});
+  function showErr(msg){res.hidden=false;res.className='res err';res.innerHTML=`<div class="res-body">${esc(msg)}</div>`}
+  function run(){
+    const raw=inp.value.trim();
+    if(!raw){res.hidden=true;return}
+    let j,g;
+    if(mode==='j2g'){
+      j=parseJ(raw);
+      if(!j){showErr('تاریخ شمسی نامعتبر است (مثلاً ماه ۷ حداکثر ۳۰ روز دارد و اسفند فقط در سال کبیسه ۳۰ روز است).');return}
+      g=toG(j.jy,j.jm,j.jd);
+    }else{
+      g=parseG(raw);
+      if(!g){showErr('تاریخ میلادی نامعتبر است. نمونه: 2026/09/28');return}
+      j=toJ(g.gy,g.gm,g.gd);
+    }
+    const jt=`${j.jy}/${pad2(j.jm)}/${pad2(j.jd)}`,gt=`${g.gy}/${pad2(g.gm)}/${pad2(g.gd)}`;
+    const wd=WDAYS[new Date(g.gy,g.gm-1,g.gd).getDay()];
+    res.hidden=false;res.className='res ok';
+    res.innerHTML=`<div class="res-head"><span>${wd}</span><div class="res-actions"><button type="button" class="btn sm ghost" data-copy>${ic('copy')} کپی</button></div></div>
+      <div class="res-body" style="font-size:18px">${mode==='j2g'?`${faD(gt)} <span style="font-size:13px;color:var(--muted);font-weight:500">میلادی</span>`:`${faD(jt)} <span style="font-size:13px;color:var(--muted);font-weight:500">شمسی</span>`}</div>
+      <div class="sub">${faD(j.jd)} ${JMONTHS[j.jm-1]} ${faD(j.jy)} — ${faD(g.gd)} ${GMONTHS[g.gm-1]} ${faD(g.gy)}</div>
+      <table class="tbl"><tbody><tr><td>شمسی</td><td>${faD(jt)}</td></tr><tr><td>میلادی</td><td>${faD(gt)}</td></tr><tr><td>روز هفته</td><td>${wd}</td></tr></tbody></table>`;
+    $('[data-copy]',res).addEventListener('click',()=>copyText(`${jt} | ${gt}`));
+    refreshIcons();
+  }
+  $$('[data-mode]',root).forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
+  inp.addEventListener('input',run);
+  $('[data-today]',root).addEventListener('click',()=>{
+    if(mode==='j2g'){const j=todayJ();inp.value=fmtJ(j)}
+    else{const g=todayG();inp.value=`${g.gy}/${pad2(g.gm)}/${pad2(g.gd)}`}
+    run();
+  });
+},{g:'جهت تبدیل را انتخاب کنید (شمسی به میلادی یا برعکس)، تاریخ را بنویسید و نتیجه همان لحظه نمایش داده می‌شود. دکمهٔ «تاریخ امروز» تاریخ همین روز را وارد می‌کند.',x:'۱۴۰۵/۰۷/۰۶ ← 2026/09/28 (دوشنبه)',faq:[['الگوریتم تبدیل چیست؟','تبدیل بر اساس الگوریتم استاندارد تقویم جلالی (۳۳ ساله) انجام می‌شود و برای سال‌های ۱۳۰۰ تا ۱۵۰۰ با کتابخانه‌های مرجع تطبیق داده شده است.'],['سال کبیسه پشتیبانی می‌شود؟','بله؛ سال‌های کبیسه شمسی با اسفند ۳۰ روزه به‌درستی محاسبه می‌شوند.'],['چرا روز هفته نمایش داده می‌شود؟','چون برای اسناد و قرارها لازم است؛ روز هفته از تاریخ میلادی همان روز محاسبه می‌شود.']]});
 
 T('color-converter','تبدیل رنگ','Color Converter','تبدیل رنگ بین HEX، RGB و HSL با پیش‌نمایش زنده','conv','palette',['رنگ','color','hex','rgb','hsl','کد رنگ'],function(root,t){
   root.innerHTML=`<div class="fade"><div class="panel">
@@ -1130,34 +1191,56 @@ T('number-converter','تبدیل اعداد','Number Converter','تبدیل ار
   bv.addEventListener('input',runB);bb.addEventListener('change',runB);runB();
 },{g:'زبان ارقام را تبدیل کنید یا عددی را بین مبناهای ۲، ۸، ۱۰ و ۱۶ جابه‌جا کنید.',x:'FF (مبنا ۱۶) = ۲۵۵ = ۱۱۱۱۱۱۱۱'});
 
-T('number-to-words','عدد به حروف فارسی','Number to Words','تبدیل عدد به معادل حروفی فارسی تا تریلیون','conv','languages',['عدد به حروف','حروف فارسی','number to words','چک'],formTool({live:true,
-  fields:[{k:'n',label:'عدد',v:'',num:true,ph:'مثلاً ۱٬۲۵۰٬۰۰۰',full:true,hint:'تا ۱۰ به توان ۱۵ (تریلیون)'}],
+T('number-to-words','عدد به حروف فارسی','Number to Words','تبدیل عدد به معادل حروفی فارسی برای نوشتن مبلغ در چک و اسناد','conv','languages',['عدد به حروف','حروف فارسی','number to words','چک','مبلغ به حروف','ریال','تومان'],formTool({live:true,
+  fields:[
+    {k:'n',label:'عدد',v:'',num:true,ph:'مثلاً ۱٬۲۵۰٬۰۰۰',hint:'عدد صحیح تا کمتر از ۱۰ به توان ۱۵؛ اعشار نادیده گرفته می‌شود'},
+    {k:'u',label:'واحد پول',opts:[['','بدون واحد'],['تومان','تومان'],['ریال','ریال']]}
+  ],
   compute(v){
     if(v.n===null)return null;
     if(Math.abs(v.n)>=1e15)throw new Error('عدد بزرگ‌تر از بازه پشتیبانی‌شده است.');
-    const words=(v.n<0?'منفی ':'')+numToWords(Math.abs(v.n));
-    return{html:`<span style="font-size:17px">${words}</span>`,copy:words,sub:fmt(v.n,0),hist:`${v.n} → ${words}`};
+    const whole=Math.trunc(v.n);
+    const words=(whole<0?'منفی ':'')+numToWords(Math.abs(whole))+(v.u?' '+v.u:'');
+    return{html:`<span style="font-size:17px">${words}</span>`,copy:words,sub:fmt(whole,0)+(v.u?' '+v.u:'')+(Number.isInteger(v.n)?'':' (قسمت اعشاری حذف شد)'),hist:`${whole} → ${words}`};
   }
-}),{g:'هر عددی را وارد کنید تا معادل حروفی آن ساخته شود؛ برای نوشتن مبالغ در چک و اسناد کاربرد دارد.',x:'۱۲۵۰ → «یک هزار و دویست و پنجاه»'});
+}),{g:'عدد را وارد کنید تا معادل حروفی آن ساخته شود؛ برای نوشتن مبلغ در چک، سفته و قرارداد، واحد «تومان» یا «ریال» را هم انتخاب کنید.',x:'۱٬۲۵۰٬۰۰۰ تومان ← «یک میلیون و دویست و پنجاه هزار تومان»'});
 
-/* ============================================================
-   ابزارهای متنی
-============================================================ */
-const counterMount=main=>formTool({live:true,
-  fields:[{k:'txt',label:'متن شما',type:'textarea',rows:7,ph:'متن را اینجا بنویسید یا بچسبانید…'}],
-  compute(v){
-    const s=v.txt||'';
-    if(!s.trim())return null;
-    const words=s.trim().split(/\s+/).filter(Boolean).length;
-    const chars=s.length,charsNS=s.replace(/\s/g,'').length;
-    const lines=s.split('\n'),lc=lines.length,empty=lines.filter(l=>!l.trim()).length;
-    const readMin=words/200;
-    const st=[['کلمات',faD(words)],['کاراکترها',faD(chars)],['کاراکتر بدون فاصله',faD(charsNS)],['خطوط',faD(lc)],['خطوط خالی',faD(empty)],['زمان تقریبی خواندن',readMin<1?'کمتر از ۱ دقیقه':faD(Math.ceil(readMin))+' دقیقه']];
-    const head=main==='w'?`<span style="font-size:34px">${faD(words)}</span> کلمه`:(main==='c'?`<span style="font-size:34px">${faD(chars)}</span> کاراکتر`:`<span style="font-size:34px">${faD(lc)}</span> خط`);
-    const copyVal=main==='w'?String(words):(main==='c'?String(chars):String(lc));
-    return{html:head,copy:copyVal,table:[['شاخص','مقدار'],...st],hist:copyVal};
-  }
-});
+function counterMount(mode){
+  return function(root,t){
+    root.innerHTML=`<div class="fade"><div class="panel">
+      <div class="field full"><label for="cnIn">متن</label>
+        <div class="iwrap"><textarea id="cnIn" rows="8" placeholder="متن خود را اینجا بنویسید یا بچسبانید…"></textarea></div></div>
+      <div class="res idle" data-res hidden></div></div></div>`;
+    const ta=$('#cnIn',root),res=$('[data-res]',root);
+    function run(){
+      const txt=ta.value;
+      if(!txt){res.hidden=true;return}
+      const words=(txt.match(/[\p{L}\p{N}_]+/gu)||[]).length;
+      const charsAll=[...txt].length;
+      const charsNoSpace=[...txt.replace(/\s/g,'')].length;
+      const lines=txt.length?txt.split('\n').length:0;
+      const emptyLines=txt.length?txt.split('\n').filter(l=>l.trim()==='').length:0;
+      const readMin=Math.max(1,Math.round(words/200));
+      const main=mode==='w'?[faD(words),'کلمه']:mode==='c'?[faD(charsAll),'کاراکتر']:[faD(lines),'خط'];
+      res.hidden=false;res.className='res ok';
+      res.innerHTML=`<div class="res-head"><span>نتیجه</span><div class="res-actions"><button type="button" class="btn sm ghost" data-copy>${ic('copy')} کپی آمار</button></div></div>
+        <div class="res-body">${main[0]} <span style="font-size:13px;color:var(--muted);font-weight:500">${main[1]}</span></div>
+        <table class="tbl"><tbody>
+          <tr><td>تعداد کلمات</td><td>${faD(words)}</td></tr>
+          <tr><td>کاراکتر (با فاصله)</td><td>${faD(charsAll)}</td></tr>
+          <tr><td>کاراکتر (بدون فاصله)</td><td>${faD(charsNoSpace)}</td></tr>
+          <tr><td>تعداد خطوط</td><td>${faD(lines)}</td></tr>
+          <tr><td>خطوط خالی</td><td>${faD(emptyLines)}</td></tr>
+          <tr><td>زمان تقریبی خواندن</td><td>${faD(readMin)} دقیقه</td></tr>
+        </tbody></table>`;
+      $('[data-copy]',res).addEventListener('click',()=>copyText(`کلمات: ${words} — کاراکتر: ${charsAll} — خطوط: ${lines}`));
+      refreshIcons();
+    }
+    ta.addEventListener('input',run);
+    res.hidden=true;
+  };
+}
+
 T('word-counter','شمارنده کلمات','Word Counter','شمارش زنده کلمات متن با آمار کاراکتر و زمان خواندن','text','type',['شمارنده کلمات','word count','کلمه'],counterMount('w'),{g:'متن را وارد کنید؛ تعداد کلمات و آمار تکمیلی زنده نمایش داده می‌شود.',x:'یک پاراگراف ۲۰۰ کلمه‌ای ← زمان خواندن حدود ۱ دقیقه'});
 T('char-counter','شمارنده حروف','Character Counter','شمارش دقیق کاراکترها با و بدون فاصله — مناسب توییت و پیامک','text','hash',['شمارنده حروف','character count','کاراکتر','توییت'],counterMount('c'),{g:'متن را وارد کنید؛ تعداد کاراکتر با فاصله و بدون فاصله نمایش داده می‌شود.',x:'متن پیامک ← سقف ۷۰ کاراکتر فارسی'});
 T('line-counter','شمارنده خطوط','Line Counter','شمارش خطوط متن با تشخیص خطوط خالی','text','list',['شمارنده خطوط','line count','خط','سطر'],counterMount('l'),{g:'متن یا لیست را وارد کنید؛ تعداد کل خطوط و خطوط خالی مشخص می‌شود.',x:'لیست ۵۰ نفره ← ۵۰ خط، ۳ خط خالی'});
@@ -1167,7 +1250,7 @@ T('replace-text','جایگزینی متن','Find & Replace','جستجو و جا�
     {k:'txt',label:'متن اصلی',type:'textarea',rows:6,ph:'متن…'},
     {k:'find',label:'جستجو',v:'',ph:'عبارت مورد جستجو'},
     {k:'rep',label:'جایگزینی با',v:'',ph:'عبارت جدید'},
-    {k:'flags',label:'حالت',opts:[['plain','متن ساده'],['regex','عبارت باقاعده (Regex)']],hint:'در حالت Regex از الگوهایی مثل \\d+ استفاده کنید',full:true},
+    {k:'flags',label:'حالت',opts:[['plain','متن ساده'],['regex','عبارت باقاعده (Regex)']],hint:'در حالت Regex از الگوهایی مثل \\d+ و برای بازیابی گروه‌ها از $1 استفاده کنید',full:true},
     {k:'ci',label:'حساس به بزرگی/کوچکی؟',opts:[['0','خیر'],['1','بله']],full:true}
   ],
   compute(v){
@@ -1176,8 +1259,8 @@ T('replace-text','جایگزینی متن','Find & Replace','جستجو و جا�
       let rx;
       if(v.flags==='regex')rx=new RegExp(v.find,'g'+(v.ci==='1'?'':'i'));
       else rx=new RegExp(v.find.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'+(v.ci==='1'?'':'i'));
-      let count=0;
-      const out=v.txt.replace(rx,m=>{count++;return v.rep});
+      const count=(v.txt.match(rx)||[]).length;
+      const out=v.txt.replace(rx,v.flags==='regex'?v.rep:()=>v.rep);
       return{html:`<span style="font-size:15px">${faD(count)} جایگزینی انجام شد</span>`,sub:'خروجی در کادر زیر قابل کپی است',pre:out,copy:out,hist:`${count} جایگزینی «${v.find}»`};
     }catch(e){throw new Error('الگوی Regex نامعتبر است: '+e.message)}
   }
@@ -1195,7 +1278,7 @@ T('case-convert','تغییر حروف بزرگ/کوچک','Case Converter','تب�
     'UPPER CASE':s=>s.toUpperCase(),
     'lower case':s=>s.toLowerCase(),
     'Sentence case':s=>s.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g,c=>c.toUpperCase()),
-    'Title Case':s=>s.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase()),
+    'Title Case':s=>s.toLowerCase().replace(/(^|[\s\-_(\/])([a-z])/g,(m,p1,c)=>p1+c.toUpperCase()),
     'camelCase':s=>words(s).map((w,i)=>i?w[0].toUpperCase()+w.slice(1).toLowerCase():w.toLowerCase()).join(''),
     'PascalCase':s=>words(s).map(w=>w[0].toUpperCase()+w.slice(1).toLowerCase()).join(''),
     'snake_case':s=>words(s).map(w=>w.toLowerCase()).join('_'),
@@ -1228,9 +1311,9 @@ T('text-cleaner','ابزار پردازش متن','Text Cleaner','پاکسازی
     let o=s;
     if(v.ops.sp)o=o.replace(/[ \t]{2,}/g,' ').replace(/ +\n/g,'\n');
     if(v.ops.lines)o=o.replace(/\n{3,}/g,'\n\n').trim();
-    if(v.ops.nzm)o=o.replace(/\b(نمی|می) +/g,'$1\u200c').replace(/ +(ها|های|هایی|تر|ترین)(?=[\s،.!؟]|$)/g,'\u200c$1');
+    if(v.ops.nzm)o=o.replace(/(^|[\s(«"'،؛:])(نمی|می) +(?=[\u0600-\u06FF])/g,'$1$2\u200c').replace(/([\u0600-\u06FF]) +(هایی|های|ها|ترین|تر)(?=[\s،؛:.!؟)»"']|$)/g,'$1\u200c$2');
     if(v.ops.num)o=o.replace(/[0-9٠-٩]/g,d=>'۰۱۲۳۴۵۶۷۸۹'[enD(d)]);
-    if(v.ops.pct)o=o.replace(/ +([،,؛;:.!؟])/g,'$1').replace(/([،؛:.!؟])(?=[^\s\d])/g,'$1 ');
+    if(v.ops.pct)o=o.replace(/ +([،؛:.!؟])/g,'$1').replace(/([،؛:.!؟])(?=[\u0600-\u06FF])/g,'$1 ');
     const diff=s.length-o.length;
     return{html:'متن پاکسازی شد',sub:`تغییر طول: ${diff>=0?'−':'+'}${faD(Math.abs(diff))} کاراکتر`,pre:o,copy:o,hist:'پاکسازی متن'};
   }
@@ -1319,7 +1402,7 @@ T('json-formatter','JSON Formatter','JSON Formatter','زیباسازی و فشر
     const indSel=$('#jind',root).value;
     const out=beautify?JSON.stringify(obj,null,indSel==='t'?'\t':+indSel):JSON.stringify(obj);
     let keys=0,depth=0;
-    (function walk(o,d){if(o&&typeof o==='object'){depth=Math.max(depth,d);for(const k in o){keys++;walk(o[k],d+1)}}})(obj,1);
+    (function walk(o,d){if(Array.isArray(o)){depth=Math.max(depth,d);o.forEach(x=>walk(x,d+1))}else if(o&&typeof o==='object'){depth=Math.max(depth,d);for(const k in o){keys++;walk(o[k],d+1)}}})(obj,1);
     res.hidden=false;res.className='res ok';
     res.innerHTML=`<div class="res-head"><span>JSON معتبر — ${faD(keys)} کلید، عمق ${faD(depth)}</span><div class="res-actions">
       <button class="btn sm ghost" data-copy>${ic('copy')} کپی</button><button class="btn sm ghost" data-dl>${ic('download')} دانلود</button></div></div><pre>${esc(out)}</pre>`;
@@ -1506,14 +1589,16 @@ T('meta-tag-generator','تولید Meta Tag','Meta Tag Generator','ساخت تگ
   live:false,btn:'تولید تگ‌ها',btnIcon:'code',
   compute(v,root){
     if(!v.title&&!v.desc)return null;
-    const m=(n,c)=>c?`  <meta name="${n}" content="${c}">\n`:'';
-    const og=(p,c)=>c?`  <meta property="og:${p}" content="${c}">\n`:'';
+    const ea=x=>String(x).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const et=x=>String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const m=(n,c)=>c?`  <meta name="${n}" content="${ea(c)}">\n`:'';
+    const og=(p,c)=>c?`  <meta property="og:${p}" content="${ea(c)}">\n`:'';
     let code='';
-    if(v.title){code+=`  <title>${v.title}</title>\n`;code+=og('title',v.title)}
+    if(v.title){code+=`  <title>${et(v.title)}</title>\n`;code+=og('title',v.title)}
     if(v.desc)code+=m('description',v.desc)+og('description',v.desc);
     if(v.kw)code+=m('keywords',v.kw);
     code+=m('robots',v.robots);
-    if(v.url){code+=`  <link rel="canonical" href="${v.url}">\n`;code+=og('url',v.url)}
+    if(v.url){code+=`  <link rel="canonical" href="${ea(v.url)}">\n`;code+=og('url',v.url)}
     if(v.img)code+=og('image',v.img);
     code+='  <meta property="og:type" content="website">\n  <meta name="twitter:card" content="summary_large_image">\n';
     setTimeout(()=>{
@@ -1595,12 +1680,14 @@ T('border-radius-generator','Border Radius','Border Radius Generator','گردک�
       <div data-demo style="width:120px;height:120px;background:var(--acc);opacity:.9"></div></div>
     <div class="res ok" data-res></div>
   </div></div>`;
-  function run(){
+  function run(e){
     const link=$('#brLink',root).checked;
     const v={};C.forEach(c=>v[c[0]]=+$('#br'+c[0],root).value);
-    if(link){$$('[data-br]',root).forEach(r=>r.value=v.tl);C.forEach(c=>v[c[0]]=v.tl)}
-    $('[data-demo]',root).style.borderRadius=`${v.tr}px ${v.tl}px ${v.br}px ${v.bl}px`;
-    const code=`border-radius: ${v.tr}px ${v.tl}px ${v.br}px ${v.bl}px;`;
+    if(link){const val=(e&&e.target&&e.target.dataset&&e.target.dataset.br)?+e.target.value:v.tl;$$('[data-br]',root).forEach(r=>r.value=val);C.forEach(c=>v[c[0]]=val)}
+    /* ترتیب CSS: بالا-چپ، بالا-راست، پایین-راست، پایین-چپ */
+    const css=`${v.tr}px ${v.tl}px ${v.bl}px ${v.br}px`;
+    $('[data-demo]',root).style.borderRadius=css;
+    const code=`border-radius: ${css};`;
     $('[data-res]',root).innerHTML=`<div class="res-head"><span>کد CSS</span><div class="res-actions"><button class="btn sm ghost" data-copy>${ic('copy')} کپی</button></div></div><pre style="margin-top:0">.class {\n  ${esc(code)}\n}</pre>`;
     $('[data-copy]',root).addEventListener('click',()=>copyText(code));
     refreshIcons();
@@ -1668,41 +1755,97 @@ T('aspect-ratio-calculator','محاسبه نسبت تصویر','Aspect Ratio','�
 /* ============================================================
    کاربردی
 ============================================================ */
-T('dang-calculator','محاسبه دنگ هر نفر','Dang Calculator','تقسیم مبلغ بر اساس دنگ و سهم شرکا','util','users',['دنگ','سهم','تقسیم','شراکت','dang'],formTool({live:true,
+T('dang-calculator','تقسیم هزینه گروهی (دنگ)','Split Expenses','هر نفر چقدر خرج کرده؟ سهم هر نفر و اینکه چه کسی به چه کسی چقدر بدهکار است','util','users',['دنگ','تقسیم هزینه','خرج','سهم','بدهکار','بستانکار','سفر','dang','split'],function(root,t){
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div class="fgrid"><div class="field full"><label for="dgNames">نام افراد (هر نفر در یک خط یا با ویرگول جدا)</label>
+      <div class="iwrap"><textarea id="dgNames" rows="3" placeholder="علی، رضا، مریم"></textarea></div></div></div>
+    <div data-rows></div>
+    <div class="pactions"><button type="button" class="btn ghost sm" data-reset>${ic('rotate-ccw')} بازنشانی</button></div>
+    <div class="res idle" data-res hidden></div></div></div>`;
+  const ta=$('#dgNames',root),rowsBox=$('[data-rows]',root),res=$('[data-res]',root);
+  const paid={},share={};
+  const names=()=>{
+    const seen={};
+    return ta.value.split(/[\n,،;]+/).map(s=>s.trim()).filter(Boolean).map(n=>{seen[n]=(seen[n]||0)+1;return seen[n]>1?`${n} (${faD(seen[n])})`:n});
+  };
+  function buildRows(){
+    const ns=names();
+    rowsBox.innerHTML=ns.map((n,i)=>`<div class="dg-row"><div class="dg-name">${esc(n)}</div>
+      <div class="dg-in"><div class="field"><label>چقدر خرج کرد؟</label><div class="iwrap"><input data-paid="${i}" inputmode="decimal" autocomplete="off" placeholder="۰" value="${esc(paid[n]??'')}"><span class="funit">تومان</span></div></div>
+      <div class="field"><label>سهم</label><div class="iwrap"><input data-share="${i}" inputmode="decimal" autocomplete="off" value="${esc(share[n]??'1')}"></div></div></div></div>`).join('');
+    $$('[data-paid]',rowsBox).forEach(el=>el.addEventListener('input',()=>{paid[ns[el.dataset.paid]]=el.value;calc()}));
+    $$('[data-share]',rowsBox).forEach(el=>el.addEventListener('input',()=>{share[ns[el.dataset.share]]=el.value;calc()}));
+    calc();
+  }
+  function calc(){
+    const ns=names();
+    if(ns.length<2){res.hidden=false;res.className='res idle';res.innerHTML=`<div class="res-body" style="color:var(--muted);font-size:13.5px;font-weight:500">حداقل نام دو نفر را وارد کنید.</div>`;return}
+    const P=ns.map(n=>pnum(paid[n])||0),S=ns.map(n=>{const v=pnum(share[n]);return v===null?1:v});
+    if(S.some(s=>s<0)){res.hidden=false;res.className='res err';res.innerHTML=`<div class="res-body">سهم نمی‌تواند منفی باشد.</div>`;return}
+    const sumS=S.reduce((a,b)=>a+b,0),total=P.reduce((a,b)=>a+b,0);
+    if(sumS<=0){res.hidden=false;res.className='res err';res.innerHTML=`<div class="res-body">مجموع سهم‌ها باید بیشتر از صفر باشد.</div>`;return}
+    if(total<=0){res.hidden=false;res.className='res idle';res.innerHTML=`<div class="res-body" style="color:var(--muted);font-size:13.5px;font-weight:500">مبلغ خرج هر نفر را وارد کنید.</div>`;return}
+    const fair=S.map(s=>total*s/sumS),bal=P.map((p,i)=>p-fair[i]);
+    const cred=[],debt=[];
+    bal.forEach((b,i)=>{if(b>0.5)cred.push({i,a:b});else if(b<-0.5)debt.push({i,a:-b})});
+    cred.sort((x,y)=>y.a-x.a);debt.sort((x,y)=>y.a-x.a);
+    const tx=[];let ci=0,di=0;
+    while(ci<cred.length&&di<debt.length){
+      const m=Math.min(cred[ci].a,debt[di].a);
+      if(Math.round(m)>0)tx.push([debt[di].i,cred[ci].i,m]);
+      cred[ci].a-=m;debt[di].a-=m;
+      if(cred[ci].a<0.5)ci++;if(debt[di].a<0.5)di++;
+    }
+    const perHead=total/sumS;
+    const lines=[`مجموع هزینه: ${fmt(total,0)} تومان`,...tx.map(([d,c,a])=>`${ns[d]} ← ${ns[c]}: ${fmt(a,0)} تومان`)];
+    const copy=lines.join('\n');
+    res.hidden=false;res.className='res ok';
+    res.innerHTML=`<div class="res-head"><span>نتیجه</span><div class="res-actions"><button type="button" class="btn sm ghost" data-copy>${ic('copy')} کپی</button></div></div>
+      <div class="res-body">جمع کل: ${fmt(total,0)} <span style="font-size:13px;color:var(--muted);font-weight:500">تومان</span></div>
+      <div class="sub">${sumS===ns.length&&S.every(s=>s===1)?`سهم هر نفر: ${fmt(perHead,0)} تومان`:`هر واحد سهم: ${fmt(perHead,0)} تومان`}</div>
+      <table class="tbl"><thead><tr><th>نام</th><th>پرداخت‌شده</th><th>سهم او</th><th>تراز</th></tr></thead><tbody>${ns.map((n,i)=>`<tr><td>${esc(n)}</td><td>${fmt(P[i],0)}</td><td>${fmt(fair[i],0)}</td><td style="color:${bal[i]>=0.5?'var(--acc)':bal[i]<=-0.5?'var(--err)':'inherit'}">${bal[i]>=0.5?'طلبکار '+fmt(bal[i],0):bal[i]<=-0.5?'بدهکار '+fmt(-bal[i],0):'تسویه'}</td></tr>`).join('')}</tbody></table>
+      <div class="sub" style="margin-top:12px;font-weight:700">${tx.length?'برای تسویه:':'همه تسویه‌اند؛ پرداختی لازم نیست.'}</div>
+      ${tx.length?`<ul class="dg-tx">${tx.map(([d,c,a])=>`<li><b>${esc(ns[d])}</b> باید <b>${fmt(a,0)}</b> تومان به <b>${esc(ns[c])}</b> بدهد</li>`).join('')}</ul>`:''}`;
+    $('[data-copy]',res).addEventListener('click',()=>copyText(copy));
+    refreshIcons();
+  }
+  ta.addEventListener('input',buildRows);
+  $('[data-reset]',root).addEventListener('click',()=>{ta.value='';Object.keys(paid).forEach(k=>delete paid[k]);Object.keys(share).forEach(k=>delete share[k]);buildRows();res.hidden=true});
+  buildRows();res.hidden=true;
+},{g:'نام افراد را بنویسید؛ برای هر نفر یک ردیف ساخته می‌شود. مقدار خرج هر نفر را وارد کنید تا سهم مساوی و طلب/بدهی هر کس و کمترین تعداد پرداخت برای تسویه نمایش داده شود. اگر سهم افراد برابر نیست (مثلاً یک زوج)، عدد «سهم» را تغییر دهید؛ پیش‌فرض ۱ است.',x:'علی ۹۰۰ هزار، رضا ۳۰۰ هزار و مریم صفر خرج کرده‌اند ← سهم هر نفر ۴۰۰ هزار؛ مریم ۴۰۰ هزار و رضا ۱۰۰ هزار به علی می‌دهند'});
+
+T('fuel-consumption','محاسبه مصرف و هزینه بنزین','Fuel Consumption','از لیتر و کیلومتر، مصرف خودرو (لیتر در ۱۰۰km) و هزینه هر کیلومتر را حساب کنید','util','fuel',['بنزین','سوخت','مصرف سوخت','fuel','مصرف خودرو','لیتر در صد کیلومتر','هزینه بنزین'],formTool({live:true,
   fields:[
-    {k:'total',label:'مبلغ کل',v:'',num:true,ph:'مثلاً ۹٬۰۰۰٬۰۰۰',unit:'تومان'},
-    {k:'shares',label:'سهم شرکا (هر خط یک عدد)',type:'textarea',rows:4,v:'2\n1\n1',ph:'۲\n۱\n۱'}
+    {k:'l',label:'بنزین زده‌شده',v:'',num:true,ph:'مثلاً ۴۰',unit:'لیتر'},
+    {k:'d',label:'مسافت طی‌شده با آن',v:'',num:true,ph:'مثلاً ۱۵۶',unit:'کیلومتر'},
+    {k:'p',label:'قیمت هر لیتر',v:'',num:true,ph:'اختیاری',unit:'تومان'},
+    {k:'tot',label:'یا مبلغ کل پرداختی',v:'',num:true,ph:'اختیاری',unit:'تومان',hint:'اگر مبلغ کل را وارد کنید، قیمت هر لیتر خودکار به‌دست می‌آید.'},
+    {k:'trip',label:'می‌خواهم مسافتی را برآورد کنم',v:'',num:true,ph:'اختیاری',unit:'کیلومتر',full:true}
   ],
   compute(v){
-    if(v.total===null)return null;
-    const sh=(v.shares||'').split('\n').map(x=>pnum(x.trim())).filter(x=>x!==null&&x>0);
-    if(!sh.length)return null;
-    const sum=sh.reduce((a,b)=>a+b,0);
-    const rows=sh.map((s,i)=>[`شریک ${faD(i+1)} (${fmt(s,2)} دنگ)`,`${fmt(v.total*s/sum,0)} تومان (${fmt(s/sum*100,1)}٪)`]);
+    if(v.l===null||v.d===null)return null;
+    if(v.l<=0||v.d<=0)throw new Error('مقدار بنزین و مسافت باید بیشتر از صفر باشند.');
+    const per100=v.l/v.d*100,kmpl=v.d/v.l;
+    let price=null,total=null;
+    if(v.tot!==null&&v.tot>0){total=v.tot;price=v.tot/v.l}
+    else if(v.p!==null&&v.p>0){price=v.p;total=v.p*v.l}
+    const rows=[['مصرف',`${fmt(per100,2)} لیتر در ۱۰۰ کیلومتر`],['بازده',`${fmt(kmpl,2)} کیلومتر با هر لیتر`]];
+    if(price!==null){
+      rows.push(['قیمت هر لیتر',`${fmt(price,0)} تومان`],['هزینهٔ این سفر',`${fmt(total,0)} تومان`],['هزینهٔ هر کیلومتر',`${fmt(total/v.d,0)} تومان`],['هزینه هر ۱۰۰ کیلومتر',`${fmt(total/v.d*100,0)} تومان`]);
+    }
+    if(v.trip!==null&&v.trip>0){
+      const tl=v.trip*per100/100;
+      rows.push([`برآورد ${fmt(v.trip,0)} کیلومتر`,`${fmt(tl,1)} لیتر`+(price!==null?` ≈ ${fmt(tl*price,0)} تومان`:'')]);
+    }
     return{
-      html:`هر دنگ: ${fmt(v.total/sum,0)} <span style="font-size:13px;color:var(--muted);font-weight:500">تومان</span>`,
-      copy:String(Math.round(v.total/sum)),
-      sub:`مجموع ${faD(sh.length)} سهم = ${fmt(sum,2)} دنگ`,
-      table:[['شرکا','سهم'],...rows],
-      hist:`دنگ ${v.total} بین ${sh.length} نفر`
+      html:`${fmt(per100,2)} <span style="font-size:13px;color:var(--muted);font-weight:500">لیتر در ۱۰۰ کیلومتر</span>`,
+      copy:`مصرف: ${fmt(per100,2)} لیتر در ۱۰۰ کیلومتر`,
+      sub:`یعنی هر لیتر بنزین ${fmt(kmpl,2)} کیلومتر می‌رود`,
+      table:[['شاخص','مقدار'],...rows],
+      hist:`${v.l}L / ${v.d}km ← ${+per100.toFixed(2)} L/100km`
     };
   }
-}),{g:'مبلغ کل و سهم هر شریک را در خطوط جدا وارد کنید؛ مثلاً برای مشارکت در خرید طلا.',x:'۹ میلیون بین دنگ‌های ۲، ۱ و ۱ ← سهم نفر اول ۴٫۵ میلیون'});
-
-T('fuel-consumption','محاسبه مصرف بنزین','Fuel Calculator','محاسبه مصرف سوخت و هزینه سفر','util','fuel',['بنزین','سوخت','مصرف','fuel','مسافت'],formTool({live:true,
-  fields:[
-    {k:'d',label:'مسافت',v:'100',num:true,unit:'کیلومتر'},
-    {k:'c',label:'مصرف خودرو',v:'8',num:true,unit:'لیتر در ۱۰۰km'},
-    {k:'p',label:'قیمت هر لیتر',v:'',num:true,unit:'تومان',ph:'اختیاری'}
-  ],
-  compute(v){
-    if(v.d===null||v.c===null)return null;
-    const l=v.d*v.c/100;
-    const rows=[['سوخت مصرفی',fmt(l,2)+' لیتر']];
-    if(v.p!==null&&v.p>0)rows.push(['هزینه سوخت',fmt(l*v.p,0)+' تومان']);
-    return{html:`${fmt(l,1)} <span style="font-size:13px;color:var(--muted);font-weight:500">لیتر</span>`,copy:String(+l.toFixed(2)),table:[['شاخص','مقدار'],...rows],hist:`${v.d}km ← ${+l.toFixed(1)} لیتر`};
-  }
-}),{g:'مسافت و مصرف میانگین خودرو را وارد کنید؛ هزینه سوخت هم با قیمت لیتر محاسبه می‌شود.',x:'مسیر ۴۵۰ کیلومتری با مصرف ۷ ← ۳۱٫۵ لیتر'});
+}),{g:'مقدار بنزینی که زده‌اید و مسافتی که با همان مقدار رانده‌اید را وارد کنید (ترجیحاً از باک پر تا باک پر). مصرف واقعی خودرو به لیتر در ۱۰۰ کیلومتر محاسبه می‌شود. با وارد کردن قیمت هر لیتر یا مبلغ کل، هزینهٔ هر کیلومتر هم به‌دست می‌آید.',x:'۴۰ لیتر بنزین و ۱۵۶ کیلومتر ← حدود ۲۵٫۶ لیتر در ۱۰۰ کیلومتر (۳٫۹ کیلومتر بر لیتر)'});
 
 T('discount-calculator','ماشین حساب تخفیف','Discount Calculator','محاسبه قیمت نهایی پس از یک یا دو تخفیف پلکانی','util','tag',['تخفیف','discount','حراج','قیمت'],formTool({live:true,
   fields:[
@@ -1777,7 +1920,7 @@ T('installment-calculator','محاسبه قسط وام','Loan Calculator','مح�
       html:`قسط ماهانه: ${fmt(pay,0)} <span style="font-size:13px;color:var(--muted);font-weight:500">تومان</span>`,
       copy:String(Math.round(pay)),
       sub:`کل بازپرداخت: ${fmt(total,0)} تومان — کل سود: ${fmt(profit,0)} تومان`,
-      table:[['ماه','قسط','سود','اصل','مانده'],...rows],
+      table:[['ماه','قسط','سود','اصل','مانده'],...rows,...(v.n>120?[['…','جدول فقط ۱۲۰ ماه اول را نشان می‌دهد','','','']]:[])],
       hist:`وام ${v.p} ${v.n}ماهه ← قسط ${Math.round(pay)}`
     };
   }
@@ -1797,12 +1940,12 @@ T('time-calculator','محاسبه زمان','Time Calculator','جمع و تفر�
     };
     const a=par(v.t1),b=par(v.t2);
     if(a===null||b===null)return null;
-    const r=Math.max(0,v.op==='+'?a+b:a-b);
-    const F=s=>`${pad2(Math.floor(s/3600))}:${pad2(Math.floor(s%3600/60))}:${pad2(s%60)}`;
+    const raw=v.op==='+'?a+b:a-b,r=Math.abs(raw),sg=raw<0?'-':'';
+    const F=s=>`${sg}${pad2(Math.floor(s/3600))}:${pad2(Math.floor(s%3600/60))}:${pad2(Math.round(s%60))}`;
     return{
       html:`<span style="font-family:var(--mono);direction:ltr;unicode-bidi:embed">${F(r)}</span>`,
       copy:F(r),
-      table:[['نتیجه',F(r)],['کل ثانیه',faD(r)],['کل دقیقه',faD(Math.round(r/60))],['کل ساعت',fmt(r/3600,2)]],
+      table:[['نتیجه',F(r)],['کل ثانیه',(sg?'−':'')+fmt(r,0)],['کل دقیقه',(sg?'−':'')+fmt(r/60,2)],['کل ساعت',(sg?'−':'')+fmt(r/3600,2)]],
       hist:`${v.t1} ${v.op} ${v.t2} = ${F(r)}`
     };
   }
@@ -1936,7 +2079,7 @@ T('random-picker','قرعه‌کشی و انتخاب تصادفی','Random Picke
   $('[data-run]',root).addEventListener('click',()=>{
     const items=$('#rpIn',root).value.split('\n').map(x=>x.trim()).filter(Boolean);
     if(items.length<2){res.hidden=false;res.className='res err';res.innerHTML='<div class="res-body">حداقل دو گزینه لازم است.</div>';return}
-    const win=items[Math.floor(Math.random()*items.length)];
+    const win=items[secureInt(items.length)];
     res.hidden=false;res.className='res ok';
     res.innerHTML=`<div class="res-head"><span>برنده</span><div class="res-actions"><button class="btn sm ghost" data-copy>${ic('copy')} کپی</button></div></div><div class="res-body" style="font-size:30px">${esc(win)}</div><div class="sub">از بین ${faD(items.length)} گزینه</div>`;
     $('[data-copy]',res).addEventListener('click',()=>copyText(win));
@@ -1952,28 +2095,6 @@ async function fetchJSON(url,errMsg){
   catch(e){throw new Error(errMsg)}
 }
 const kvHTML=rows=>`<div class="kv">${rows.map(r=>`<div>${r[0]}</div><div>${r[1]}</div>`).join('')}</div>`;
-
-T('my-ip','استعلام IP من','My IP','نمایش IP عمومی، موقعیت و اطلاعات ISP شما','net','globe',['ip','آی پی','استعلام ip','my ip'],function(root,t){
-  root.innerHTML=`<div class="fade"><div class="panel" style="text-align:center">
-    <button class="btn pri" data-run>${ic('globe')} استعلام کن</button>
-    <div data-out style="margin-top:16px"></div>
-  </div></div>`;
-  const out=$('[data-out]',root);
-  $('[data-run]',root).addEventListener('click',async()=>{
-    $('[data-run]',root).disabled=true;
-    out.innerHTML=`<div class="spin"></div><p style="color:var(--muted);font-size:13px;margin-top:8px">در حال دریافت اطلاعات…</p>`;
-    try{
-      const d=await fetchJSON('https://ipwho.is/','دریافت اطلاعات ناموفق بود.');
-      if(!d.ip)throw new Error();
-      out.innerHTML=`<div class="res ok" style="margin-top:0"><div class="res-body" style="direction:ltr;font-family:var(--mono);font-size:26px;cursor:pointer" data-c="${esc(d.ip)}" title="کلیک = کپی">${esc(d.ip)}</div><div class="sub">${esc(d.city||'')}، ${esc(d.country||'')}</div></div>`+
-        kvHTML([['نوع',esc(d.type||'—')],['کشور',esc(d.country||'—')],['استان',esc(d.region||'—')],['شهر',esc(d.city||'—')],['ISP',esc((d.connection&&d.connection.isp)||'—')],['سازمان',esc((d.connection&&d.connection.org)||'—')],['ASN',String((d.connection&&d.connection.asn)||'—')],['منطقه زمانی',esc((d.timezone&&d.timezone.id)||'—')],['مختصات',esc(d.latitude+', '+d.longitude)]]);
-      $('[data-c]',out).addEventListener('click',()=>copyText(d.ip));
-    }catch(e){
-      out.innerHTML=`<div class="res err"><div class="res-body">دریافت اطلاعات ناموفق بود؛ اتصال اینترنت را بررسی کنید.</div></div>`;
-    }
-    $('[data-run]',root).disabled=false;refreshIcons();
-  });
-},{g:'دکمه استعلام را بزنید؛ IP عمومی و اطلاعات ارائه‌دهنده اینترنت شما نمایش داده می‌شود.',x:'بررسی IP هنگام اتصال VPN',faq:[['IP من به سرور می‌رود؟','استعلام IP ذاتاً نیازمند یک سرویس عمومی است؛ از سرویس رایگان ipwho.is استفاده می‌شود و فقط درخواست شما ارسال می‌گردد.']]});
 
 T('ip-lookup','اطلاعات شبکه IP','IP Lookup','استعلام جزئیات هر IP عمومی در جهان','net','server',['ip lookup','استعلام ip','whois','موقعیت ip'],function(root,t){
   root.innerHTML=`<div class="fade"><div class="panel">
@@ -2052,7 +2173,7 @@ T('subnet-calculator','Subnet Calculator','Subnet Calculator','محاسبه کا
     const mask=maskOf(pf),net=(ip&mask)>>>0,bc=(net|(~mask>>>0))>>>0;
     const hosts=pf>=31?(pf===31?2:1):Math.pow(2,32-pf)-2;
     out.innerHTML=`<div class="res ok"><div class="res-body" style="direction:ltr;font-family:var(--mono);font-size:20px">${intToIp(net)}/${pf}</div><div class="sub">شبکه ${isPrivate(ip)?'خصوصی':'عمومی'} — کلاس ${ipClass(ip)}</div></div>`+
-      kvHTML([['نشانی شبکه',`<code>${intToIp(net)}</code>`],['ماسک زیرشبکه',`<code>${intToIp(mask)}</code>`],['وایلدکارد',`<code>${intToIp(~mask>>>0)}</code>`],['Broadcast',`<code>${intToIp(bc)}</code>`],['اولین هاست',`<code>${pf>=31?intToIp(net):intToIp(net+1)}</code>`],['آخرین هاست',`<code>${pf>=31?intToIp(bc):intToIp(bc-1)}</code>`],['تعداد هاست',faD(hosts.toLocaleString('en-US'))],['دودویی شبکه',`<code style="font-size:11px">${bin32(net)}</code>`]]);
+      kvHTML([['نشانی شبکه',`<code>${intToIp(net)}</code>`],['ماسک زیرشبکه',`<code>${intToIp(mask)}</code>`],['وایلدکارد',`<code>${intToIp(~mask>>>0)}</code>`],['Broadcast',`<code>${intToIp(bc)}</code>`],['اولین هاست',`<code>${pf>=31?intToIp(net):intToIp(net+1)}</code>`],['آخرین هاست',`<code>${pf>=31?intToIp(bc):intToIp(bc-1)}</code>`],['تعداد هاست',fmt(hosts,0)],['دودویی شبکه',`<code style="font-size:11px">${bin32(net)}</code>`]]);
   }
   $('#scIp',root).addEventListener('input',run);
   $('#scPf',root).addEventListener('input',run);
@@ -2078,8 +2199,8 @@ T('cidr-calculator','CIDR Calculator','CIDR Calculator','جدول مرجع CIDR 
     const a=pnum($('#cdP1',root).value),b=pnum($('#cdP2',root).value);
     if(a===null||b===null||a<0||a>32||b<0||b>32){box.innerHTML='';return}
     if(b<=a){box.innerHTML=`<div class="res err"><div class="res-body">پیشوند جدید باید از پیشوند فعلی بزرگ‌تر باشد (تقسیم).</div></div>`;return}
-    const n=Math.pow(2,b-a),hosts=Math.pow(2,32-b)-2;
-    box.innerHTML=`<div class="res ok"><div class="res-body">${faD(n.toLocaleString('en-US'))} زیرشبکه</div><div class="sub">هر زیرشبکه ${faD(hosts.toLocaleString('en-US'))} هاست دارد — هر /${faD(b)} یک /${faD(a)} را به ${faD(n.toLocaleString('en-US'))} بخش تقسیم می‌کند.</div></div>`;
+    const n=Math.pow(2,b-a),hosts=b>=31?(b===31?2:1):Math.pow(2,32-b)-2;
+    box.innerHTML=`<div class="res ok"><div class="res-body">${fmt(n,0)} زیرشبکه</div><div class="sub">هر زیرشبکه ${fmt(hosts,0)} هاست دارد — هر /${faD(b)} یک /${faD(a)} را به ${fmt(n,0)} بخش تقسیم می‌کند.</div></div>`;
   }
   $('#cdP1',root).addEventListener('input',run);
   $('#cdP2',root).addEventListener('input',run);
@@ -2273,13 +2394,17 @@ T('weather','هواشناسی','Weather','آب‌وهوای لحظه‌ای و �
    زمان و تاریخ
 ============================================================ */
 T('jalali-calendar','تقویم شمسی','Jalali Calendar','تقویم ماهانه شمسی با روزهای هفته، جمعه‌ها و مناسبت‌ها','time','calendar-days',['تقویم','شمسی','calendar','ماه'],function(root,t){
-  const HOLIDAY={'1/1':'نوروز','1/2':'عید نوروز','1/3':'عید نوروز','1/4':'عید نوروز','1/12':'روز جمهوری اسلامی','1/13':'روز طبیعت','11/22':'پیروزی انقلاب','12/29':'ملی‌شدن صنعت نفت'};
+  const HOLIDAY={'1/1':'نوروز','1/2':'عید نوروز','1/3':'عید نوروز','1/4':'عید نوروز','1/12':'روز جمهوری اسلامی','1/13':'روز طبیعت','3/14':'رحلت امام خمینی','3/15':'قیام ۱۵ خرداد','11/22':'پیروزی انقلاب','12/29':'ملی‌شدن صنعت نفت'};
+  /* مناسبت‌های قمری تعطیل رسمی — طبق تقویم رسمی کشور؛ فقط برای سال‌های ثبت‌شده */
+  const LUNAR={1405:{'1/1':'عید فطر','1/2':'تعطیل عید فطر','3/6':'عید قربان','3/14':'عید غدیر و رحلت امام','4/3':'تاسوعا','4/4':'عاشورا','5/13':'اربعین','5/21':'رحلت پیامبر','5/22':'شهادت امام رضا','5/30':'شهادت امام عسکری','6/8':'میلاد پیامبر','8/22':'شهادت حضرت زهرا','10/2':'ولادت امام علی','10/16':'مبعث','11/4':'نیمه شعبان','12/9':'شهادت امام علی','12/19':'عید فطر','12/20':'تعطیل عید فطر'}};
+  const holOf=(yy,mm,dd)=>{const k=mm+'/'+dd;const a=HOLIDAY[k],b=(LUNAR[yy]||{})[k];return a&&b&&a!==b?a+' / '+b:(b||a||'')};
   const td=todayJ();
   let y=td.jy,m=td.jm;
   root.innerHTML=`<div class="fade"><div class="panel">
     <div class="calhead"><button class="btn ghost sm" data-prev>${ic('chevron-right')}</button><b data-title></b><button class="btn ghost sm" data-next>${ic('chevron-left')}</button></div>
     <table class="cal"><thead><tr>${['ش','ی','د','س','چ','پ','ج'].map(d=>`<th>${d}</th>`).join('')}</tr></thead><tbody data-body></tbody></table>
     <p data-info style="font-size:13px;color:var(--muted);margin-top:12px;text-align:center"></p>
+    <p data-note style="font-size:12px;color:var(--muted);margin-top:8px;text-align:center"></p>
   </div></div>`;
   function render(){
     $('[data-title]',root).textContent=`${JMONTHS[m-1]} ${faD(y)}`;
@@ -2293,13 +2418,14 @@ T('jalali-calendar','تقویم شمسی','Jalali Calendar','تقویم ماها
         const idx=w*7+d;
         if(idx<start||day>len){cells+='<td class="off"></td>';continue}
         const isToday=day===td.jd&&m===td.jm&&y===td.jy;
-        const hol=HOLIDAY[`${m}/${day}`];
-        cells+=`<td class="${d===6?'fri':''} ${isToday?'today':''}" data-d="${day}" title="${hol||''}">${faD(day)}${hol?`<small>${hol}</small>`:''}</td>`;
+        const hol=holOf(y,m,day);
+        cells+=`<td class="${d===6||hol?'fri':''} ${isToday?'today':''}" data-d="${day}" title="${hol||''}">${faD(day)}${hol?`<small>${hol}</small>`:''}</td>`;
         day++;
       }
       cells+='</tr>';
     }
     $('[data-body]',root).innerHTML=cells;
+    $('[data-note]',root).textContent=LUNAR[y]?'':'تعطیلات مذهبی (قمری) فقط برای سال‌هایی که تقویم رسمی‌شان ثبت شده نمایش داده می‌شود.';
     $$('[data-d]',root).forEach(c=>c.addEventListener('click',()=>{
       const d=+c.dataset.d,g=toG(y,m,d);
       $('[data-info]',root).textContent=`${weekdayFaOf(y,m,d)} ${faD(d)} ${JMONTHS[m-1]} ${faD(y)} — میلادی: ${faD(g.gy+'/'+pad2(g.gm)+'/'+pad2(g.gd))}`;
@@ -2347,37 +2473,6 @@ T('online-clock','ساعت آنلاین','Online Clock','ساعت زنده با 
   tick();setInterval(tick,1000);
 },{g:'ساعت و تاریخ به‌صورت زنده به‌روز می‌شوند؛ ساعت هشت شهر مهم جهان هم نمایش داده می‌شود.',x:'تنظیم جلسه بین‌المللی با مشاهده ساعت شهرها'});
 
-T('jalali-to-gregorian','شمسی به میلادی','Jalali to Gregorian','تبدیل دقیق تاریخ شمسی به میلادی با روز هفته','time','calendar',['شمسی به میلادی','تبدیل تاریخ','جلالی'],formTool({live:true,history:true,
-  fields:[{k:'d',label:'تاریخ شمسی',v:'',ph:'۱۴۰۳/۰۵/۰۲',full:true}],
-  compute(v){
-    const j=parseJ(v.d||'');
-    if(!j)return null;
-    const g=toG(j.jy,j.jm,j.jd);
-    return{
-      html:`<span style="direction:ltr;unicode-bidi:embed">${faD(g.gy+'/'+pad2(g.gm)+'/'+pad2(g.gd))}</span>`,
-      copy:`${g.gy}/${pad2(g.gm)}/${pad2(g.gd)}`,
-      sub:`${weekdayFaOf(j.jy,j.jm,j.jd)} — ${GMONTHS[g.gm-1]} ${faD(g.gd)} ${faD(g.gy)}`,
-      table:[['شمسی',fmtJ(j)],['میلادی',`${g.gy}/${pad2(g.gm)}/${pad2(g.gd)}`],['روز هفته',weekdayFaOf(j.jy,j.jm,j.jd)]],
-      hist:`${v.d} → ${g.gy}/${pad2(g.gm)}/${pad2(g.gd)}`
-    };
-  }
-}),{g:'تاریخ شمسی را وارد کنید؛ معادل میلادی و روز هفته نمایش داده می‌شود.',x:'۱۴۰۳/۰۱/۰۱ ← 2024/03/20 (چهارشنبه)'});
-
-T('gregorian-to-jalali','میلادی به شمسی','Gregorian to Jalali','تبدیل دقیق تاریخ میلادی به شمسی با روز هفته','time','calendar',['میلادی به شمسی','تبدیل تاریخ','گرگوری'],formTool({live:true,history:true,
-  fields:[{k:'d',label:'تاریخ میلادی',v:'',ph:'2024/07/23',full:true}],
-  compute(v){
-    const g=parseG(v.d||'');
-    if(!g)return null;
-    const j=toJ(g.gy,g.gm,g.gd);
-    return{
-      html:fmtJ(j),copy:`${j.jy}/${pad2(j.jm)}/${pad2(j.jd)}`,
-      sub:`${weekdayFaOf(j.jy,j.jm,j.jd)} — ${JMONTHS[j.jm-1]} ${faD(j.jd)} ${faD(j.jy)}`,
-      table:[['میلادی',`${g.gy}/${pad2(g.gm)}/${pad2(g.gd)}`],['شمسی',fmtJ(j)],['روز هفته',weekdayFaOf(j.jy,j.jm,j.jd)]],
-      hist:`${v.d} → ${fmtJ(j)}`
-    };
-  }
-}),{g:'تاریخ میلادی را وارد کنید؛ معادل شمسی نمایش داده می‌شود.',x:'2024-03-20 ← ۱۴۰۳/۰۱/۰۱'});
-
 T('date-difference','محاسبه اختلاف دو تاریخ','Date Difference','فاصله دقیق دو تاریخ شمسی به سال، ماه، روز و هفته','time','calendar',['اختلاف تاریخ','فاصله دو تاریخ','فاصله زمانی'],formTool({live:true,history:true,
   fields:[
     {k:'a',label:'تاریخ اول (شمسی)',v:'',ph:'۱۴۰۲/۰۱/۰۱'},
@@ -2392,8 +2487,8 @@ T('date-difference','محاسبه اختلاف دو تاریخ','Date Difference
     return{
       html:`${faD(r.y)} سال و ${faD(r.m)} ماه و ${faD(r.d)} روز`,
       copy:`${r.y} سال ${r.m} ماه ${r.d} روز`,
-      sub:`کل فاصله: ${faD(r.total.toLocaleString('en-US'))} روز (${faD(Math.floor(r.total/7))} هفته)`,
-      table:[['از',fmtJ(d1)],['تا',fmtJ(d2)],['سال',faD(r.y)],['ماه',faD(r.m)],['روز',faD(r.d)],['کل روزها',faD(r.total.toLocaleString('en-US'))]],
+      sub:`کل فاصله: ${fmt(r.total,0)} روز (${faD(Math.floor(r.total/7))} هفته)`,
+      table:[['از',fmtJ(d1)],['تا',fmtJ(d2)],['سال',faD(r.y)],['ماه',faD(r.m)],['روز',faD(r.d)],['کل روزها',fmt(r.total,0)]],
       hist:`${v.a} تا ${v.b} = ${r.total} روز`
     };
   }
@@ -2422,9 +2517,11 @@ T('password-generator','تولید رمز عبور','Password Generator','ساخ
     const on=Object.keys(sets).filter(k=>$(`[data-set="${k}"]`,root).checked);
     if(!on.length){res.className='res err';res.innerHTML='<div class="res-body">حداقل یک نوع کاراکتر را انتخاب کنید.</div>';return}
     const pool=on.map(k=>sets[k]).join('');
-    const bytes=crypto.getRandomValues(new Uint8Array(len));
-    let pw='';
-    for(let i=0;i<len;i++)pw+=pool[bytes[i]%pool.length];
+    const chars=[];
+    if(len>=on.length)on.forEach(k=>chars.push(sets[k][secureInt(sets[k].length)]));
+    while(chars.length<len)chars.push(pool[secureInt(pool.length)]);
+    for(let i=chars.length-1;i>0;i--){const j=secureInt(i+1);[chars[i],chars[j]]=[chars[j],chars[i]]}
+    let pw=chars.join('');
     currentPw=pw;
     const bits=Math.round(len*Math.log2(pool.length));
     const grade=bits<40?['ضعیف','var(--err)']:(bits<60?['متوسط','var(--warn)']:(bits<90?['قوی','var(--acc)']:['بسیار قوی','var(--acc)']));
@@ -2534,13 +2631,267 @@ T('random-string','تولید رشته تصادفی','Random String','تولید
     const pool={lud:P.l+P.u,luds:P.l+P.u+P.d,l:P.l,d:P.u}[v.sets]||P.l+P.u;
     const out=[];
     for(let i=0;i<N;i++){
-      const b=crypto.getRandomValues(new Uint8Array(L));
-      out.push([...b].map(x=>pool[x%pool.length]).join(''));
+      let str='';for(let k=0;k<L;k++)str+=pool[secureInt(pool.length)];
+      out.push(str);
     }
     const bits=Math.round(L*Math.log2(pool.length));
     return{html:`${faD(N)} رشته تولید شد`,pre:out.join('\n'),copy:out.join('\n'),sub:`آنتراپی هر رشته: ~${faD(bits)} بیت`,hist:`تولید ${N} رشته ${L} کاراکتری`};
   }
 }),{g:'طول، مجموعه و تعداد را مشخص کنید؛ تولید با اعداد تصادفی امن انجام می‌شود.',x:'توکن ۳۲ کاراکتری برای وب‌هوک'});
+
+/* ============================================================
+   ابزارهای جدید — سنوات، مالیات حقوق، اعتبارسنجی، املاک و سلامت
+============================================================ */
+T('severance-eidi','محاسبه سنوات و عیدی','Severance & Eid Bonus','محاسبه حق سنوات پایان کار و عیدی سالانه طبق قانون کار ایران','util','gift',['سنوات','عیدی','پایان کار','قانون کار','severance','eidi','پاداش'],formTool({live:true,
+  fields:[
+    {k:'salary',label:'آخرین حقوق ماهانه (مبنا + مزایای مشمول)',v:'',num:true,ph:'مثلاً ۱۵٬۰۰۰٬۰۰۰',unit:'تومان'},
+    {k:'years',label:'سابقه کار — سال',v:'1',num:true},
+    {k:'months',label:'سابقه کار — ماه اضافه',v:'0',num:true},
+    {k:'eidiMonths',label:'ضریب عیدی',opts:[['2','۲ ماه (حداقل قانونی)'],['3','۳ ماه (حداکثر قانونی)']],v:'2'},
+    {k:'workDays',label:'روزهای کارکرد در سال جاری',v:'365',num:true,hint:'اگر کل سال را کار کرده‌اید ۳۶۵ بگذارید'},
+    {k:'eidiCap',label:'سقف قانونی عیدی سال جاری',v:'',num:true,ph:'اختیاری',unit:'تومان',hint:'هرساله توسط دولت اعلام می‌شود؛ اگر خالی بگذارید محدود نمی‌شود'}
+  ],
+  compute(v){
+    if(v.salary===null)return null;
+    if(v.salary<=0)throw new Error('حقوق باید مثبت باشد.');
+    const yrs=(v.years||0)+((v.months||0)/12);
+    const sanavat=v.salary*yrs;
+    const eidiFull=v.salary*parseFloat(v.eidiMonths);
+    const wd=v.workDays===null?365:Math.min(365,Math.max(0,v.workDays));
+    let eidi=eidiFull*(wd/365);
+    if(v.eidiCap!==null&&v.eidiCap>0)eidi=Math.min(eidi,v.eidiCap);
+    const total=sanavat+eidi;
+    return{
+      html:`جمع سنوات و عیدی: ${fmt(total,0)} <span style="font-size:13px;color:var(--muted);font-weight:500">تومان</span>`,
+      copy:String(Math.round(total)),
+      sub:`سنوات: ${fmt(sanavat,0)} تومان — عیدی: ${fmt(eidi,0)} تومان`,
+      table:[['عنوان','مبلغ (تومان)'],['حق سنوات پایان کار',fmt(sanavat,0)],['عیدی (با احتساب سقف/روزهای کارکرد)',fmt(eidi,0)],['جمع کل',fmt(total,0)]],
+      hist:`سنوات و عیدی ${v.salary} × ${fmt(yrs,1)} سال ← ${Math.round(total)}`
+    };
+  }
+}),{g:'حق سنوات طبق ماده ۲۴ قانون کار، به ازای هر سال سابقه یک ماه آخرین حقوق است. عیدی طبق ماده ۳ اصلاحی، بین ۲ تا ۳ ماه آخرین حقوق و مشمول سقف سالانه‌ای است که دولت اعلام می‌کند — این عدد را در فیلد سقف وارد کنید تا محاسبه دقیق‌تر شود. این محاسبه تقریبی است و ارقام نهایی را واحد منابع انسانی مشخص می‌کند.',x:'حقوق ۱۵ میلیونی با ۳ سال سابقه ← سنوات ۴۵ میلیون + عیدی (۲ ماه) ۳۰ میلیون'});
+
+T('salary-tax','محاسبه مالیات حقوق','Salary Income Tax','محاسبه مالیات پلکانی حقوق ماهانه با سقف معافیت قابل‌ویرایش','util','banknote',['مالیات حقوق','مالیات دستمزد','معافیت مالیاتی','salary tax','مالیات بر درآمد'],formTool({live:true,
+  fields:[
+    {k:'salary',label:'حقوق و مزایای ماهانه مشمول',v:'',num:true,ph:'مثلاً ۳۰٬۰۰۰٬۰۰۰',unit:'تومان'},
+    {k:'exemption',label:'سقف معافیت ماهانه',v:'24000000',num:true,unit:'تومان',hint:'طبق قانون بودجه سال جاری — در صورت تغییر قانون، این عدد را اصلاح کنید'}
+  ],
+  compute(v){
+    if(v.salary===null||v.exemption===null)return null;
+    if(v.salary<0||v.exemption<0)throw new Error('مقادیر باید مثبت باشند.');
+    let remaining=Math.max(0,v.salary-v.exemption);
+    const bands=[[1,10],[1,15],[2,20],[2,25],[Infinity,30]];
+    let tax=0;const rows=[];
+    for(const[mult,rate] of bands){
+      if(remaining<=0)break;
+      const bandSize=mult===Infinity?remaining:v.exemption*mult;
+      const amt=Math.min(remaining,bandSize);
+      const t=amt*rate/100;
+      tax+=t;remaining-=amt;
+      if(amt>0)rows.push([`${faD(rate)}٪`,fmt(amt,0),fmt(t,0)]);
+    }
+    const net=v.salary-tax;
+    return{
+      html:`مالیات ماهانه: ${fmt(tax,0)} <span style="font-size:13px;color:var(--muted);font-weight:500">تومان</span>`,
+      copy:String(Math.round(tax)),
+      sub:`حقوق خالص پس از مالیات: ${fmt(net,0)} تومان`,
+      table:[['نرخ پلکان','مبلغ مشمول','مالیات پلکان'],...rows,['—','جمع مالیات',fmt(tax,0)]],
+      hist:`مالیات حقوق ${v.salary} ← ${Math.round(tax)}`
+    };
+  }
+}),{g:'اگر حقوق کمتر از سقف معافیت باشد، مالیاتی تعلق نمی‌گیرد. مازاد بر معافیت به‌صورت پلکانی (۱۰ تا ۳۰٪) محاسبه می‌شود. نرخ‌ها و سقف معافیت هرساله توسط قانون بودجه تغییر می‌کند؛ برای دقت کامل، عدد سقف معافیت را با آخرین اعلام سازمان امور مالیاتی تطبیق دهید.',x:'حقوق ۳۰ میلیون با سقف معافیت ۲۴ میلیون ← مالیات فقط روی ۶ میلیون مازاد محاسبه می‌شود'});
+
+T('national-id-check','اعتبارسنجی کد ملی','National ID Validator','بررسی صحت کد ملی ۱۰ رقمی ایران با الگوریتم رسمی ثبت‌احوال','util','contact',['کد ملی','اعتبارسنجی کد ملی','national id','شماره ملی'],formTool({live:true,
+  fields:[{k:'nid',label:'کد ملی',v:'',ph:'مثلاً ۰۰۱۲۳۴۵۶۷۸',full:true}],
+  compute(v){
+    const raw=enD(v.nid||'').replace(/\D/g,'');
+    if(!raw)return null;
+    if(raw.length!==10)throw new Error('کد ملی باید دقیقاً ۱۰ رقم باشد.');
+    if(/^(\d)\1{9}$/.test(raw))throw new Error('کد ملی نامعتبر است (تکرار یک رقم).');
+    const digits=raw.split('').map(Number);
+    const check=digits[9];
+    let sum=0;
+    for(let i=0;i<9;i++)sum+=digits[i]*(10-i);
+    const rem=sum%11;
+    const valid=rem<2?check===rem:check===(11-rem);
+    if(!valid)throw new Error('کد ملی نامعتبر است (رقم کنترلی مطابقت ندارد).');
+    return{
+      html:`✓ کد ملی معتبر است`,
+      copy:raw,
+      sub:`کد وارد‌شده: ${faD(raw)}`,
+      hist:`اعتبارسنجی کد ملی ${raw}: معتبر`
+    };
+  }
+}),{g:'کد ملی ۱۰ رقمی را وارد کنید؛ رقم آخر بر اساس الگوریتم رسمی سازمان ثبت‌احوال (پیمانه ۱۱) بررسی می‌شود. این ابزار فقط صحت ساختاری کد را می‌سنجد و مالکیت یا فعال‌بودن آن را تأیید نمی‌کند.',x:'۰۰۱۲۳۴۵۶۷۸ ← بررسی رقم کنترلی'});
+
+T('sheba-check','اعتبارسنجی شماره شبا','Sheba (IBAN) Validator','بررسی صحت ساختار شماره شبای ایران با استاندارد بین‌المللی IBAN','util','credit-card',['شبا','شماره شبا','iban','اعتبارسنجی شبا'],formTool({live:true,
+  fields:[{k:'sheba',label:'شماره شبا',v:'',ph:'IR820540102680020817909002',full:true}],
+  compute(v){
+    let raw=enD(v.sheba||'').toUpperCase().replace(/[\s-]/g,'');
+    if(!raw)return null;
+    if(!raw.startsWith('IR'))raw='IR'+raw.replace(/^IR/,'');
+    if(!/^IR\d{24}$/.test(raw))throw new Error('فرمت شبا نامعتبر است؛ باید IR و سپس ۲۴ رقم باشد.');
+    const bankCode=raw.slice(4,7);
+    const rearranged=raw.slice(4)+raw.slice(0,4);
+    const numeric=rearranged.split('').map(c=>/[A-Z]/.test(c)?(c.charCodeAt(0)-55):c).join('');
+    let rem=0;
+    for(let i=0;i<numeric.length;i++)rem=(rem*10+Number(numeric[i]))%97;
+    const valid=rem===1;
+    if(!valid)throw new Error('ساختار شبا نامعتبر است (رقم کنترلی مطابقت ندارد).');
+    return{
+      html:`✓ ساختار شبا معتبر است`,
+      copy:raw,
+      sub:`کد بانک استخراج‌شده: ${faD(bankCode)}`,
+      table:[['بخش','مقدار'],['کد کشور','IR'],['رقم کنترلی',raw.slice(2,4)],['کد بانک (۳ رقم)',bankCode],['شماره حساب پایه',raw.slice(7)]],
+      hist:`اعتبارسنجی شبا ${raw}: معتبر`
+    };
+  }
+}),{g:'شماره شبا با الگوریتم بین‌المللی ISO 7064 (Mod-97) بررسی می‌شود. کد سه‌رقمی بانک استخراج می‌شود اما نام بانک نمایش داده نمی‌شود چون این کدها گاه بر اثر ادغام بانک‌ها تغییر می‌کنند؛ کد استخراج‌شده را با بانک مقصد مطابقت دهید. این ابزار فقط ساختار را می‌سنجد، فعال‌بودن حساب را تأیید نمی‌کند.',x:'IR820540102680020817909002 ← بررسی صحت و استخراج کد بانک'});
+
+T('rent-deposit-convert','تبدیل رهن به اجاره','Rent/Deposit Converter','تبدیل بخشی از ودیعه مسکن به اجاره ماهانه و برعکس','util','home',['رهن به اجاره','تبدیل ودیعه','اجاره','رهن','مسکن'],formTool({live:true,
+  fields:[
+    {k:'amount',label:'مبلغی که می‌خواهید تبدیل کنید',v:'',num:true,ph:'مثلاً ۱۰۰٬۰۰۰٬۰۰۰',unit:'تومان'},
+    {k:'rate',label:'نرخ تبدیل ماهانه',v:'3',num:true,unit:'٪',hint:'نرخ رایج بازار؛ بسته به توافق طرفین و اعلام سالانه متفاوت است — عدد را ویرایش کنید'}
+  ],
+  compute(v){
+    if(v.amount===null||v.rate===null)return null;
+    if(v.amount<=0)throw new Error('مبلغ باید مثبت باشد.');
+    const monthly=v.amount*v.rate/100;
+    return{
+      html:`اجاره معادل: ${fmt(monthly,0)} <span style="font-size:13px;color:var(--muted);font-weight:500">تومان در ماه</span>`,
+      copy:String(Math.round(monthly)),
+      sub:`یعنی هر ${fmt(v.amount,0)} تومان ودیعه ≈ ${fmt(monthly,0)} تومان اجاره ماهانه`,
+      table:[['مبلغ ودیعه',fmt(v.amount,0)+' تومان'],['نرخ تبدیل ماهانه',fmt(v.rate,1)+'٪'],['اجاره معادل',fmt(monthly,0)+' تومان در ماه']],
+      hist:`تبدیل رهن ${v.amount} با نرخ ${v.rate}٪ ← ${Math.round(monthly)}`
+    };
+  }
+}),{g:'برای تبدیل بخشی از رهن به اجاره (یا برعکس)، مبلغ موردنظر و نرخ تبدیل ماهانه توافق‌شده را وارد کنید. این نرخ ثابت قانونی نیست و هرساله/در هر معامله متفاوت است؛ قبل از قرارداد با نرخ روز بازار یا اعلام اتحادیه مشاوران املاک تطبیق دهید.',x:'۱۰۰ میلیون تبدیل با نرخ ۳٪ ← ۳ میلیون تومان اجاره اضافه در ماه'});
+
+T('mehrieh-value','محاسبه مهریه به نرخ روز','Mehrieh Current Value','محاسبه ارزش روز مهریه بر اساس تعداد سکه و قیمت روز','util','gem',['مهریه','نرخ روز مهریه','سکه بهار آزادی','mehrieh'],formTool({live:true,
+  fields:[
+    {k:'coins',label:'تعداد سکه بهار آزادی',v:'',num:true,ph:'مثلاً ۲۵۰'},
+    {k:'coinPrice',label:'قیمت هر سکه (امروز)',v:'',num:true,ph:'قیمت روز را وارد کنید',unit:'تومان'},
+    {k:'cash',label:'مبلغ نقدی مهریه (غیر از سکه)',v:'',num:true,ph:'اختیاری',unit:'تومان'}
+  ],
+  compute(v){
+    if(v.coins===null||v.coinPrice===null)return null;
+    if(v.coins<0||v.coinPrice<0)throw new Error('مقادیر باید مثبت باشند.');
+    const coinsValue=v.coins*v.coinPrice;
+    const total=coinsValue+(v.cash||0);
+    return{
+      html:`ارزش کل مهریه: ${fmt(total,0)} <span style="font-size:13px;color:var(--muted);font-weight:500">تومان</span>`,
+      copy:String(Math.round(total)),
+      sub:`ارزش سکه‌ها: ${fmt(coinsValue,0)} تومان`,
+      table:[['بخش','مبلغ (تومان)'],['ارزش سکه‌ها',fmt(coinsValue,0)],['مبلغ نقدی',fmt(v.cash||0,0)],['جمع کل',fmt(total,0)]],
+      hist:`مهریه ${v.coins} سکه × ${v.coinPrice} ← ${Math.round(total)}`
+    };
+  }
+}),{g:'تعداد سکه مندرج در عقدنامه و قیمت روز هر سکه (طلا) را وارد کنید تا ارزش روز مهریه محاسبه شود. قیمت سکه بابت نوسان بازار، روزانه در سایت‌های معتبر طلا و ارز قابل مشاهده است.',x:'۲۵۰ سکه × ۵۰ میلیون تومان ← ۱۲٬۵۰۰٬۰۰۰٬۰۰۰ تومان'});
+
+T('realestate-commission','محاسبه کمیسیون املاک','Real Estate Commission','محاسبه حق کمیسیون مشاور املاک در معاملات خرید/فروش و رهن/اجاره','util','key-round',['کمیسیون املاک','حق کمیسیون','مشاور املاک','commission'],formTool({live:true,
+  fields:[
+    {k:'mode',label:'نوع معامله',opts:[['sale','خرید و فروش'],['rent','رهن و اجاره']],full:true},
+    {k:'price',label:'مبلغ معامله (قیمت ملک یا رهن)',v:'',num:true,unit:'تومان'},
+    {k:'rentMonthly',label:'اجاره ماهانه (فقط حالت رهن/اجاره)',v:'',num:true,ph:'اختیاری',unit:'تومان'},
+    {k:'rateSale',label:'نرخ کمیسیون فروش (هر طرف)',v:'0.5',num:true,unit:'٪'},
+    {k:'rateRent',label:'نرخ کمیسیون اجاره (از یک ماه اجاره، هر طرف)',v:'25',num:true,unit:'٪'}
+  ],
+  compute(v){
+    if(v.mode==='sale'){
+      if(v.price===null)return null;
+      const each=v.price*(v.rateSale||0)/100;
+      return{
+        html:`کمیسیون هر طرف: ${fmt(each,0)} <span style="font-size:13px;color:var(--muted);font-weight:500">تومان</span>`,
+        copy:String(Math.round(each)),
+        sub:`جمع کمیسیون (خریدار + فروشنده): ${fmt(each*2,0)} تومان`,
+        table:[['طرف','کمیسیون (تومان)'],['خریدار',fmt(each,0)],['فروشنده',fmt(each,0)],['جمع',fmt(each*2,0)]],
+        hist:`کمیسیون فروش ${v.price} ← ${Math.round(each)} هر طرف`
+      };
+    }
+    if(v.rentMonthly===null)return null;
+    const each=v.rentMonthly*(v.rateRent||0)/100;
+    return{
+      html:`کمیسیون هر طرف: ${fmt(each,0)} <span style="font-size:13px;color:var(--muted);font-weight:500">تومان</span>`,
+      copy:String(Math.round(each)),
+      sub:`جمع کمیسیون (موجر + مستأجر): ${fmt(each*2,0)} تومان`,
+      table:[['طرف','کمیسیون (تومان)'],['مستأجر',fmt(each,0)],['موجر',fmt(each,0)],['جمع',fmt(each*2,0)]],
+      hist:`کمیسیون اجاره ${v.rentMonthly} ← ${Math.round(each)} هر طرف`
+    };
+  }
+}),{g:'نرخ‌های پیش‌فرض (۰٫۵٪ برای خرید و فروش، ۲۵٪ از یک ماه اجاره برای رهن و اجاره) رایج‌ترین نرخ‌های مصوب اتحادیهٔ مشاوران املاک است، اما ممکن است بر اساس شهر یا مبلغ معامله متفاوت باشد — قبل از قرارداد با بنگاه تطبیق دهید.',x:'رهن با اجاره ۵ میلیونی ← کمیسیون هر طرف ۱٬۲۵۰٬۰۰۰ تومان'});
+
+T('diya-fraction','محاسبه دیه','Diya (Blood Money) Calculator','تبدیل کسر دیه به مبلغ تومانی بر اساس دیه کامل سال جاری','util','scale',['دیه','ارش','دیه کامل','diya'],formTool({live:true,
+  fields:[
+    {k:'full',label:'مبلغ دیه کامل سال جاری',v:'',num:true,ph:'طبق اعلام سالانه قوه قضاییه',unit:'تومان'},
+    {k:'frac',label:'کسر دیه (طبق حکم یا نظر کارشناس)',opts:[['1','کامل (۱)'],['0.5','نصف (۱/۲)'],['0.3333','ثلث (۱/۳)'],['0.25','ربع (۱/۴)'],['0.2','خمس (۱/۵)'],['0.1','عشر (۱/۱۰)'],['custom','مقدار دلخواه (٪)']]},
+    {k:'customPct',label:'درصد دلخواه',v:'',num:true,unit:'٪',ph:'فقط اگر «مقدار دلخواه» را انتخاب کردید'}
+  ],
+  compute(v){
+    if(v.full===null)return null;
+    if(v.full<=0)throw new Error('مبلغ دیه کامل باید مثبت باشد.');
+    let ratio;
+    if(v.frac==='custom'){
+      if(v.customPct===null)return null;
+      ratio=v.customPct/100;
+    }else ratio=parseFloat(v.frac);
+    const amount=v.full*ratio;
+    return{
+      html:`مبلغ محاسبه‌شده: ${fmt(amount,0)} <span style="font-size:13px;color:var(--muted);font-weight:500">تومان</span>`,
+      copy:String(Math.round(amount)),
+      sub:`معادل ${fmt(ratio*100,2)}٪ از دیه کامل`,
+      table:[['دیه کامل',fmt(v.full,0)+' تومان'],['کسر مورد نظر',fmt(ratio*100,2)+'٪'],['مبلغ نهایی',fmt(amount,0)+' تومان']],
+      hist:`دیه ${fmt(ratio*100,0)}٪ از ${v.full} ← ${Math.round(amount)}`
+    };
+  }
+}),{g:'مبلغ «دیه کامل» را طبق آخرین اعلام سالانه قوه قضاییه وارد کنید و کسر مشخص‌شده در حکم دادگاه یا نظر کارشناس پزشکی‌قانونی را انتخاب کنید. تعیین کسر دقیق برای هر نوع آسیب، موضوعی تخصصی و حقوقی است و باید توسط پزشکی قانونی یا وکیل مشخص شود؛ این ابزار فقط محاسبهٔ ریاضی کسر به مبلغ را انجام می‌دهد.',x:'دیه کامل ۱٬۲۰۰٬۰۰۰٬۰۰۰ با کسر ۱/۲ ← ۶۰۰٬۰۰۰٬۰۰۰ تومان'});
+
+T('bmr-calculator','محاسبه متابولیسم پایه (BMR)','BMR Calculator','محاسبه انرژی مصرفی پایه بدن و نیاز کالری روزانه','calc','flame',['bmr','متابولیسم','کالری روزانه','tdee','سوخت‌وساز'],formTool({live:true,
+  fields:[
+    {k:'gender',label:'جنسیت',opts:[['m','مرد'],['f','زن']],full:true},
+    {k:'age',label:'سن',v:'',num:true,unit:'سال'},
+    {k:'height',label:'قد',v:'',num:true,unit:'سانتی‌متر'},
+    {k:'weight',label:'وزن',v:'',num:true,unit:'کیلوگرم'},
+    {k:'activity',label:'سطح فعالیت روزانه',opts:[['1.2','کم‌تحرک (بدون ورزش)'],['1.375','فعالیت سبک (۱-۳ روز در هفته)'],['1.55','فعالیت متوسط (۳-۵ روز در هفته)'],['1.725','فعالیت زیاد (۶-۷ روز در هفته)'],['1.9','فعالیت خیلی زیاد (ورزش سنگین/شغل بدنی)']],full:true}
+  ],
+  compute(v){
+    if(v.age===null||v.height===null||v.weight===null)return null;
+    if(v.age<=0||v.height<=0||v.weight<=0)throw new Error('مقادیر باید مثبت باشند.');
+    const base=10*v.weight+6.25*v.height-5*v.age+(v.gender==='m'?5:-161);
+    const tdee=base*parseFloat(v.activity);
+    return{
+      html:`متابولیسم پایه: ${fmt(base,0)} <span style="font-size:13px;color:var(--muted);font-weight:500">کیلوکالری در روز</span>`,
+      copy:String(Math.round(base)),
+      sub:`نیاز کالری روزانه با فعالیت شما (TDEE): ${fmt(tdee,0)} کیلوکالری`,
+      table:[['شاخص','مقدار'],['متابولیسم پایه (BMR)',fmt(base,0)+' کیلوکالری'],['نیاز روزانه با فعالیت (TDEE)',fmt(tdee,0)+' کیلوکالری']],
+      hist:`BMR: ${Math.round(base)} — TDEE: ${Math.round(tdee)}`
+    };
+  }
+}),{g:'BMR انرژی‌ای است که بدن شما فقط برای زنده‌ماندن (بدون هیچ فعالیتی) در روز می‌سوزاند؛ با فرمول استاندارد Mifflin-St Jeor محاسبه می‌شود. TDEE با ضرب آن در ضریب فعالیت، تقریبی از نیاز کالری روزانه شماست. این عدد صرفاً اطلاعاتی است، نه توصیه رژیم غذایی.',x:'مرد ۳۰ ساله، ۱۸۰cm، ۸۰kg ← BMR ≈ ۱۷۸۰ کیلوکالری'});
+
+T('pregnancy-calculator','محاسبه دوران بارداری','Pregnancy Calculator','تخمین تاریخ زایمان و هفته بارداری بر اساس تاریخ شمسی','calc','baby',['بارداری','تاریخ زایمان','هفته بارداری','pregnancy'],formTool({live:true,
+  fields:[{k:'lmp',label:'تاریخ اولین روز آخرین پریود (شمسی)',v:'',ph:'۱۴۰۴/۰۱/۱۵',full:true}],
+  compute(v){
+    const lmp=parseJ(v.lmp||'');
+    if(!lmp)return null;
+    const td=todayJ();
+    const lmpAbs=j2d(lmp.jy,lmp.jm,lmp.jd);
+    const todayAbs=j2d(td.jy,td.jm,td.jd);
+    const dayCount=todayAbs-lmpAbs;
+    if(dayCount<0)throw new Error('تاریخ آخرین پریود نمی‌تواند در آینده باشد.');
+    if(dayCount>300)throw new Error('این تاریخ بیش از حد در گذشته است؛ بارداری معمولی حدود ۴۰ هفته (۲۸۰ روز) است.');
+    const due=d2j(lmpAbs+280);
+    const week=Math.floor(dayCount/7),dayInWeek=dayCount%7;
+    const trimester=week<13?'سه‌ماههٔ اول':week<27?'سه‌ماههٔ دوم':'سه‌ماههٔ سوم';
+    const daysLeft=Math.max(0,280-dayCount);
+    return{
+      html:`هفته ${faD(week)} و ${faD(dayInWeek)} روز`,
+      copy:`هفته ${week}+${dayInWeek}`,
+      sub:`${trimester} — تاریخ تقریبی زایمان: ${fmtJ(due)}`,
+      table:[['هفته و روز بارداری',`${faD(week)} هفته و ${faD(dayInWeek)} روز`],['سه‌ماهه',trimester],['تاریخ تقریبی زایمان',fmtJ(due)],['روزهای باقی‌مانده',daysLeft===0?'در محدودهٔ زایمان':faD(daysLeft)+' روز']],
+      hist:`بارداری از ${v.lmp}: هفته ${week}`
+    };
+  }
+}),{g:'تاریخ شمسی اولین روز آخرین پریود را وارد کنید؛ بر مبنای قاعدهٔ استاندارد ۲۸۰ روزه (۴۰ هفته) تاریخ تقریبی زایمان و هفتهٔ فعلی بارداری محاسبه می‌شود. این فقط یک تخمین آماری است، نه تشخیص پزشکی؛ برای پیگیری دقیق بارداری حتماً به پزشک مراجعه کنید.',x:'آخرین پریود ۱۴۰۴/۰۱/۱۵ ← هفته بارداری و تاریخ تقریبی زایمان'});
 
 /* ==================== پاک‌سازی رجیستری ==================== */
 for(let i=REGISTRY.length-1;i>=0;i--){if(typeof REGISTRY[i].mount!=='function')REGISTRY.splice(i,1)}
@@ -2602,17 +2953,26 @@ function attachSearch(input,box,onPick){
 }
 
 /* ==================== صفحات ==================== */
-const POPULAR=['bmi','qr-code-generator','speed-test','date-converter','dang-calculator','installment-calculator','fuel-consumption','random-picker','age','percentage','number-to-words','my-ip'];
+const POPULAR=['bmi','qr-code-generator','speed-test','date-converter','dang-calculator','installment-calculator','fuel-consumption','random-picker','age','percentage','number-to-words','severance-eidi'];
 const go=p=>{location.hash='#'+p};
-function setSEO(title,desc){
+function setSEO(title,desc,extra){
   document.title=title;
   const m=$('meta[name="description"]');if(m)m.content=desc;
   const og=$('meta[property="og:title"]');if(og)og.content=title;
   const od=$('meta[property="og:description"]');if(od)od.content=desc;
+  const twt=$('meta[name="twitter:title"]');if(twt)twt.content=title;
+  const twd=$('meta[name="twitter:description"]');if(twd)twd.content=desc;
   const old=$('#jsonld');if(old)old.remove();
+  const graph=[{'@type':'WebApplication',name:title,description:desc,applicationCategory:'UtilityApplication',operatingSystem:'Web',offers:{'@type':'Offer',price:'0'},inLanguage:'fa'}];
+  if(extra&&extra.crumbs&&extra.crumbs.length){
+    graph.push({'@type':'BreadcrumbList',itemListElement:extra.crumbs.map((c,i)=>({'@type':'ListItem',position:i+1,name:c.name,item:location.origin+location.pathname+c.hash}))});
+  }
+  if(extra&&extra.faq&&extra.faq.length){
+    graph.push({'@type':'FAQPage',mainEntity:extra.faq.map(f=>({'@type':'Question',name:f[0],acceptedAnswer:{'@type':'Answer',text:f[1]}}))});
+  }
   const s=document.createElement('script');
   s.id='jsonld';s.type='application/ld+json';
-  s.textContent=JSON.stringify({'@context':'https://schema.org','@type':'WebApplication',name:title,description:desc,applicationCategory:'UtilityApplication',operatingSystem:'Web',offers:{'@type':'Offer',price:'0'},inLanguage:'fa'});
+  s.textContent=JSON.stringify({'@context':'https://schema.org','@graph':graph});
   document.head.append(s);
 }
 function homePage(){
@@ -2685,7 +3045,9 @@ function startClockbar(){
 
 function categoryPage(cat){
   const tools=REGISTRY.filter(t=>t.cat===cat.id);
-  setSEO(`ابزارهای ${cat.name} | آذردان`,`${cat.desc} — ${tools.length} ابزار رایگان ${cat.name} در آذردان، بدون نیاز به نصب.`);
+  setSEO(`ابزارهای ${cat.name} | آذردان`,`${cat.desc} — ${tools.length} ابزار رایگان ${cat.name} در آذردان، بدون نیاز به نصب.`,{
+    crumbs:[{name:'خانه',hash:'#/'},{name:cat.name,hash:'#/c/'+cat.id}]
+  });
   const recents=getRecent().map(byId).filter(t=>t&&t.cat===cat.id).slice(0,6);
   const pop=tools.filter(t=>POPULAR.includes(t.id));
   $('#view').innerHTML=`<div class="fade"><div class="wrap">
@@ -2742,7 +3104,10 @@ function staticPage(p){
 function toolPage(t){
   const cat=CAT(t.cat);
   pushRecent(t.id);
-  setSEO(`${t.title} | آذردان`,`${t.desc} — رایگان و آنلاین در آذردان، بدون نیاز به نصب.`);
+  setSEO(`${t.title} | آذردان`,`${t.desc} — رایگان و آنلاین در آذردان، بدون نیاز به نصب.`,{
+    crumbs:[{name:'خانه',hash:'#/'},{name:cat.name,hash:'#/c/'+cat.id},{name:t.title,hash:'#/t/'+t.id}],
+    faq:t.faq
+  });
   const rel=REGISTRY.filter(x=>x.cat===t.cat&&x.id!==t.id).slice(0,4);
   $('#view').innerHTML=`<div class="fade"><div class="wrap narrow">
     <nav class="crumb"><a href="#/">خانه</a>${ic('chevron-left')}<a href="#/c/${cat.id}">${cat.name}</a>${ic('chevron-left')}<span>${t.title}</span></nav>
