@@ -132,6 +132,8 @@ input,select,textarea{font:inherit;color:var(--ink)}
 .sitem .go svg{width:13px;height:13px}
 .sitem mark{background:none;color:var(--acc);font-weight:800}
 .snone{padding:18px;text-align:center;color:var(--muted);font-size:13.5px}
+.shint{padding:8px 14px;font-size:12px;color:var(--acc);background:var(--acc-soft);border-bottom:1px solid var(--line)}
+#offlineBar{background:var(--warn);color:#201a07;font-size:12.5px;font-weight:600;text-align:center;padding:8px 14px;line-height:1.6}
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative}
 .chip{font-size:12.5px;color:var(--muted);border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 14px;transition:.15s}
 .chip:hover{color:var(--acc);border-color:var(--acc)}
@@ -178,6 +180,7 @@ section{padding:34px 0}
 .qitem:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-2px)}
 .qitem svg{width:16px;height:16px;color:var(--acc)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:11px;padding:10px 20px;font-size:14px;font-weight:700;border:1px solid transparent;transition:.15s;min-height:42px}
+[hidden]{display:none!important}
 .btn svg{width:16px;height:16px}
 .btn.pri{background:var(--acc);color:#fff}
 .btn.pri:hover{filter:brightness(1.08)}
@@ -335,6 +338,17 @@ footer{border-top:1px solid var(--line);margin-top:40px;background:var(--card)}
 .dg-name{font-weight:800;margin-bottom:8px}
 .dg-in{display:grid;grid-template-columns:2fr 1fr;gap:10px}
 .dg-tx{margin:8px 0 0;padding:0 18px;line-height:2}
+.dz{border:2px dashed var(--line);border-radius:var(--r);padding:30px 16px;text-align:center;cursor:pointer;transition:.15s}
+.dz:hover,.dz.drag{border-color:var(--acc);background:var(--acc-soft)}
+.dz b{color:var(--acc)}
+.imgprev{max-width:100%;border-radius:var(--r-sm);display:block;margin:14px auto;box-shadow:var(--shadow)}
+.imginfo{display:flex;gap:6px 14px;flex-wrap:wrap;justify-content:center;font-size:12.5px;color:var(--muted);margin-top:10px}
+.imginfo b{color:var(--ink)}
+.cropwrap{position:relative;display:inline-block;max-width:100%;margin:14px auto;touch-action:none;user-select:none}
+.cropwrap canvas{display:block;max-width:100%;border-radius:var(--r-sm)}
+.cropbox{position:absolute;border:2px solid var(--acc);box-shadow:0 0 0 2000px rgba(0,0,0,.45);cursor:move;box-sizing:border-box}
+.cropbox i.rs{position:absolute;width:16px;height:16px;background:var(--acc);border:2px solid #fff;border-radius:50%;inset-inline-end:-9px;inset-block-end:-9px;cursor:nwse-resize}
+
 
 .page{padding:30px 0}
 .page h1{font-size:26px;font-weight:800;margin-bottom:14px}
@@ -345,7 +359,8 @@ footer{border-top:1px solid var(--line);margin-top:40px;background:var(--card)}
 </style>
 </head>
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><defs><symbol id="i-alert-triangle" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></symbol><symbol id="i-arrow-left-right" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4" /> <path d="M4 7h16" /> <path d="m16 21 4-4-4-4" /> <path d="M20 17H4" /></symbol><symbol id="i-binary" viewBox="0 0 24 24"><rect x="14" y="14" width="4" height="6" rx="2" /> <rect x="6" y="4" width="4" height="6" rx="2" /> <path d="M6 20h4" /> <path d="M14 10h4" /> <path d="M6 14h2v6" /> <path d="M14 4h2v6" /></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /> <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /> <path d="m3.3 7 8.7 5 8.7-5" /> <path d="M12 22V12" /></symbol><symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1" /> <path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1" /></symbol><symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" /> <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" /> <path d="M2 21h20" /> <path d="M7 8v3" /> <path d="M12 8v3" /> <path d="M17 8v3" /> <path d="M7 4h0.01" /> <path d="M12 4h0.01" /> <path d="M17 4h0.01" /></symbol><symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2" /> <line x1="8" x2="16" y1="6" y2="6" /> <line x1="16" x2="16" y1="14" y2="18" /> <path d="M16 10h.01" /> <path d="M12 10h.01" /> <path d="M8 10h.01" /> <path d="M12 14h.01" /> <path d="M8 14h.01" /> <path d="M12 18h.01" /> <path d="M8 18h.01" /></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /></symbol><symbol id="i-calendar-days" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /> <path d="M8 14h.01" /> <path d="M12 14h.01" /> <path d="M16 14h.01" /> <path d="M8 18h.01" /> <path d="M12 18h.01" /> <path d="M16 18h.01" /></symbol><symbol id="i-case-sensitive" viewBox="0 0 24 24"><path d="m3 15 4-8 4 8" /> <path d="M4 13h6" /> <circle cx="18" cy="12" r="3" /> <path d="M21 9v6" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol><symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <polyline points="12 6 12 12 16 14" /></symbol><symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol><symbol id="i-cloud-drizzle" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 19v1" /> <path d="M8 14v1" /> <path d="M16 19v1" /> <path d="M16 14v1" /> <path d="M12 21v1" /> <path d="M12 16v1" /></symbol><symbol id="i-cloud-fog" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 17H7" /> <path d="M17 21H9" /></symbol><symbol id="i-cloud-lightning" viewBox="0 0 24 24"><path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973" /> <path d="m13 12-3 5h4l-3 5" /></symbol><symbol id="i-cloud-rain" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 14v6" /> <path d="M8 14v6" /> <path d="M12 16v6" /></symbol><symbol id="i-cloud-snow" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 15h.01" /> <path d="M8 19h.01" /> <path d="M12 17h.01" /> <path d="M12 21h.01" /> <path d="M16 15h.01" /> <path d="M16 19h.01" /></symbol><symbol id="i-cloud-sun" viewBox="0 0 24 24"><path d="M12 2v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="M20 12h2" /> <path d="m19.07 4.93-1.41 1.41" /> <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128" /> <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z" /></symbol><symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" /> <polyline points="8 6 2 12 8 18" /></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol><symbol id="i-crop" viewBox="0 0 24 24"><path d="M6 2v14a2 2 0 0 0 2 2h14" /> <path d="M18 22V8a2 2 0 0 0-2-2H2" /></symbol><symbol id="i-dices" viewBox="0 0 24 24"><rect width="12" height="12" x="2" y="10" rx="2" ry="2" /> <path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" /> <path d="M6 18h.01" /> <path d="M10 14h.01" /> <path d="M15 6h.01" /> <path d="M18 9h.01" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="7 10 12 15 17 10" /> <line x1="12" x2="12" y1="15" y2="3" /></symbol><symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" /></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /> <polyline points="14 2 14 8 20 8" /></symbol><symbol id="i-fingerprint" viewBox="0 0 24 24"><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4" /> <path d="M5 19.5C5.5 18 6 15 6 12c0-.7.12-1.37.34-2" /> <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" /> <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" /> <path d="M8.65 22c.21-.66.45-1.32.57-2" /> <path d="M14 13.12c0 2.38 0 6.38-1 8.88" /> <path d="M2 16h.01" /> <path d="M21.8 16c.2-2 .131-5.354 0-6" /> <path d="M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2" /></symbol><symbol id="i-frame" viewBox="0 0 24 24"><line x1="22" x2="2" y1="6" y2="6" /> <line x1="22" x2="2" y1="18" y2="18" /> <line x1="6" x2="6" y1="2" y2="22" /> <line x1="18" x2="18" y1="2" y2="22" /></symbol><symbol id="i-fuel" viewBox="0 0 24 24"><line x1="3" x2="15" y1="22" y2="22" /> <line x1="4" x2="14" y1="9" y2="9" /> <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" /> <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5" /></symbol><symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4" /> <path d="M3.34 19a10 10 0 1 1 17.32 0" /></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /></symbol><symbol id="i-hard-drive" viewBox="0 0 24 24"><line x1="22" x2="2" y1="12" y2="12" /> <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /> <line x1="6" x2="6.01" y1="16" y2="16" /> <line x1="10" x2="10.01" y1="16" y2="16" /></symbol><symbol id="i-hash" viewBox="0 0 24 24"><line x1="4" x2="20" y1="9" y2="9" /> <line x1="4" x2="20" y1="15" y2="15" /> <line x1="10" x2="8" y1="3" y2="21" /> <line x1="16" x2="14" y1="3" y2="21" /></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></symbol><symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /> <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /> <path d="M12 7v5l4 2" /></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> <polyline points="9 22 9 12 15 12 15 22" /></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /></symbol><symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5" /> <path d="m21 2-9.6 9.6" /> <path d="m15.5 7.5 3 3L22 7l-3-3" /></symbol><symbol id="i-landmark" viewBox="0 0 24 24"><line x1="3" x2="21" y1="22" y2="22" /> <line x1="6" x2="6" y1="18" y2="11" /> <line x1="10" x2="10" y1="18" y2="11" /> <line x1="14" x2="14" y1="18" y2="11" /> <line x1="18" x2="18" y1="18" y2="11" /> <polygon points="12 2 20 7 4 7" /></symbol><symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" /></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /></symbol><symbol id="i-list" viewBox="0 0 24 24"><line x1="8" x2="21" y1="6" y2="6" /> <line x1="8" x2="21" y1="12" y2="12" /> <line x1="8" x2="21" y1="18" y2="18" /> <line x1="3" x2="3.01" y1="6" y2="6" /> <line x1="3" x2="3.01" y1="12" y2="12" /> <line x1="3" x2="3.01" y1="18" y2="18" /></symbol><symbol id="i-list-ordered" viewBox="0 0 24 24"><line x1="10" x2="21" y1="6" y2="6" /> <line x1="10" x2="21" y1="12" y2="12" /> <line x1="10" x2="21" y1="18" y2="18" /> <path d="M4 6h1v4" /> <path d="M4 10h2" /> <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" /></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol><symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1" /> <rect x="2" y="16" width="6" height="6" rx="1" /> <rect x="9" y="2" width="6" height="6" rx="1" /> <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /> <path d="M12 12V8" /></symbol><symbol id="i-paintbrush" viewBox="0 0 24 24"><path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3Z" /> <path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7" /> <path d="M14.5 17.5 4.5 15" /></symbol><symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" /> <circle cx="17.5" cy="10.5" r=".5" /> <circle cx="8.5" cy="7.5" r=".5" /> <circle cx="6.5" cy="12.5" r=".5" /> <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" /></symbol><symbol id="i-pause" viewBox="0 0 24 24"><rect width="4" height="16" x="6" y="4" /> <rect width="4" height="16" x="14" y="4" /></symbol><symbol id="i-percent" viewBox="0 0 24 24"><line x1="19" x2="5" y1="5" y2="19" /> <circle cx="6.5" cy="6.5" r="2.5" /> <circle cx="17.5" cy="17.5" r="2.5" /></symbol><symbol id="i-pipette" viewBox="0 0 24 24"><path d="m2 22 1-1h3l9-9" /> <path d="M3 21v-3l9-9" /> <path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z" /></symbol><symbol id="i-qr-code" viewBox="0 0 24 24"><rect width="5" height="5" x="3" y="3" rx="1" /> <rect width="5" height="5" x="16" y="3" rx="1" /> <rect width="5" height="5" x="3" y="16" rx="1" /> <path d="M21 16h-3a2 2 0 0 0-2 2v3" /> <path d="M21 21v.01" /> <path d="M12 7v3a2 2 0 0 1-2 2H7" /> <path d="M3 12h.01" /> <path d="M12 3h.01" /> <path d="M12 16v.01" /> <path d="M16 12h1" /> <path d="M21 12v.01" /> <path d="M12 21v-1" /></symbol><symbol id="i-quote" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" /> <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" /></symbol><symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1Z" /> <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /> <path d="M12 17V7" /></symbol><symbol id="i-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /></symbol><symbol id="i-regex" viewBox="0 0 24 24"><path d="M17 3v10" /> <path d="m12.67 5.5 8.66 5" /> <path d="m12.67 10.5 8.66-5" /> <path d="M9 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2z" /></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4" /> <path d="M3 11v-1a4 4 0 0 1 4-4h14" /> <path d="m7 22-4-4 4-4" /> <path d="M21 13v1a4 4 0 0 1-4 4H3" /></symbol><symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></symbol><symbol id="i-share-2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" /> <circle cx="6" cy="12" r="3" /> <circle cx="18" cy="19" r="3" /> <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" /> <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" /></symbol><symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /> <path d="m18 2 4 4-4 4" /> <path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /> <path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /> <path d="m18 14 4 4-4 4" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /> <path d="M5 3v4" /> <path d="M19 17v4" /> <path d="M3 5h4" /> <path d="M17 19h4" /></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></symbol><symbol id="i-tag" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" /> <path d="M7 7h.01" /></symbol><symbol id="i-thermometer" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" /></symbol><symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" /></symbol><symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /> <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /> <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /> <line x1="10" x2="10" y1="11" y2="17" /> <line x1="14" x2="14" y1="11" y2="17" /></symbol><symbol id="i-type" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7" /> <line x1="9" x2="15" y1="20" y2="20" /> <line x1="12" x2="12" y1="4" y2="20" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" /> <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" /> <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" /></symbol><symbol id="i-wand-2" viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z" /> <path d="m14 7 3 3" /> <path d="M5 6v4" /> <path d="M19 14v4" /> <path d="M10 2v2" /> <path d="M7 8H3" /> <path d="M21 16h-4" /> <path d="M11 3H9" /></symbol><symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol><symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol><symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /> <path d="M9 18c-4.51 2-5-2-7-2" /></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /> <path d="M12 8v13" /> <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /> <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol><symbol id="i-banknote" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" /></symbol><symbol id="i-contact" viewBox="0 0 24 24"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <circle cx="12" cy="10" r="2" /> <line x1="8" x2="8" y1="2" y2="4" /> <line x1="16" x2="16" y1="2" y2="4" /></symbol><symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /></symbol><symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z" /> <path d="M11 3 8 9l4 13 4-13-3-6" /> <path d="M2 9h20" /></symbol><symbol id="i-key-round" viewBox="0 0 24 24"><path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z" /> <circle cx="16.5" cy="7.5" r=".5" /></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="M7 21h10" /> <path d="M12 3v18" /> <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></symbol><symbol id="i-baby" viewBox="0 0 24 24"><path d="M9 12h.01" /> <path d="M15 12h.01" /> <path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" /> <path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" /></symbol></defs></svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><defs><symbol id="i-alert-triangle" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></symbol><symbol id="i-arrow-left-right" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4" /> <path d="M4 7h16" /> <path d="m16 21 4-4-4-4" /> <path d="M20 17H4" /></symbol><symbol id="i-binary" viewBox="0 0 24 24"><rect x="14" y="14" width="4" height="6" rx="2" /> <rect x="6" y="4" width="4" height="6" rx="2" /> <path d="M6 20h4" /> <path d="M14 10h4" /> <path d="M6 14h2v6" /> <path d="M14 4h2v6" /></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /> <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /> <path d="m3.3 7 8.7 5 8.7-5" /> <path d="M12 22V12" /></symbol><symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1" /> <path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1" /></symbol><symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" /> <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" /> <path d="M2 21h20" /> <path d="M7 8v3" /> <path d="M12 8v3" /> <path d="M17 8v3" /> <path d="M7 4h0.01" /> <path d="M12 4h0.01" /> <path d="M17 4h0.01" /></symbol><symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2" /> <line x1="8" x2="16" y1="6" y2="6" /> <line x1="16" x2="16" y1="14" y2="18" /> <path d="M16 10h.01" /> <path d="M12 10h.01" /> <path d="M8 10h.01" /> <path d="M12 14h.01" /> <path d="M8 14h.01" /> <path d="M12 18h.01" /> <path d="M8 18h.01" /></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /></symbol><symbol id="i-calendar-days" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /> <path d="M8 14h.01" /> <path d="M12 14h.01" /> <path d="M16 14h.01" /> <path d="M8 18h.01" /> <path d="M12 18h.01" /> <path d="M16 18h.01" /></symbol><symbol id="i-case-sensitive" viewBox="0 0 24 24"><path d="m3 15 4-8 4 8" /> <path d="M4 13h6" /> <circle cx="18" cy="12" r="3" /> <path d="M21 9v6" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol><symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <polyline points="12 6 12 12 16 14" /></symbol><symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol><symbol id="i-cloud-drizzle" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 19v1" /> <path d="M8 14v1" /> <path d="M16 19v1" /> <path d="M16 14v1" /> <path d="M12 21v1" /> <path d="M12 16v1" /></symbol><symbol id="i-cloud-fog" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 17H7" /> <path d="M17 21H9" /></symbol><symbol id="i-cloud-lightning" viewBox="0 0 24 24"><path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973" /> <path d="m13 12-3 5h4l-3 5" /></symbol><symbol id="i-cloud-rain" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 14v6" /> <path d="M8 14v6" /> <path d="M12 16v6" /></symbol><symbol id="i-cloud-snow" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 15h.01" /> <path d="M8 19h.01" /> <path d="M12 17h.01" /> <path d="M12 21h.01" /> <path d="M16 15h.01" /> <path d="M16 19h.01" /></symbol><symbol id="i-cloud-sun" viewBox="0 0 24 24"><path d="M12 2v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="M20 12h2" /> <path d="m19.07 4.93-1.41 1.41" /> <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128" /> <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z" /></symbol><symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" /> <polyline points="8 6 2 12 8 18" /></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol><symbol id="i-crop" viewBox="0 0 24 24"><path d="M6 2v14a2 2 0 0 0 2 2h14" /> <path d="M18 22V8a2 2 0 0 0-2-2H2" /></symbol><symbol id="i-dices" viewBox="0 0 24 24"><rect width="12" height="12" x="2" y="10" rx="2" ry="2" /> <path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" /> <path d="M6 18h.01" /> <path d="M10 14h.01" /> <path d="M15 6h.01" /> <path d="M18 9h.01" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="7 10 12 15 17 10" /> <line x1="12" x2="12" y1="15" y2="3" /></symbol><symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" /></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /> <polyline points="14 2 14 8 20 8" /></symbol><symbol id="i-fingerprint" viewBox="0 0 24 24"><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4" /> <path d="M5 19.5C5.5 18 6 15 6 12c0-.7.12-1.37.34-2" /> <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" /> <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" /> <path d="M8.65 22c.21-.66.45-1.32.57-2" /> <path d="M14 13.12c0 2.38 0 6.38-1 8.88" /> <path d="M2 16h.01" /> <path d="M21.8 16c.2-2 .131-5.354 0-6" /> <path d="M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2" /></symbol><symbol id="i-frame" viewBox="0 0 24 24"><line x1="22" x2="2" y1="6" y2="6" /> <line x1="22" x2="2" y1="18" y2="18" /> <line x1="6" x2="6" y1="2" y2="22" /> <line x1="18" x2="18" y1="2" y2="22" /></symbol><symbol id="i-fuel" viewBox="0 0 24 24"><line x1="3" x2="15" y1="22" y2="22" /> <line x1="4" x2="14" y1="9" y2="9" /> <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" /> <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5" /></symbol><symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4" /> <path d="M3.34 19a10 10 0 1 1 17.32 0" /></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /></symbol><symbol id="i-hard-drive" viewBox="0 0 24 24"><line x1="22" x2="2" y1="12" y2="12" /> <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /> <line x1="6" x2="6.01" y1="16" y2="16" /> <line x1="10" x2="10.01" y1="16" y2="16" /></symbol><symbol id="i-hash" viewBox="0 0 24 24"><line x1="4" x2="20" y1="9" y2="9" /> <line x1="4" x2="20" y1="15" y2="15" /> <line x1="10" x2="8" y1="3" y2="21" /> <line x1="16" x2="14" y1="3" y2="21" /></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></symbol><symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /> <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /> <path d="M12 7v5l4 2" /></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> <polyline points="9 22 9 12 15 12 15 22" /></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /></symbol><symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5" /> <path d="m21 2-9.6 9.6" /> <path d="m15.5 7.5 3 3L22 7l-3-3" /></symbol><symbol id="i-landmark" viewBox="0 0 24 24"><line x1="3" x2="21" y1="22" y2="22" /> <line x1="6" x2="6" y1="18" y2="11" /> <line x1="10" x2="10" y1="18" y2="11" /> <line x1="14" x2="14" y1="18" y2="11" /> <line x1="18" x2="18" y1="18" y2="11" /> <polygon points="12 2 20 7 4 7" /></symbol><symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" /></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /></symbol><symbol id="i-list" viewBox="0 0 24 24"><line x1="8" x2="21" y1="6" y2="6" /> <line x1="8" x2="21" y1="12" y2="12" /> <line x1="8" x2="21" y1="18" y2="18" /> <line x1="3" x2="3.01" y1="6" y2="6" /> <line x1="3" x2="3.01" y1="12" y2="12" /> <line x1="3" x2="3.01" y1="18" y2="18" /></symbol><symbol id="i-list-ordered" viewBox="0 0 24 24"><line x1="10" x2="21" y1="6" y2="6" /> <line x1="10" x2="21" y1="12" y2="12" /> <line x1="10" x2="21" y1="18" y2="18" /> <path d="M4 6h1v4" /> <path d="M4 10h2" /> <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" /></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol><symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1" /> <rect x="2" y="16" width="6" height="6" rx="1" /> <rect x="9" y="2" width="6" height="6" rx="1" /> <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /> <path d="M12 12V8" /></symbol><symbol id="i-paintbrush" viewBox="0 0 24 24"><path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3Z" /> <path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7" /> <path d="M14.5 17.5 4.5 15" /></symbol><symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" /> <circle cx="17.5" cy="10.5" r=".5" /> <circle cx="8.5" cy="7.5" r=".5" /> <circle cx="6.5" cy="12.5" r=".5" /> <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" /></symbol><symbol id="i-pause" viewBox="0 0 24 24"><rect width="4" height="16" x="6" y="4" /> <rect width="4" height="16" x="14" y="4" /></symbol><symbol id="i-percent" viewBox="0 0 24 24"><line x1="19" x2="5" y1="5" y2="19" /> <circle cx="6.5" cy="6.5" r="2.5" /> <circle cx="17.5" cy="17.5" r="2.5" /></symbol><symbol id="i-pipette" viewBox="0 0 24 24"><path d="m2 22 1-1h3l9-9" /> <path d="M3 21v-3l9-9" /> <path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z" /></symbol><symbol id="i-qr-code" viewBox="0 0 24 24"><rect width="5" height="5" x="3" y="3" rx="1" /> <rect width="5" height="5" x="16" y="3" rx="1" /> <rect width="5" height="5" x="3" y="16" rx="1" /> <path d="M21 16h-3a2 2 0 0 0-2 2v3" /> <path d="M21 21v.01" /> <path d="M12 7v3a2 2 0 0 1-2 2H7" /> <path d="M3 12h.01" /> <path d="M12 3h.01" /> <path d="M12 16v.01" /> <path d="M16 12h1" /> <path d="M21 12v.01" /> <path d="M12 21v-1" /></symbol><symbol id="i-quote" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" /> <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" /></symbol><symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1Z" /> <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /> <path d="M12 17V7" /></symbol><symbol id="i-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /></symbol><symbol id="i-regex" viewBox="0 0 24 24"><path d="M17 3v10" /> <path d="m12.67 5.5 8.66 5" /> <path d="m12.67 10.5 8.66-5" /> <path d="M9 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2z" /></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4" /> <path d="M3 11v-1a4 4 0 0 1 4-4h14" /> <path d="m7 22-4-4 4-4" /> <path d="M21 13v1a4 4 0 0 1-4 4H3" /></symbol><symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></symbol><symbol id="i-share-2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" /> <circle cx="6" cy="12" r="3" /> <circle cx="18" cy="19" r="3" /> <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" /> <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" /></symbol><symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /> <path d="m18 2 4 4-4 4" /> <path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /> <path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /> <path d="m18 14 4 4-4 4" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /> <path d="M5 3v4" /> <path d="M19 17v4" /> <path d="M3 5h4" /> <path d="M17 19h4" /></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></symbol><symbol id="i-tag" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" /> <path d="M7 7h.01" /></symbol><symbol id="i-thermometer" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" /></symbol><symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" /></symbol><symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /> <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /> <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /> <line x1="10" x2="10" y1="11" y2="17" /> <line x1="14" x2="14" y1="11" y2="17" /></symbol><symbol id="i-type" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7" /> <line x1="9" x2="15" y1="20" y2="20" /> <line x1="12" x2="12" y1="4" y2="20" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" /> <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" /> <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" /></symbol><symbol id="i-wand-2" viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z" /> <path d="m14 7 3 3" /> <path d="M5 6v4" /> <path d="M19 14v4" /> <path d="M10 2v2" /> <path d="M7 8H3" /> <path d="M21 16h-4" /> <path d="M11 3H9" /></symbol><symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol><symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol><symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /> <path d="M9 18c-4.51 2-5-2-7-2" /></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /> <path d="M12 8v13" /> <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /> <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol><symbol id="i-banknote" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" /></symbol><symbol id="i-contact" viewBox="0 0 24 24"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <circle cx="12" cy="10" r="2" /> <line x1="8" x2="8" y1="2" y2="4" /> <line x1="16" x2="16" y1="2" y2="4" /></symbol><symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /></symbol><symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z" /> <path d="M11 3 8 9l4 13 4-13-3-6" /> <path d="M2 9h20" /></symbol><symbol id="i-key-round" viewBox="0 0 24 24"><path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z" /> <circle cx="16.5" cy="7.5" r=".5" /></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="M7 21h10" /> <path d="M12 3v18" /> <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></symbol><symbol id="i-baby" viewBox="0 0 24 24"><path d="M9 12h.01" /> <path d="M15 12h.01" /> <path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" /> <path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" /></symbol><symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2" /> <circle cx="9" cy="9" r="2" /> <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /></symbol><symbol id="i-crop" viewBox="0 0 24 24"><path d="M6 2v14a2 2 0 0 0 2 2h14" /> <path d="M18 22V8a2 2 0 0 0-2-2H2" /></symbol><symbol id="i-rotate-cw" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /></symbol><symbol id="i-scaling" viewBox="0 0 24 24"><path d="M21 3 9 15" /> <path d="M12 3H3v18h18v-9" /> <path d="M16 3h5v5" /> <path d="M14 15H9v-5" /></symbol><symbol id="i-image-down" viewBox="0 0 24 24"><circle cx="9" cy="9" r="2" /> <path d="M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10.8" /> <path d="m21 15-3.1-3.1a2 2 0 0 0-2.814.014L6 21" /> <path d="m14 19.5 3 3v-6" /> <path d="m17 22.5 3-3" /></symbol></defs></svg>
+<div id="offlineBar" hidden>اتصال اینترنت قطع است — ابزارهایی که از قبل باز کرده‌اید همچنان کار می‌کنند؛ ابزارهای نیازمند اینترنت (هواشناسی، IP، تست سرعت) تا اتصال مجدد در دسترس نیستند.</div>
 <header id="hdr">
   <div class="wrap hrow">
     <a class="logo" href="#/" aria-label="آذردان — خانه">
@@ -378,6 +393,8 @@ footer{border-top:1px solid var(--line);margin-top:40px;background:var(--card)}
     <div id="drawerCats"></div>
     <div class="dsec">رنگ اصلی</div>
     <div class="swatches" id="swatches"></div>
+    <div class="dsec">نمایش اعداد</div>
+    <div class="seg" id="numSeg" style="margin:0 2px 4px"><button type="button" data-num="fa">فارسی ۱۲۳</button><button type="button" data-num="en">Latin 123</button></div>
     <div class="dsec">صفحات</div>
     <a class="dlink" href="#/p/about" data-close><svg class="icon"><use href="#i-info"></use></svg>درباره آذردان</a>
     <a class="dlink" href="#/p/privacy" data-close><svg class="icon"><use href="#i-lock"></use></svg>حریم خصوصی</a>
@@ -431,7 +448,7 @@ const $=(s,el=document)=>el.querySelector(s);
 const $$=(s,el=document)=>[...el.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ic=n=>`<svg class="icon"><use href="#i-${n}"></use></svg>`;
-const APP_VER='3.2.0';
+const APP_VER='4.1.0';
 const store={
   get(k,d){try{const v=localStorage.getItem('abzarak:'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
   set(k,v){try{localStorage.setItem('abzarak:'+k,JSON.stringify(v))}catch(e){}}
@@ -452,7 +469,8 @@ const getHist=id=>store.get('hist:'+id,[]);
 function addHist(id,text){if(!text)return;let h=getHist(id);h=[text,...h.filter(x=>x!==text)].slice(0,8);store.set('hist:'+id,h)}
 
 /* ==================== کمکی‌ها ==================== */
-const faD=s=>String(s).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+let numLatin=store.get('numLatin',false);
+const faD=s=>numLatin?String(s):String(s).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
 const enD=s=>String(s??'').replace(/[۰-۹]/g,d=>d.charCodeAt(0)-0x06F0).replace(/[٠-٩]/g,d=>d.charCodeAt(0)-0x0660);
 const pnum=s=>{if(s===null||s===undefined||s==='')return null;const v=parseFloat(enD(s).replace(/[٬,\s]/g,''));return isNaN(v)?null:v};
 const fmt=(n,d=2)=>{
@@ -477,6 +495,42 @@ async function copyText(t,msg='در حافظه کپی شد'){
 async function shareText(t){
   if(navigator.share){try{await navigator.share({title:'آذردان',text:t})}catch(e){}}
   else copyText(t,'متن برای همرسانی کپی شد');
+}
+const stripTags=h=>String(h).replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim();
+async function shareResultImage(toolTitle,mainHTML,subHTML){
+  try{await Promise.all([document.fonts.load('800 64px Vazirmatn'),document.fonts.load('700 26px Vazirmatn'),document.fonts.load('500 24px Vazirmatn')])}catch(e){}
+  const W=900,H=500;
+  const c=document.createElement('canvas');c.width=W;c.height=H;
+  const ctx=c.getContext('2d');
+  const g=ctx.createLinearGradient(0,0,W,H);
+  g.addColorStop(0,'#12946f');g.addColorStop(1,'#0a5f47');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  ctx.save();ctx.globalAlpha=.08;ctx.fillStyle='#fff';
+  ctx.beginPath();ctx.arc(W-90,80,110,0,7);ctx.fill();
+  ctx.beginPath();ctx.arc(70,H-70,130,0,7);ctx.fill();
+  ctx.restore();
+  ctx.textAlign='center';ctx.fillStyle='#fff';
+  ctx.font='700 26px Vazirmatn, sans-serif';
+  ctx.fillText(toolTitle,W/2,74);
+  ctx.font='800 64px Vazirmatn, sans-serif';
+  let main=stripTags(mainHTML);
+  if(main.length>36)ctx.font='800 44px Vazirmatn, sans-serif';
+  ctx.fillText(main,W/2,H/2+10,W-80);
+  if(subHTML){
+    ctx.font='500 24px Vazirmatn, sans-serif';ctx.fillStyle='rgba(255,255,255,.85)';
+    ctx.fillText(stripTags(subHTML),W/2,H/2+64,W-100);
+  }
+  ctx.font='700 22px Vazirmatn, sans-serif';ctx.fillStyle='rgba(255,255,255,.9)';
+  ctx.fillText('آذردان — ابزارهای آنلاین رایگان',W/2,H-36);
+  const blob=await new Promise(r=>c.toBlob(r,'image/png'));
+  if(!blob){toast('ساخت تصویر ناموفق بود.');return}
+  const file=new File([blob],'azardan-result.png',{type:'image/png'});
+  if(navigator.canShare&&navigator.canShare({files:[file]})){
+    try{await navigator.share({files:[file],title:'آذردان'});return}catch(e){if(e.name==='AbortError')return}
+  }
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='azardan-result.png';a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  toast('تصویر نتیجه دانلود شد');
 }
 function toast(msg,type='ok'){
   const t=document.createElement('div');t.className='toast '+type;t.textContent=msg;
@@ -591,6 +645,7 @@ const CATS=[
   {id:'text',name:'ابزارهای متنی',icon:'type',desc:'شمارش، پاکسازی و پردازش متن'},
   {id:'dev',name:'توسعه‌دهندگان',icon:'code',desc:'JSON، Regex، هش و کد'},
   {id:'css',name:'CSS و طراحی',icon:'paintbrush',desc:'تولید کد CSS با پیش‌نمایش زنده'},
+  {id:'img',name:'تصویر',icon:'image',desc:'فشرده‌سازی، تبدیل فرمت، برش و واترمارک عکس — کاملاً در مرورگر'},
   {id:'util',name:'کاربردی',icon:'wrench',desc:'ابزارهای سودمند روزمره'},
   {id:'net',name:'شبکه',icon:'network',desc:'IP، DNS، ساب‌نت و سرعت'},
   {id:'weather',name:'هواشناسی',icon:'cloud-sun',desc:'آب‌وهوای شهرهای ایران و جهان'},
@@ -648,6 +703,7 @@ function formTool(cfg){
           res.innerHTML=`<div class="res-head"><span>نتیجه</span><div class="res-actions">
             ${out.copy!==undefined&&out.copy!==null?`<button class="btn sm ghost" data-copy>${ic('copy')} کپی</button>`:''}
             ${out.copy?`<button class="btn sm ghost" data-share>${ic('share-2')} همرسانی</button>`:''}
+            ${out.copy?`<button class="btn sm ghost" data-shareimg>${ic('image-down')} تصویر نتیجه</button>`:''}
             <button class="btn sm ghost" data-reset>${ic('rotate-ccw')} بازنشانی</button></div></div>
             <div class="res-body">${out.html}</div>
             ${out.sub?`<div class="sub">${out.sub}</div>`:''}
@@ -655,6 +711,7 @@ function formTool(cfg){
             ${out.pre?`<pre>${esc(out.pre)}</pre>`:''}`;
           const cb=$('[data-copy]',res);if(cb)cb.addEventListener('click',()=>copyText(out.copy));
           const sb=$('[data-share]',res);if(sb)sb.addEventListener('click',()=>shareText(out.copy));
+          const sib=$('[data-shareimg]',res);if(sib)sib.addEventListener('click',()=>shareResultImage(t.title,out.html,out.sub));
           $('[data-reset]',res).addEventListener('click',reset);
           if(cfg.history){
             const hval=out.hist!==undefined?out.hist:(out.copy!==undefined&&out.copy!==null?String(out.copy):null);
@@ -1204,6 +1261,53 @@ T('number-to-words','عدد به حروف فارسی','Number to Words','تبد�
     return{html:`<span style="font-size:17px">${words}</span>`,copy:words,sub:fmt(whole,0)+(v.u?' '+v.u:'')+(Number.isInteger(v.n)?'':' (قسمت اعشاری حذف شد)'),hist:`${whole} → ${words}`};
   }
 }),{g:'عدد را وارد کنید تا معادل حروفی آن ساخته شود؛ برای نوشتن مبلغ در چک، سفته و قرارداد، واحد «تومان» یا «ریال» را هم انتخاب کنید.',x:'۱٬۲۵۰٬۰۰۰ تومان ← «یک میلیون و دویست و پنجاه هزار تومان»'});
+
+
+const humanBytes=n=>{
+  if(n<1024)return faD(Math.round(n))+' بایت';
+  const u=['کیلوبایت','مگابایت','گیگابایت'];let i=-1;
+  do{n/=1024;i++}while(n>=1024&&i<u.length-1);
+  return fmt(n,2)+' '+u[i];
+};
+function loadImageFromFile(file){
+  return new Promise((resolve,reject)=>{
+    if(!file||!file.type||!file.type.startsWith('image/')){reject(new Error('فایل انتخاب‌شده تصویر نیست.'));return}
+    const url=URL.createObjectURL(file);
+    const img=new Image();
+    img.onload=()=>resolve({img,url,file});
+    img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('خواندن تصویر ناموفق بود؛ فایل ممکن است خراب باشد.'))};
+    img.src=url;
+  });
+}
+function dzHTML(hint){
+  return `<div class="dz" tabindex="0" role="button" aria-label="انتخاب تصویر">
+    <svg class="icon" style="width:30px;height:30px;color:var(--muted)"><use href="#i-image"></use></svg>
+    <div style="margin-top:8px"><b>برای انتخاب تصویر کلیک کنید</b> یا فایل را اینجا رها کنید</div>
+    <div class="fhint">${hint||'فرمت‌های JPG، PNG، WebP و GIF پشتیبانی می‌شود — کاملاً در مرورگر شما، بدون آپلود'}</div>
+    <input type="file" accept="image/*" hidden>
+  </div>`;
+}
+function wireDropzone(dz,onFile){
+  const inp=$('input[type=file]',dz);
+  dz.addEventListener('click',()=>inp.click());
+  dz.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inp.click()}});
+  inp.addEventListener('change',()=>{if(inp.files[0])onFile(inp.files[0]);inp.value=''});
+  ['dragenter','dragover'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();e.stopPropagation();dz.classList.add('drag')}));
+  ['dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();e.stopPropagation();dz.classList.remove('drag')}));
+  dz.addEventListener('drop',e=>{const f=e.dataTransfer.files&&e.dataTransfer.files[0];if(f)onFile(f)});
+  dz.addEventListener('paste',e=>{const it=[...(e.clipboardData?.items||[])].find(x=>x.type.startsWith('image/'));if(it)onFile(it.getAsFile())});
+}
+function downloadCanvas(canvas,filename,type,quality){
+  canvas.toBlob(blob=>{
+    if(!blob){toast('خروجی‌گرفتن از تصویر ناموفق بود.');return}
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);a.download=filename;a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  },type,quality);
+}
+function canvasSize(canvas,type,quality){
+  return new Promise(res=>canvas.toBlob(b=>res(b?b.size:0),type,quality));
+}
 
 function counterMount(mode){
   return function(root,t){
@@ -1973,16 +2077,46 @@ T('file-size-calculator','محاسبه حجم فایل','File Size Converter','�
   }
 }),{g:'اندازه فایل و واحد را وارد کنید؛ تبدیل به همه واحدها (دهدهی و دودویی) انجام می‌شود.',x:'فایل ۲ گیگی با اینترنت ۵۰ مگابیتی ← حدود ۵٫۵ دقیقه'});
 
-T('qr-code-generator','تولید QR Code','QR Code Generator','ساخت بارکد QR از متن و لینک با پشتیبانی کامل فارسی — کتابخانه استاندارد','util','qr-code',['qr','بارکد','کیوآر','qrcode'],function(root,t){
+T('qr-code-generator','تولید و اسکن QR Code','QR Code Generator & Scanner','ساخت بارکد QR از متن و لینک، و اسکن QR با دوربین یا تصویر — کاملاً در مرورگر','util','qr-code',['qr','بارکد','کیوآر','qrcode','اسکن qr','qr scanner','خواندن بارکد'],function(root,t){
   root.innerHTML=`<div class="fade"><div class="panel">
-    <div class="field full"><label for="qrIn">متن یا لینک</label><div class="iwrap"><input id="qrIn" value="https://example.com" style="direction:ltr;font-family:var(--mono)" placeholder="https://…"></div></div>
-    <div class="fgrid" style="margin-top:14px">
-      <div class="field"><label for="qrS">اندازه</label><div class="iwrap"><select id="qrS"><option value="5">کوچک</option><option value="7" selected>متوسط</option><option value="10">بزرگ</option></select></div></div>
-      <div class="field"><label for="qrE">تصحیح خطا</label><div class="iwrap"><select id="qrE"><option value="L">کم (L)</option><option value="M" selected>متوسط (M)</option><option value="Q">زیاد (Q)</option><option value="H">بیشترین (H)</option></select></div></div>
+    <div class="seg" role="tablist">
+      <button type="button" data-tab="gen" class="on">تولید QR</button>
+      <button type="button" data-tab="scan">اسکن QR</button>
     </div>
-    <div class="pactions" style="justify-content:center"><button class="btn pri" data-run>${ic('qr-code')} تولید QR</button></div>
-    <div class="qrwrap" data-qr style="margin-top:16px"></div>
-    <div class="pactions" style="justify-content:center"><button class="btn ghost" data-dl hidden>${ic('download')} دانلود تصویر</button></div>
+    <div data-genwrap style="margin-top:14px">
+      <div class="field full"><label for="qrIn">متن یا لینک</label><div class="iwrap"><input id="qrIn" value="https://example.com" style="direction:ltr;font-family:var(--mono)" placeholder="https://…"></div></div>
+      <div class="fgrid" style="margin-top:14px">
+        <div class="field"><label for="qrS">اندازه</label><div class="iwrap"><select id="qrS"><option value="5">کوچک</option><option value="7" selected>متوسط</option><option value="10">بزرگ</option></select></div></div>
+        <div class="field"><label for="qrE">تصحیح خطا</label><div class="iwrap"><select id="qrE"><option value="L">کم (L)</option><option value="M" selected>متوسط (M)</option><option value="Q">زیاد (Q)</option><option value="H">بیشترین (H)</option></select></div></div>
+      </div>
+      <div class="pactions" style="justify-content:center"><button class="btn pri" data-run>${ic('qr-code')} تولید QR</button></div>
+      <div class="qrwrap" data-qr style="margin-top:16px"></div>
+      <div class="pactions" style="justify-content:center"><button class="btn ghost" data-dl hidden>${ic('download')} دانلود تصویر</button></div>
+    </div>
+    <div data-scanwrap hidden style="margin-top:14px">
+      <div class="seg" role="tablist">
+        <button type="button" data-smode="cam" class="on">دوربین</button>
+        <button type="button" data-smode="file">انتخاب تصویر</button>
+      </div>
+      <div data-camwrap style="margin-top:14px;text-align:center">
+        <div style="position:relative;max-width:360px;margin:0 auto;border-radius:var(--r);overflow:hidden;background:#000">
+          <video data-video playsinline muted style="width:100%;display:block"></video>
+          <div data-camframe style="position:absolute;inset:14%;border:3px solid rgba(255,255,255,.75);border-radius:14px;pointer-events:none"></div>
+        </div>
+        <div class="pactions" style="justify-content:center;margin-top:12px">
+          <button type="button" class="btn pri" data-camstart>${ic('scan-line')} روشن‌کردن دوربین</button>
+          <button type="button" class="btn ghost" data-camstop hidden>توقف دوربین</button>
+        </div>
+        <p class="fhint" data-camhint style="margin-top:8px">برای اسکن با دوربین، سایت باید روی HTTPS باز باشد و اجازهٔ دسترسی به دوربین را بدهید.</p>
+      </div>
+      <div data-filewrap hidden>${dzHTML('عکسی که داخلش QR هست را انتخاب کنید')}</div>
+      <div data-scanres hidden style="margin-top:16px;border-top:1px solid var(--line);padding-top:16px">
+        <div class="res ok"><div class="res-head"><span>نتیجه اسکن</span><div class="res-actions"><button type="button" class="btn sm ghost" data-copyscan>${ic('copy')} کپی</button></div></div>
+        <div class="res-body" data-scantext style="word-break:break-all;font-size:15px"></div>
+        <div class="pactions" style="justify-content:center;margin-top:10px"><a class="btn pri" data-openlink target="_blank" rel="noopener" hidden>${ic('globe')} باز کردن لینک</a>
+        <button type="button" class="btn ghost" data-scanagain>${ic('rotate-ccw')} اسکن دوباره</button></div>
+      </div>
+    </div>
   </div></div>`;
   const inp=$('#qrIn',root),wrap=$('[data-qr]',root),dl=$('[data-dl]',root);
   function run(){
@@ -2024,8 +2158,97 @@ T('qr-code-generator','تولید QR Code','QR Code Generator','ساخت بار�
   $('#qrE',root).addEventListener('change',run);
   $('[data-run]',root).addEventListener('click',run);
   run();
-},{g:'متن یا لینک را وارد کنید؛ QR با کتابخانه استاندارد و کاملاً در مرورگر شما ساخته می‌شود. متن فارسی به‌درستی پشتیبانی می‌شود (UTF-8). سطح تصحیح خطای بالاتر، خوانایی در خرابی چاپ را بیشتر می‌کند ولی QR را بزرگ‌تر می‌سازد.',x:'لینک منوی رستوران ← QR روی میز',faq:[['QR تا چه حجمی کار می‌کند؟','در سطح تصحیح M تا حدود ۲٬۳۰۰ کاراکتر باینری؛ برای لینک‌ها و متن‌های عادی به‌راحتی کافی است.'],['چرا متن فارسی حالا کار می‌کند؟','متن قبل از کدگذاری به بایت‌های UTF-8 تبدیل می‌شود تا حروف فارسی بدون خرابی در QR ذخیره شوند.']]});
 
+  /* ---------- اسکن QR ---------- */
+  const genwrap=$('[data-genwrap]',root),scanwrap=$('[data-scanwrap]',root);
+  const camwrap=$('[data-camwrap]',root),filewrap=$('[data-filewrap]',root);
+  const video=$('[data-video]',root),scanres=$('[data-scanres]',root),scantext=$('[data-scantext]',root),openlink=$('[data-openlink]',root);
+  let stream=null,rafId=null,jsqrLoaded=typeof jsQR==='function';
+  function ensureJsQR(){
+    if(jsqrLoaded)return Promise.resolve();
+    return new Promise((resolve,reject)=>{
+      const s=document.createElement('script');
+      s.src='assets/js/jsqr.min.js';
+      s.onload=()=>{jsqrLoaded=true;resolve()};
+      s.onerror=()=>reject(new Error('بارگذاری ماژول اسکن ناموفق بود؛ اتصال اینترنت را بررسی کنید.'));
+      document.head.append(s);
+    });
+  }
+  function showScanResult(text){
+    stopCamera();
+    camwrap.hidden=true;filewrap.hidden=true;scanres.hidden=false;
+    scantext.textContent=text;
+    if(/^https?:\/\//i.test(text.trim())){openlink.href=text.trim();openlink.hidden=false}
+    else openlink.hidden=true;
+    refreshIcons();
+    if(navigator.vibrate)try{navigator.vibrate(60)}catch(_e){}
+  }
+  $('[data-copyscan]',root).addEventListener('click',()=>copyText(scantext.textContent));
+  $('[data-scanagain]',root).addEventListener('click',()=>{
+    scanres.hidden=true;
+    const mode=$('.seg [data-smode].on',root)?.dataset.smode||'cam';
+    if(mode==='cam')camwrap.hidden=false;else filewrap.hidden=false;
+  });
+  function stopCamera(){
+    if(rafId)cancelAnimationFrame(rafId);rafId=null;
+    if(stream){stream.getTracks().forEach(tr=>tr.stop());stream=null}
+    video.srcObject=null;
+    $('[data-camstart]',root).hidden=false;$('[data-camstop]',root).hidden=true;
+  }
+  async function startCamera(){
+    try{
+      await ensureJsQR();
+      if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){
+        $('[data-camhint]',root).textContent='مرورگر شما از دسترسی به دوربین پشتیبانی نمی‌کند.';return;
+      }
+      stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});
+      video.srcObject=stream;await video.play();
+      $('[data-camstart]',root).hidden=true;$('[data-camstop]',root).hidden=false;
+      const cv=document.createElement('canvas'),cx=cv.getContext('2d',{willReadFrequently:true});
+      const tick=()=>{
+        if(!stream)return;
+        if(video.readyState===video.HAVE_ENOUGH_DATA){
+          cv.width=video.videoWidth;cv.height=video.videoHeight;
+          cx.drawImage(video,0,0,cv.width,cv.height);
+          const im=cx.getImageData(0,0,cv.width,cv.height);
+          const code=jsQR(im.data,im.width,im.height,{inversionAttempts:'dontInvert'});
+          if(code&&code.data){showScanResult(code.data);return}
+        }
+        rafId=requestAnimationFrame(tick);
+      };
+      rafId=requestAnimationFrame(tick);
+    }catch(e){
+      $('[data-camhint]',root).textContent=e.name==='NotAllowedError'?'اجازهٔ دسترسی به دوربین داده نشد.':(e.message||'خطا در دسترسی به دوربین.');
+    }
+  }
+  $('[data-camstart]',root).addEventListener('click',startCamera);
+  $('[data-camstop]',root).addEventListener('click',stopCamera);
+  async function decodeFile(file){
+    try{
+      await ensureJsQR();
+      const {img}=await loadImageFromFile(file);
+      const cv=document.createElement('canvas');cv.width=img.naturalWidth;cv.height=img.naturalHeight;
+      const cx=cv.getContext('2d');cx.drawImage(img,0,0);
+      const im=cx.getImageData(0,0,cv.width,cv.height);
+      const code=jsQR(im.data,im.width,im.height);
+      if(code&&code.data)showScanResult(code.data);
+      else toast('QR در این تصویر پیدا نشد.');
+    }catch(e){toast(e.message)}
+  }
+  wireDropzone($('.dz',filewrap),decodeFile);
+  $$('[data-smode]',root).forEach(b=>b.addEventListener('click',()=>{
+    $$('[data-smode]',root).forEach(x=>x.classList.toggle('on',x===b));
+    const cam=b.dataset.smode==='cam';
+    camwrap.hidden=!cam;filewrap.hidden=cam;
+    if(!cam)stopCamera();
+  }));
+  $$('[data-tab]',root).forEach(b=>b.addEventListener('click',()=>{
+    $$('[data-tab]',root).forEach(x=>x.classList.toggle('on',x===b));
+    const scan=b.dataset.tab==='scan';
+    genwrap.hidden=scan;scanwrap.hidden=!scan;
+    if(!scan)stopCamera();
+  }));
+},{g:'برای تولید QR، متن یا لینک را بنویسید. برای اسکن، تب «اسکن QR» را بزنید و دوربین را روشن کنید یا عکسی که داخلش QR هست را انتخاب کنید — هر دو کاملاً در مرورگر شما پردازش می‌شوند، چیزی به سرور فرستاده نمی‌شود.',x:'لینک منوی رستوران ← QR روی میز؛ یا اسکن یک QR روی بسته‌بندی برای دیدن متن داخلش',faq:[['QR تا چه حجمی کار می‌کند؟','در سطح تصحیح M تا حدود ۲٬۳۰۰ کاراکتر باینری؛ برای لینک‌ها و متن‌های عادی به‌راحتی کافی است.'],['چرا متن فارسی حالا کار می‌کند؟','متن قبل از کدگذاری به بایت‌های UTF-8 تبدیل می‌شود تا حروف فارسی بدون خرابی در QR ذخیره شوند.'],['اسکن دوربین کار نمی‌کند؟','دسترسی به دوربین فقط روی HTTPS مجاز است (نه روی فایل محلی) و نیاز به اجازه صریح شما دارد؛ اگر کار نکرد، از گزینه «انتخاب تصویر» استفاده کنید.']]});
 T('stopwatch','کرنومتر','Stopwatch','کرنومتر دقیق با ثبت دورها — کاملاً محلی','util','timer',['کرنومتر','استاپ واچ','تایمر','زمان‌سنج'],function(root,t){
   root.innerHTML=`<div class="fade"><div class="panel" style="text-align:center">
     <div class="stopwatch" data-clock>00:00<span style="color:var(--muted)">.00</span></div>
@@ -2893,11 +3116,397 @@ T('pregnancy-calculator','محاسبه دوران بارداری','Pregnancy Cal
   }
 }),{g:'تاریخ شمسی اولین روز آخرین پریود را وارد کنید؛ بر مبنای قاعدهٔ استاندارد ۲۸۰ روزه (۴۰ هفته) تاریخ تقریبی زایمان و هفتهٔ فعلی بارداری محاسبه می‌شود. این فقط یک تخمین آماری است، نه تشخیص پزشکی؛ برای پیگیری دقیق بارداری حتماً به پزشک مراجعه کنید.',x:'آخرین پریود ۱۴۰۴/۰۱/۱۵ ← هفته بارداری و تاریخ تقریبی زایمان'});
 
+
+
+T('image-resize-compress','فشرده‌سازی و تغییر اندازه عکس','Image Resize & Compress','کاهش حجم و تغییر ابعاد عکس با پیش‌نمایش زنده — کاملاً در مرورگر','img','scaling',['فشرده سازی عکس','تغییر اندازه عکس','کاهش حجم عکس','image compress','resize image','بهینه سازی عکس'],function(root,t){
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div data-dz>${dzHTML()}</div>
+    <div data-work hidden>
+      <canvas data-prev class="imgprev" style="max-height:360px;object-fit:contain"></canvas>
+      <div class="imginfo"><span>ابعاد اصلی: <b data-odim></b></span><span>حجم اصلی: <b data-osize></b></span></div>
+      <div class="fgrid" style="margin-top:16px">
+        <div class="field"><label>عرض</label><div class="iwrap"><input data-w type="number" inputmode="numeric"><span class="funit">px</span></div></div>
+        <div class="field"><label>ارتفاع</label><div class="iwrap"><input data-h type="number" inputmode="numeric"><span class="funit">px</span></div></div>
+        <div class="field full" style="display:flex;align-items:center;gap:8px;flex-direction:row-reverse;justify-content:flex-end">
+          <input type="checkbox" id="rsLock" checked style="width:17px;height:17px"><label for="rsLock" style="margin:0;cursor:pointer">حفظ نسبت ابعاد</label>
+        </div>
+        <div class="field"><label>فرمت خروجی</label><div class="iwrap"><select data-fmt><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option><option value="image/png">PNG</option></select></div></div>
+        <div class="field" data-qwrap><label>کیفیت (<span data-qval>80</span>٪)</label><div class="iwrap"><input data-q type="range" min="10" max="100" value="80"></div></div>
+      </div>
+      <div class="imginfo" style="margin-top:12px;font-size:13.5px"><span>حجم خروجی برآوردی: <b data-nsize style="color:var(--acc)">…</b></span><span data-ratio></span></div>
+      <div class="pactions" style="justify-content:center"><button type="button" class="btn pri" data-dl>${ic('download')} دانلود عکس خروجی</button>
+      <button type="button" class="btn ghost" data-reset>${ic('rotate-ccw')} عکس دیگر</button></div>
+    </div>
+  </div></div>`;
+  const dzBox=$('[data-dz]',root),work=$('[data-work]',root),prev=$('[data-prev]',root),ctx=prev.getContext('2d');
+  const wEl=$('[data-w]',root),hEl=$('[data-h]',root),fmtEl=$('[data-fmt]',root),qEl=$('[data-q]',root),qval=$('[data-qval]',root),qwrap=$('[data-qwrap]',root);
+  let natW=0,natH=0,ratio=1,origBytes=0,fileBase='image';
+  function toggleQ(){qwrap.style.display=fmtEl.value==='image/png'?'none':''}
+  function render(){
+    prev.width=natW;prev.height=natH;
+    ctx.clearRect(0,0,natW,natH);
+    ctx.drawImage(imgEl,0,0,natW,natH);
+    updateEstimate();
+  }
+  let imgEl=null,debounceT=null;
+  async function updateEstimate(){
+    clearTimeout(debounceT);
+    debounceT=setTimeout(async()=>{
+      const w=Math.max(1,+wEl.value||natW),h=Math.max(1,+hEl.value||natH);
+      const out=document.createElement('canvas');out.width=w;out.height=h;
+      out.getContext('2d').drawImage(imgEl,0,0,w,h);
+      const q=fmtEl.value==='image/png'?undefined:(+qEl.value/100);
+      const sz=await canvasSize(out,fmtEl.value,q);
+      $('[data-nsize]',root).textContent=humanBytes(sz);
+      const pct=origBytes?Math.round((1-sz/origBytes)*100):0;
+      $('[data-ratio]',root).innerHTML=pct>0?`<span style="color:var(--acc)">${faD(pct)}٪ کاهش حجم</span>`:(pct<0?`<span style="color:var(--err)">${faD(-pct)}٪ افزایش حجم</span>`:'');
+    },250);
+  }
+  async function loadFile(file){
+    try{
+      const {img,url}=await loadImageFromFile(file);
+      imgEl=img;natW=img.naturalWidth;natH=img.naturalHeight;ratio=natW/natH;origBytes=file.size;
+      fileBase=(file.name||'image').replace(/\.[^.]+$/,'');
+      wEl.value=natW;hEl.value=natH;
+      $('[data-odim]',root).textContent=`${faD(natW)}×${faD(natH)}`;
+      $('[data-osize]',root).textContent=humanBytes(origBytes);
+      dzBox.hidden=true;work.hidden=false;
+      render();
+    }catch(e){toast(e.message)}
+  }
+  wireDropzone($('.dz',dzBox),loadFile);
+  wEl.addEventListener('input',()=>{if($('#rsLock',root).checked)hEl.value=Math.round(wEl.value/ratio);updateEstimate()});
+  hEl.addEventListener('input',()=>{if($('#rsLock',root).checked)wEl.value=Math.round(hEl.value*ratio);updateEstimate()});
+  fmtEl.addEventListener('change',()=>{toggleQ();updateEstimate()});
+  qEl.addEventListener('input',()=>{qval.textContent=qEl.value;updateEstimate()});
+  $('[data-dl]',root).addEventListener('click',()=>{
+    const w=Math.max(1,+wEl.value||natW),h=Math.max(1,+hEl.value||natH);
+    const out=document.createElement('canvas');out.width=w;out.height=h;
+    out.getContext('2d').drawImage(imgEl,0,0,w,h);
+    const ext={'image/jpeg':'jpg','image/webp':'webp','image/png':'png'}[fmtEl.value];
+    const q=fmtEl.value==='image/png'?undefined:(+qEl.value/100);
+    downloadCanvas(out,`${fileBase}-${w}x${h}.${ext}`,fmtEl.value,q);
+  });
+  $('[data-reset]',root).addEventListener('click',()=>{dzBox.hidden=false;work.hidden=true;imgEl=null});
+  toggleQ();
+},{g:'عکس را انتخاب کنید؛ ابعاد یا کیفیت را تغییر دهید تا حجم خروجی برآوردی زنده به‌روز شود. پردازش کاملاً در مرورگر خودتان انجام می‌شود، عکس هیچ‌وقت به سروری فرستاده نمی‌شود.',x:'عکس ۴۰۰۰×۳۰۰۰ و ۸ مگابایتی ← تغییر به ۱۲۰۰ پیکسل عرض با کیفیت ۸۰٪ معمولاً به کمتر از ۳۰۰ کیلوبایت می‌رسد',faq:[['کیفیت عکس کم می‌شود؟','در فرمت JPG و WebP، کاهش عدد کیفیت حجم را کم می‌کند اما افت کیفیت بصری هم دارد؛ برای اکثر کاربردهای وب، ۷۰ تا ۸۵ درصد تعادل خوبی است.'],['فرمت PNG چرا کیفیت ندارد؟','PNG بدون افت (lossless) است؛ حجمش فقط به تعداد رنگ‌ها و فشرده‌سازی بستگی دارد، نه یک عدد کیفیت.']]});
+
+T('image-format-convert','تبدیل فرمت عکس','Image Format Converter','تبدیل عکس بین JPG، PNG و WebP با مقایسه حجم خروجی','img','image-down',['تبدیل فرمت عکس','jpg به png','png به jpg','webp','image format converter'],function(root,t){
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div data-dz>${dzHTML()}</div>
+    <div data-work hidden>
+      <canvas data-prev class="imgprev" style="max-height:340px;object-fit:contain"></canvas>
+      <div class="imginfo"><span>ابعاد: <b data-odim></b></span><span>فرمت اصلی: <b data-ofmt></b></span><span>حجم اصلی: <b data-osize></b></span></div>
+      <div class="seg" role="tablist" style="margin-top:16px">
+        <button type="button" data-f="image/jpeg" class="on">JPG</button>
+        <button type="button" data-f="image/png">PNG</button>
+        <button type="button" data-f="image/webp">WebP</button>
+      </div>
+      <div class="field" data-qwrap style="margin-top:10px"><label>کیفیت (<span data-qval>90</span>٪)</label><div class="iwrap"><input data-q type="range" min="10" max="100" value="90"></div></div>
+      <div class="imginfo" style="margin-top:4px;font-size:13.5px"><span>حجم خروجی: <b data-nsize style="color:var(--acc)">…</b></span><span data-ratio></span></div>
+      <div class="pactions" style="justify-content:center"><button type="button" class="btn pri" data-dl>${ic('download')} دانلود</button>
+      <button type="button" class="btn ghost" data-reset>${ic('rotate-ccw')} عکس دیگر</button></div>
+    </div>
+  </div></div>`;
+  const dzBox=$('[data-dz]',root),work=$('[data-work]',root),prev=$('[data-prev]',root),ctx=prev.getContext('2d');
+  const qEl=$('[data-q]',root),qval=$('[data-qval]',root),qwrap=$('[data-qwrap]',root);
+  let imgEl=null,natW=0,natH=0,origBytes=0,fileBase='image',fmt='image/jpeg',debounceT=null;
+  function toggleQ(){qwrap.style.display=fmt==='image/png'?'none':''}
+  async function updateEstimate(){
+    clearTimeout(debounceT);
+    debounceT=setTimeout(async()=>{
+      const q=fmt==='image/png'?undefined:(+qEl.value/100);
+      const sz=await canvasSize(prev,fmt,q);
+      $('[data-nsize]',root).textContent=humanBytes(sz);
+      const pct=origBytes?Math.round((1-sz/origBytes)*100):0;
+      $('[data-ratio]',root).innerHTML=pct>0?`<span style="color:var(--acc)">${faD(pct)}٪ کمتر از اصلی</span>`:(pct<0?`<span style="color:var(--err)">${faD(-pct)}٪ بیشتر از اصلی</span>`:'');
+    },200);
+  }
+  async function loadFile(file){
+    try{
+      const {img}=await loadImageFromFile(file);
+      imgEl=img;natW=img.naturalWidth;natH=img.naturalHeight;origBytes=file.size;
+      fileBase=(file.name||'image').replace(/\.[^.]+$/,'');
+      prev.width=natW;prev.height=natH;ctx.clearRect(0,0,natW,natH);ctx.drawImage(img,0,0);
+      $('[data-odim]',root).textContent=`${faD(natW)}×${faD(natH)}`;
+      $('[data-ofmt]',root).textContent=(file.type||'نامشخص').replace('image/','').toUpperCase();
+      $('[data-osize]',root).textContent=humanBytes(origBytes);
+      dzBox.hidden=true;work.hidden=false;
+      updateEstimate();
+    }catch(e){toast(e.message)}
+  }
+  wireDropzone($('.dz',dzBox),loadFile);
+  $$('[data-f]',root).forEach(b=>b.addEventListener('click',()=>{
+    $$('[data-f]',root).forEach(x=>x.classList.toggle('on',x===b));
+    fmt=b.dataset.f;toggleQ();updateEstimate();
+  }));
+  qEl.addEventListener('input',()=>{qval.textContent=qEl.value;updateEstimate()});
+  $('[data-dl]',root).addEventListener('click',()=>{
+    const ext={'image/jpeg':'jpg','image/webp':'webp','image/png':'png'}[fmt];
+    const q=fmt==='image/png'?undefined:(+qEl.value/100);
+    downloadCanvas(prev,`${fileBase}.${ext}`,fmt,q);
+  });
+  $('[data-reset]',root).addEventListener('click',()=>{dzBox.hidden=false;work.hidden=true;imgEl=null});
+  toggleQ();
+},{g:'عکس را انتخاب کنید و فرمت خروجی را از سه گزینه انتخاب کنید؛ حجم تخمینی هر فرمت بلافاصله نمایش داده می‌شود تا بهترین گزینه را خودتان انتخاب کنید.',x:'عکس PNG اسکرین‌شات ← تبدیل به WebP معمولاً حجم را بدون افت محسوس کیفیت به‌شدت کم می‌کند',faq:[['WebP چیست؟','فرمتی جدیدتر از گوگل که معمولاً در حجم کمتر، کیفیت مشابه JPG یا PNG می‌دهد و همه مرورگرهای امروزی از آن پشتیبانی می‌کنند.'],['کدام فرمت را انتخاب کنم؟','برای عکس با افکت‌های دوربین، JPG یا WebP؛ برای لوگو، آیکون یا تصویر با پس‌زمینه شفاف، PNG مناسب‌تر است.']]});
+
+T('image-crop-rotate','برش و چرخش عکس','Image Crop & Rotate','برش ناحیه دلخواه، چرخش ۹۰ درجه و قرینه کردن عکس','img','crop',['برش عکس','چرخش عکس','کراپ','crop image','rotate image','قرینه عکس'],function(root,t){
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div data-dz>${dzHTML()}</div>
+    <div data-work hidden>
+      <div class="pactions" style="justify-content:center;margin-bottom:10px">
+        <button type="button" class="btn ghost sm" data-rot="-90">${ic('rotate-ccw')} ۹۰ درجه</button>
+        <button type="button" class="btn ghost sm" data-rot="90">${ic('rotate-cw')} ۹۰ درجه</button>
+        <button type="button" class="btn ghost sm" data-flip="h">قرینه افقی</button>
+        <button type="button" class="btn ghost sm" data-flip="v">قرینه عمودی</button>
+        <button type="button" class="btn ghost sm" data-full>کل عکس</button>
+      </div>
+      <div class="cropwrap" data-wrap>
+        <canvas data-work-canvas></canvas>
+        <div class="cropbox" data-box><i class="rs"></i></div>
+      </div>
+      <div class="imginfo"><span data-selinfo></span></div>
+      <div class="pactions" style="justify-content:center"><button type="button" class="btn pri" data-apply>${ic('crop')} اعمال برش</button></div>
+      <div data-result hidden style="margin-top:18px;border-top:1px solid var(--line);padding-top:16px">
+        <canvas data-outcanvas class="imgprev" style="max-height:320px;object-fit:contain"></canvas>
+        <div class="imginfo"><span data-outdim></span></div>
+        <div class="pactions" style="justify-content:center">
+          <button type="button" class="btn pri" data-dl>${ic('download')} دانلود (PNG)</button>
+          <button type="button" class="btn ghost" data-reset>${ic('rotate-ccw')} عکس دیگر</button>
+        </div>
+      </div>
+    </div>
+  </div></div>`;
+  const dzBox=$('[data-dz]',root),work=$('[data-work]',root),wrap=$('[data-wrap]',root);
+  const cv=$('[data-work-canvas]',root),ctx=cv.getContext('2d'),box=$('[data-box]',root);
+  const resultBox=$('[data-result]',root),outcv=$('[data-outcanvas]',root);
+  let baseImg=null,angle=0,flipH=false,flipV=false,fileBase='image';
+  let wW=0,wH=0; // working (rotated) natural dimensions
+  let sel={x:0.1,y:0.1,w:0.8,h:0.8}; // fractions of working canvas
+  function buildWorking(){
+    const iw=baseImg.naturalWidth,ih=baseImg.naturalHeight;
+    const swapped=(angle%180!==0);
+    wW=swapped?ih:iw;wH=swapped?iw:ih;
+    cv.width=wW;cv.height=wH;
+    ctx.save();
+    ctx.translate(wW/2,wH/2);
+    ctx.rotate(angle*Math.PI/180);
+    ctx.scale(flipH?-1:1,flipV?-1:1);
+    ctx.drawImage(baseImg,-iw/2,-ih/2,iw,ih);
+    ctx.restore();
+    drawBox();
+  }
+  function drawBox(){
+    const rect=cv.getBoundingClientRect();
+    box.style.left=(sel.x*rect.width)+'px';
+    box.style.top=(sel.y*rect.height)+'px';
+    box.style.width=(sel.w*rect.width)+'px';
+    box.style.height=(sel.h*rect.height)+'px';
+    $('[data-selinfo]',root).textContent=`ناحیه انتخاب: ${faD(Math.round(sel.w*wW))}×${faD(Math.round(sel.h*wH))} پیکسل`;
+  }
+  function clampSel(){
+    sel.w=Math.min(1,Math.max(0.04,sel.w));sel.h=Math.min(1,Math.max(0.04,sel.h));
+    sel.x=Math.min(1-sel.w,Math.max(0,sel.x));sel.y=Math.min(1-sel.h,Math.max(0,sel.y));
+  }
+  async function loadFile(file){
+    try{
+      const {img}=await loadImageFromFile(file);
+      baseImg=img;angle=0;flipH=false;flipV=false;sel={x:0.1,y:0.1,w:0.8,h:0.8};
+      fileBase=(file.name||'image').replace(/\.[^.]+$/,'');
+      dzBox.hidden=true;work.hidden=false;resultBox.hidden=true;
+      buildWorking();
+    }catch(e){toast(e.message)}
+  }
+  wireDropzone($('.dz',dzBox),loadFile);
+  window.addEventListener('resize',()=>{if(baseImg)drawBox()});
+  $$('[data-rot]',root).forEach(b=>b.addEventListener('click',()=>{
+    angle=((angle+(+b.dataset.rot))%360+360)%360;sel={x:0.1,y:0.1,w:0.8,h:0.8};buildWorking();
+  }));
+  $$('[data-flip]',root).forEach(b=>b.addEventListener('click',()=>{
+    if(b.dataset.flip==='h')flipH=!flipH;else flipV=!flipV;buildWorking();
+  }));
+  $('[data-full]',root).addEventListener('click',()=>{sel={x:0,y:0,w:1,h:1};clampSel();drawBox()});
+  // drag & resize
+  let mode=null,start=null;
+  box.addEventListener('pointerdown',e=>{
+    e.preventDefault();box.setPointerCapture(e.pointerId);
+    mode=e.target.classList.contains('rs')?'resize':'move';
+    start={px:e.clientX,py:e.clientY,sel:{...sel}};
+  });
+  box.addEventListener('pointermove',e=>{
+    if(!mode)return;
+    const rect=cv.getBoundingClientRect();
+    const dx=(e.clientX-start.px)/rect.width,dy=(e.clientY-start.py)/rect.height;
+    if(mode==='move'){sel.x=start.sel.x+dx;sel.y=start.sel.y+dy}
+    else{sel.w=start.sel.w+dx;sel.h=start.sel.h+dy}
+    clampSel();drawBox();
+  });
+  box.addEventListener('pointerup',e=>{mode=null;try{box.releasePointerCapture(e.pointerId)}catch(_e){}});
+  $('[data-apply]',root).addEventListener('click',()=>{
+    const sx=Math.round(sel.x*wW),sy=Math.round(sel.y*wH),sw=Math.round(sel.w*wW),sh=Math.round(sel.h*wH);
+    if(sw<1||sh<1){toast('ناحیه انتخاب‌شده خیلی کوچک است.');return}
+    outcv.width=sw;outcv.height=sh;
+    outcv.getContext('2d').drawImage(cv,sx,sy,sw,sh,0,0,sw,sh);
+    $('[data-outdim]',root).textContent=`${faD(sw)}×${faD(sh)} پیکسل`;
+    resultBox.hidden=false;
+    resultBox.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+  $('[data-dl]',root).addEventListener('click',()=>downloadCanvas(outcv,`${fileBase}-crop.png`,'image/png'));
+  $('[data-reset]',root).addEventListener('click',()=>{dzBox.hidden=false;work.hidden=true;baseImg=null});
+},{g:'عکس را انتخاب کنید؛ با دکمه‌های بالا بچرخانید یا قرینه کنید، سپس با کشیدن کادر سبز، ناحیه موردنظر برای برش را مشخص کنید و «اعمال برش» را بزنید.',x:'عکس افقی گرفته‌شده با گوشی ← چرخش ۹۰ درجه و برش حاشیه‌های اضافه',faq:[['کیفیت عکس بعد از برش کم می‌شود؟','خیر؛ چون همه پردازش روی پیکسل‌های اصلی عکس انجام می‌شود، نه نسخه فشرده‌شده.'],['خروجی چه فرمتی است؟','PNG، تا هیچ افت کیفیتی در برش رخ ندهد.']]});
+
+T('image-watermark','افزودن واترمارک به عکس','Image Watermark','افزودن متن واترمارک به عکس با کنترل موقعیت، اندازه و شفافیت','img','droplet',['واترمارک','افزودن متن به عکس','watermark','لوگو روی عکس','کپی رایت عکس'],function(root,t){
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div data-dz>${dzHTML()}</div>
+    <div data-work hidden>
+      <canvas data-prev class="imgprev" style="max-height:360px;object-fit:contain"></canvas>
+      <div class="fgrid" style="margin-top:14px">
+        <div class="field full"><label>متن واترمارک</label><div class="iwrap"><input data-txt value="© نام شما" placeholder="مثلاً © سایت من"></div></div>
+        <div class="field"><label>اندازه قلم</label><div class="iwrap"><input data-size type="range" min="12" max="160" value="36"></div></div>
+        <div class="field"><label>شفافیت (<span data-oval>55</span>٪)</label><div class="iwrap"><input data-op type="range" min="10" max="100" value="55"></div></div>
+        <div class="field"><label>رنگ</label><div class="iwrap"><input data-color type="color" value="#ffffff" style="padding:4px;height:44px;cursor:pointer"></div></div>
+        <div class="field"><label>موقعیت</label><div class="iwrap"><select data-pos>
+          <option value="tl">بالا-چپ</option><option value="tc">بالا-وسط</option><option value="tr">بالا-راست</option>
+          <option value="cl">وسط-چپ</option><option value="cc" selected>مرکز</option><option value="cr">وسط-راست</option>
+          <option value="bl">پایین-چپ</option><option value="bc">پایین-وسط</option><option value="br">پایین-راست</option>
+          <option value="tile">کاشی‌کاری (تکرار)</option>
+        </select></div></div>
+      </div>
+      <div class="pactions" style="justify-content:center"><button type="button" class="btn pri" data-dl>${ic('download')} دانلود (PNG)</button>
+      <button type="button" class="btn ghost" data-reset>${ic('rotate-ccw')} عکس دیگر</button></div>
+    </div>
+  </div></div>`;
+  const dzBox=$('[data-dz]',root),work=$('[data-work]',root),prev=$('[data-prev]',root),ctx=prev.getContext('2d');
+  const txt=$('[data-txt]',root),size=$('[data-size]',root),op=$('[data-op]',root),oval=$('[data-oval]',root),color=$('[data-color]',root),pos=$('[data-pos]',root);
+  let imgEl=null,natW=0,natH=0,fileBase='image';
+  function render(){
+    prev.width=natW;prev.height=natH;
+    ctx.clearRect(0,0,natW,natH);
+    ctx.drawImage(imgEl,0,0,natW,natH);
+    const s=+size.value,label=txt.value||'';
+    ctx.font=`700 ${s}px Vazirmatn, sans-serif`;
+    ctx.fillStyle=color.value;
+    ctx.globalAlpha=+op.value/100;
+    ctx.textBaseline='middle';
+    if(!label){ctx.globalAlpha=1;return}
+    if(pos.value==='tile'){
+      ctx.textAlign='center';
+      const tw=ctx.measureText(label).width+s*2,th=s*3;
+      ctx.save();ctx.translate(natW/2,natH/2);ctx.rotate(-0.4);ctx.translate(-natW/2,-natH/2);
+      for(let y=-th;y<natH+th;y+=th)for(let x=-tw;x<natW+tw;x+=tw)ctx.fillText(label,x,y);
+      ctx.restore();
+    }else{
+      const pad=Math.max(10,s*0.5);
+      const align={tl:'left',cl:'left',bl:'left',tc:'center',cc:'center',bc:'center',tr:'right',cr:'right',br:'right'}[pos.value];
+      ctx.textAlign=align;
+      let x=align==='left'?pad:align==='right'?natW-pad:natW/2;
+      let y=pos.value[0]==='t'?pad+s/2:pos.value[0]==='b'?natH-pad-s/2:natH/2;
+      ctx.fillText(label,x,y);
+    }
+    ctx.globalAlpha=1;
+  }
+  async function loadFile(file){
+    try{
+      const {img}=await loadImageFromFile(file);
+      imgEl=img;natW=img.naturalWidth;natH=img.naturalHeight;
+      fileBase=(file.name||'image').replace(/\.[^.]+$/,'');
+      dzBox.hidden=true;work.hidden=false;
+      render();
+    }catch(e){toast(e.message)}
+  }
+  wireDropzone($('.dz',dzBox),loadFile);
+  [txt,size,op,color,pos].forEach(el=>el.addEventListener('input',render));
+  size.addEventListener('input',()=>{});
+  op.addEventListener('input',()=>oval.textContent=op.value);
+  $('[data-dl]',root).addEventListener('click',()=>downloadCanvas(prev,`${fileBase}-watermark.png`,'image/png'));
+  $('[data-reset]',root).addEventListener('click',()=>{dzBox.hidden=false;work.hidden=true;imgEl=null});
+},{g:'عکس را انتخاب کنید، متن واترمارک را بنویسید و موقعیت، اندازه، رنگ و شفافیت آن را تنظیم کنید تا بلافاصله روی پیش‌نمایش ببینید. خروجی PNG است تا شفافیت واترمارک حفظ شود.',x:'عکس محصول فروشگاه ← واترمارک «© نام فروشگاه» در گوشه پایین با شفافیت ۵۰٪'});
+
+T('image-to-base64','تبدیل عکس به Base64','Image to Base64','تبدیل عکس به رشته Base64 / Data URI برای استفاده در کد','img','binary',['عکس به base64','image to base64','data uri','تبدیل عکس به کد'],function(root,t){
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div class="seg" role="tablist">
+      <button type="button" data-mode="enc" class="on">عکس ← Base64</button>
+      <button type="button" data-mode="dec">Base64 ← عکس</button>
+    </div>
+    <div data-encwrap style="margin-top:14px">
+      <div data-dz>${dzHTML()}</div>
+      <div data-work hidden>
+        <canvas data-prev class="imgprev" style="max-height:260px;object-fit:contain"></canvas>
+        <div class="imginfo"><span>حجم اصلی: <b data-osize></b></span><span>حجم Base64: <b data-bsize></b></span><span data-pct></span></div>
+        <div class="field full" style="margin-top:12px"><label>رشته Data URI</label><div class="iwrap"><textarea data-out rows="6" readonly style="font-family:var(--mono);font-size:11.5px;direction:ltr;text-align:left"></textarea></div></div>
+        <div class="pactions" style="justify-content:center">
+          <button type="button" class="btn pri" data-copyuri>${ic('copy')} کپی Data URI</button>
+          <button type="button" class="btn ghost" data-copyraw>${ic('copy')} کپی فقط Base64</button>
+          <button type="button" class="btn ghost" data-reset>${ic('rotate-ccw')} عکس دیگر</button>
+        </div>
+      </div>
+    </div>
+    <div data-decwrap hidden style="margin-top:14px">
+      <div class="field full"><label>رشته Base64 یا Data URI را اینجا بچسبانید</label><div class="iwrap"><textarea data-decin rows="6" placeholder="data:image/png;base64,… یا فقط رشته base64" style="font-family:var(--mono);font-size:11.5px;direction:ltr;text-align:left"></textarea></div></div>
+      <div data-decres hidden style="text-align:center">
+        <canvas data-deccanvas class="imgprev" style="max-height:300px;object-fit:contain"></canvas>
+        <div class="pactions" style="justify-content:center"><button type="button" class="btn pri" data-decdl>${ic('download')} دانلود عکس</button></div>
+      </div>
+    </div>
+  </div></div>`;
+  const encwrap=$('[data-encwrap]',root),decwrap=$('[data-decwrap]',root);
+  const dzBox=$('[data-dz]',root),work=$('[data-work]',root),prev=$('[data-prev]',root),ctx=prev.getContext('2d'),out=$('[data-out]',root);
+  let dataURI='',fileBase='image';
+  async function loadFile(file){
+    try{
+      const {img}=await loadImageFromFile(file);
+      const r=new FileReader();
+      r.onload=()=>{
+        dataURI=r.result;
+        prev.width=img.naturalWidth;prev.height=img.naturalHeight;ctx.drawImage(img,0,0);
+        fileBase=(file.name||'image').replace(/\.[^.]+$/,'');
+        $('[data-osize]',root).textContent=humanBytes(file.size);
+        $('[data-bsize]',root).textContent=humanBytes(dataURI.length);
+        const pct=Math.round((dataURI.length/file.size-1)*100);
+        $('[data-pct]',root).innerHTML=`<span style="color:var(--warn)">${faD(pct)}٪ حجیم‌تر از فایل اصلی</span>`;
+        out.value=dataURI;
+        dzBox.hidden=true;work.hidden=false;
+      };
+      r.readAsDataURL(file);
+    }catch(e){toast(e.message)}
+  }
+  wireDropzone($('.dz',dzBox),loadFile);
+  $('[data-copyuri]',root)?.addEventListener('click',()=>copyText(dataURI));
+  $('[data-copyraw]',root).addEventListener('click',()=>copyText(dataURI.split(',')[1]||dataURI));
+  $('[data-reset]',root).addEventListener('click',()=>{dzBox.hidden=false;work.hidden=true});
+  // mode switch
+  $$('[data-mode]',root).forEach(b=>b.addEventListener('click',()=>{
+    $$('[data-mode]',root).forEach(x=>x.classList.toggle('on',x===b));
+    const enc=b.dataset.mode==='enc';encwrap.hidden=!enc;decwrap.hidden=enc;
+  }));
+  // decode
+  const decin=$('[data-decin]',root),decres=$('[data-decres]',root),deccv=$('[data-deccanvas]',root);
+  let decBlob=null;
+  decin.addEventListener('input',()=>{
+    let v=decin.value.trim();
+    if(!v){decres.hidden=true;return}
+    if(!v.startsWith('data:'))v='data:image/png;base64,'+v.replace(/\s+/g,'');
+    const img=new Image();
+    img.onload=()=>{
+      deccv.width=img.naturalWidth;deccv.height=img.naturalHeight;
+      deccv.getContext('2d').drawImage(img,0,0);
+      decres.hidden=false;
+    };
+    img.onerror=()=>{decres.hidden=true;toast('رشته Base64 معتبر نیست یا تصویر قابل‌خواندن نیست.')};
+    img.src=v;
+  });
+  $('[data-decdl]',root).addEventListener('click',()=>downloadCanvas(deccv,'decoded-image.png','image/png'));
+},{g:'برای تبدیل عکس به Base64، فایل را انتخاب کنید و رشته Data URI یا فقط بخش Base64 را کپی کنید — برای embed کردن عکس مستقیم در HTML/CSS یا JSON کاربرد دارد. برای مسیر برعکس، تب دوم را بزنید و رشته را بچسبانید.',x:'آیکون کوچک ۲ کیلوبایتی ← رشته Base64 برای <img src="data:image/png;base64,…">',faq:[['چرا حجم Base64 بیشتر از فایل اصلی است؟','چون Base64 داده دودویی را با حروف و اعداد متنی کدگذاری می‌کند که تقریباً ۳۳٪ حجم اضافه می‌کند؛ این یک رفتار طبیعی و همیشگی Base64 است.'],['چه زمانی از Base64 استفاده کنم؟','برای آیکون‌های خیلی کوچک که می‌خواهید در CSS/HTML بدون یک درخواست شبکه جداگانه embed شوند.']]});
+
 /* ==================== پاک‌سازی رجیستری ==================== */
 for(let i=REGISTRY.length-1;i>=0;i--){if(typeof REGISTRY[i].mount!=='function')REGISTRY.splice(i,1)}
 const byId=id=>REGISTRY.find(t=>t.id===id);
 
 /* ==================== موتور جستجو ==================== */
+const FA_LAYOUT={q:'ض',w:'ص',e:'ث',r:'ق',t:'ف',y:'غ',u:'ع',i:'ه',o:'خ',p:'ح','[':'ج',']':'چ',
+  a:'ش',s:'س',d:'ی',f:'ب',g:'ل',h:'ا',j:'ت',k:'ن',l:'م',';':'ک',"'":'گ',
+  z:'ظ',x:'ط',c:'ز',v:'ر',b:'ذ',n:'د',m:'پ',',':'و','.':'؟'};
+const fixLayout=s=>[...s.toLowerCase()].map(c=>FA_LAYOUT[c]??c).join('');
 function search(q){
   const n=norm(q);
   if(!n)return[];
@@ -2919,6 +3528,13 @@ function search(q){
   scored.sort((a,b)=>b[0]-a[0]);
   return scored.slice(0,8).map(x=>x[1]);
 }
+function smartSearch(q){
+  const direct=search(q);
+  if(direct.length||!/^[a-zA-Z][a-zA-Z ]*$/.test(q.trim()))return{results:direct,corrected:null};
+  const fixed=fixLayout(q);
+  const alt=search(fixed);
+  return alt.length?{results:alt,corrected:fixed}:{results:direct,corrected:null};
+}
 function attachSearch(input,box,onPick){
   let sel=-1,cur=[];
   const hl=(txt,q)=>{
@@ -2927,11 +3543,14 @@ function attachSearch(input,box,onPick){
     if(i<0)return esc(txt);
     return esc(txt.slice(0,i))+'<mark>'+esc(txt.slice(i,i+nn.length))+'</mark>'+esc(txt.slice(i+nn.length));
   };
+  let correctedQ=null;
   function renderList(){
     if(!box)return;
-    box.innerHTML=cur.length?cur.map((t,i)=>`<div class="sitem ${i===sel?'sel':''}" data-go="${t.id}">
+    const hintQ=correctedQ;
+    const hint=hintQ?`<div class="shint">نتایج برای «${esc(hintQ)}» (تبدیل خودکار صفحه‌کلید)</div>`:'';
+    box.innerHTML=cur.length?hint+cur.map((t,i)=>`<div class="sitem ${i===sel?'sel':''}" data-go="${t.id}">
       <span class="ticon" style="width:32px;height:32px">${ic(t.icon)}</span>
-      <div style="min-width:0"><b>${hl(t.title,input.value)}</b><small>${CAT(t.cat).name} — ${esc(t.en)}</small></div>
+      <div style="min-width:0"><b>${hintQ?esc(t.title):hl(t.title,input.value)}</b><small>${CAT(t.cat).name} — ${esc(t.en)}</small></div>
       <span class="go">باز کردن ${ic('chevron-left')}</span></div>`).join('')
       :(input.value.trim()?'<div class="snone">ابزاری با این عبارت پیدا نشد. کلمه دیگری امتحان کنید.</div>':'');
     $$('[data-go]',box).forEach(el=>el.addEventListener('mousedown',e=>{
@@ -2942,7 +3561,7 @@ function attachSearch(input,box,onPick){
     }));
     refreshIcons();
   }
-  input.addEventListener('input',()=>{cur=search(input.value);sel=cur.length?0:-1;renderList()});
+  input.addEventListener('input',()=>{const r=smartSearch(input.value);cur=r.results;correctedQ=r.corrected;sel=cur.length?0:-1;renderList()});
   input.addEventListener('keydown',e=>{
     if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(sel+1,cur.length-1);renderList()}
     else if(e.key==='ArrowUp'){e.preventDefault();sel=Math.max(sel-1,0);renderList()}
@@ -3202,8 +3821,21 @@ function initChrome(){
   document.documentElement.dataset.theme=saved||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
   $('#themeBtn').innerHTML=ic(document.documentElement.dataset.theme==='dark'?'sun':'moon');
   setAccent(store.get('accent',0));
+  $$('#numSeg [data-num]').forEach(b=>{
+    b.classList.toggle('on',b.dataset.num===(numLatin?'en':'fa'));
+    b.addEventListener('click',()=>{
+      numLatin=b.dataset.num==='en';
+      store.set('numLatin',numLatin);
+      $$('#numSeg [data-num]').forEach(x=>x.classList.toggle('on',x===b));
+      render(false);
+    });
+  });
   $('#themeBtn').addEventListener('click',()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark'));
   $('#menuBtn').addEventListener('click',openDrawer);
+  const offlineBar=$('#offlineBar');
+  const syncOnline=()=>{offlineBar.hidden=navigator.onLine};
+  window.addEventListener('online',syncOnline);window.addEventListener('offline',syncOnline);
+  syncOnline();
   $$('#drawer [data-close]').forEach(el=>el.addEventListener('click',closeDrawer));
   $('#openSearch').addEventListener('click',openSearch);
   $('#closeSearch').addEventListener('click',closeSearch);

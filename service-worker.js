@@ -2,7 +2,7 @@
    نسخه کش با شماره نسخه اپ (APP_VER در index.html) هماهنگ نگه‌داشته می‌شود.
    هر بار که APP_VER در index.html تغییر کند، این عدد را هم دستی به‌روز کنید
    تا کاربران نسخه قدیمی از کش حذف و نسخه جدید دانلود شود. */
-const CACHE_VERSION = 'azardan-v3.2.0';
+const CACHE_VERSION = 'azardan-v4.1.0';
 
 const CORE_ASSETS = [
   './',
