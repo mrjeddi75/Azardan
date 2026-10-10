@@ -133,6 +133,9 @@ input,select,textarea{font:inherit;color:var(--ink)}
 .sitem mark{background:none;color:var(--acc);font-weight:800}
 .snone{padding:18px;text-align:center;color:var(--muted);font-size:13.5px}
 .shint{padding:8px 14px;font-size:12px;color:var(--acc);background:var(--acc-soft);border-bottom:1px solid var(--line)}
+[data-target] span.ok{color:var(--acc)}
+[data-target] span.bad{color:var(--err);background:var(--err-soft);border-radius:3px}
+[data-target] span.cur{background:var(--acc);color:#fff;border-radius:3px}
 #offlineBar{background:var(--warn);color:#201a07;font-size:12.5px;font-weight:600;text-align:center;padding:8px 14px;line-height:1.6}
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;position:relative}
 .chip{font-size:12.5px;color:var(--muted);border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 14px;transition:.15s}
@@ -359,7 +362,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;background:var(--card)}
 </style>
 </head>
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><defs><symbol id="i-alert-triangle" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></symbol><symbol id="i-arrow-left-right" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4" /> <path d="M4 7h16" /> <path d="m16 21 4-4-4-4" /> <path d="M20 17H4" /></symbol><symbol id="i-binary" viewBox="0 0 24 24"><rect x="14" y="14" width="4" height="6" rx="2" /> <rect x="6" y="4" width="4" height="6" rx="2" /> <path d="M6 20h4" /> <path d="M14 10h4" /> <path d="M6 14h2v6" /> <path d="M14 4h2v6" /></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /> <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /> <path d="m3.3 7 8.7 5 8.7-5" /> <path d="M12 22V12" /></symbol><symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1" /> <path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1" /></symbol><symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" /> <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" /> <path d="M2 21h20" /> <path d="M7 8v3" /> <path d="M12 8v3" /> <path d="M17 8v3" /> <path d="M7 4h0.01" /> <path d="M12 4h0.01" /> <path d="M17 4h0.01" /></symbol><symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2" /> <line x1="8" x2="16" y1="6" y2="6" /> <line x1="16" x2="16" y1="14" y2="18" /> <path d="M16 10h.01" /> <path d="M12 10h.01" /> <path d="M8 10h.01" /> <path d="M12 14h.01" /> <path d="M8 14h.01" /> <path d="M12 18h.01" /> <path d="M8 18h.01" /></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /></symbol><symbol id="i-calendar-days" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /> <path d="M8 14h.01" /> <path d="M12 14h.01" /> <path d="M16 14h.01" /> <path d="M8 18h.01" /> <path d="M12 18h.01" /> <path d="M16 18h.01" /></symbol><symbol id="i-case-sensitive" viewBox="0 0 24 24"><path d="m3 15 4-8 4 8" /> <path d="M4 13h6" /> <circle cx="18" cy="12" r="3" /> <path d="M21 9v6" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol><symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <polyline points="12 6 12 12 16 14" /></symbol><symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol><symbol id="i-cloud-drizzle" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 19v1" /> <path d="M8 14v1" /> <path d="M16 19v1" /> <path d="M16 14v1" /> <path d="M12 21v1" /> <path d="M12 16v1" /></symbol><symbol id="i-cloud-fog" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 17H7" /> <path d="M17 21H9" /></symbol><symbol id="i-cloud-lightning" viewBox="0 0 24 24"><path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973" /> <path d="m13 12-3 5h4l-3 5" /></symbol><symbol id="i-cloud-rain" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 14v6" /> <path d="M8 14v6" /> <path d="M12 16v6" /></symbol><symbol id="i-cloud-snow" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 15h.01" /> <path d="M8 19h.01" /> <path d="M12 17h.01" /> <path d="M12 21h.01" /> <path d="M16 15h.01" /> <path d="M16 19h.01" /></symbol><symbol id="i-cloud-sun" viewBox="0 0 24 24"><path d="M12 2v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="M20 12h2" /> <path d="m19.07 4.93-1.41 1.41" /> <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128" /> <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z" /></symbol><symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" /> <polyline points="8 6 2 12 8 18" /></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol><symbol id="i-crop" viewBox="0 0 24 24"><path d="M6 2v14a2 2 0 0 0 2 2h14" /> <path d="M18 22V8a2 2 0 0 0-2-2H2" /></symbol><symbol id="i-dices" viewBox="0 0 24 24"><rect width="12" height="12" x="2" y="10" rx="2" ry="2" /> <path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" /> <path d="M6 18h.01" /> <path d="M10 14h.01" /> <path d="M15 6h.01" /> <path d="M18 9h.01" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="7 10 12 15 17 10" /> <line x1="12" x2="12" y1="15" y2="3" /></symbol><symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" /></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /> <polyline points="14 2 14 8 20 8" /></symbol><symbol id="i-fingerprint" viewBox="0 0 24 24"><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4" /> <path d="M5 19.5C5.5 18 6 15 6 12c0-.7.12-1.37.34-2" /> <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" /> <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" /> <path d="M8.65 22c.21-.66.45-1.32.57-2" /> <path d="M14 13.12c0 2.38 0 6.38-1 8.88" /> <path d="M2 16h.01" /> <path d="M21.8 16c.2-2 .131-5.354 0-6" /> <path d="M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2" /></symbol><symbol id="i-frame" viewBox="0 0 24 24"><line x1="22" x2="2" y1="6" y2="6" /> <line x1="22" x2="2" y1="18" y2="18" /> <line x1="6" x2="6" y1="2" y2="22" /> <line x1="18" x2="18" y1="2" y2="22" /></symbol><symbol id="i-fuel" viewBox="0 0 24 24"><line x1="3" x2="15" y1="22" y2="22" /> <line x1="4" x2="14" y1="9" y2="9" /> <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" /> <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5" /></symbol><symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4" /> <path d="M3.34 19a10 10 0 1 1 17.32 0" /></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /></symbol><symbol id="i-hard-drive" viewBox="0 0 24 24"><line x1="22" x2="2" y1="12" y2="12" /> <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /> <line x1="6" x2="6.01" y1="16" y2="16" /> <line x1="10" x2="10.01" y1="16" y2="16" /></symbol><symbol id="i-hash" viewBox="0 0 24 24"><line x1="4" x2="20" y1="9" y2="9" /> <line x1="4" x2="20" y1="15" y2="15" /> <line x1="10" x2="8" y1="3" y2="21" /> <line x1="16" x2="14" y1="3" y2="21" /></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></symbol><symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /> <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /> <path d="M12 7v5l4 2" /></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> <polyline points="9 22 9 12 15 12 15 22" /></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /></symbol><symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5" /> <path d="m21 2-9.6 9.6" /> <path d="m15.5 7.5 3 3L22 7l-3-3" /></symbol><symbol id="i-landmark" viewBox="0 0 24 24"><line x1="3" x2="21" y1="22" y2="22" /> <line x1="6" x2="6" y1="18" y2="11" /> <line x1="10" x2="10" y1="18" y2="11" /> <line x1="14" x2="14" y1="18" y2="11" /> <line x1="18" x2="18" y1="18" y2="11" /> <polygon points="12 2 20 7 4 7" /></symbol><symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" /></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /></symbol><symbol id="i-list" viewBox="0 0 24 24"><line x1="8" x2="21" y1="6" y2="6" /> <line x1="8" x2="21" y1="12" y2="12" /> <line x1="8" x2="21" y1="18" y2="18" /> <line x1="3" x2="3.01" y1="6" y2="6" /> <line x1="3" x2="3.01" y1="12" y2="12" /> <line x1="3" x2="3.01" y1="18" y2="18" /></symbol><symbol id="i-list-ordered" viewBox="0 0 24 24"><line x1="10" x2="21" y1="6" y2="6" /> <line x1="10" x2="21" y1="12" y2="12" /> <line x1="10" x2="21" y1="18" y2="18" /> <path d="M4 6h1v4" /> <path d="M4 10h2" /> <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" /></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol><symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1" /> <rect x="2" y="16" width="6" height="6" rx="1" /> <rect x="9" y="2" width="6" height="6" rx="1" /> <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /> <path d="M12 12V8" /></symbol><symbol id="i-paintbrush" viewBox="0 0 24 24"><path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3Z" /> <path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7" /> <path d="M14.5 17.5 4.5 15" /></symbol><symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" /> <circle cx="17.5" cy="10.5" r=".5" /> <circle cx="8.5" cy="7.5" r=".5" /> <circle cx="6.5" cy="12.5" r=".5" /> <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" /></symbol><symbol id="i-pause" viewBox="0 0 24 24"><rect width="4" height="16" x="6" y="4" /> <rect width="4" height="16" x="14" y="4" /></symbol><symbol id="i-percent" viewBox="0 0 24 24"><line x1="19" x2="5" y1="5" y2="19" /> <circle cx="6.5" cy="6.5" r="2.5" /> <circle cx="17.5" cy="17.5" r="2.5" /></symbol><symbol id="i-pipette" viewBox="0 0 24 24"><path d="m2 22 1-1h3l9-9" /> <path d="M3 21v-3l9-9" /> <path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z" /></symbol><symbol id="i-qr-code" viewBox="0 0 24 24"><rect width="5" height="5" x="3" y="3" rx="1" /> <rect width="5" height="5" x="16" y="3" rx="1" /> <rect width="5" height="5" x="3" y="16" rx="1" /> <path d="M21 16h-3a2 2 0 0 0-2 2v3" /> <path d="M21 21v.01" /> <path d="M12 7v3a2 2 0 0 1-2 2H7" /> <path d="M3 12h.01" /> <path d="M12 3h.01" /> <path d="M12 16v.01" /> <path d="M16 12h1" /> <path d="M21 12v.01" /> <path d="M12 21v-1" /></symbol><symbol id="i-quote" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" /> <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" /></symbol><symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1Z" /> <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /> <path d="M12 17V7" /></symbol><symbol id="i-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /></symbol><symbol id="i-regex" viewBox="0 0 24 24"><path d="M17 3v10" /> <path d="m12.67 5.5 8.66 5" /> <path d="m12.67 10.5 8.66-5" /> <path d="M9 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2z" /></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4" /> <path d="M3 11v-1a4 4 0 0 1 4-4h14" /> <path d="m7 22-4-4 4-4" /> <path d="M21 13v1a4 4 0 0 1-4 4H3" /></symbol><symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></symbol><symbol id="i-share-2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" /> <circle cx="6" cy="12" r="3" /> <circle cx="18" cy="19" r="3" /> <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" /> <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" /></symbol><symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /> <path d="m18 2 4 4-4 4" /> <path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /> <path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /> <path d="m18 14 4 4-4 4" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /> <path d="M5 3v4" /> <path d="M19 17v4" /> <path d="M3 5h4" /> <path d="M17 19h4" /></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></symbol><symbol id="i-tag" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" /> <path d="M7 7h.01" /></symbol><symbol id="i-thermometer" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" /></symbol><symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" /></symbol><symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /> <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /> <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /> <line x1="10" x2="10" y1="11" y2="17" /> <line x1="14" x2="14" y1="11" y2="17" /></symbol><symbol id="i-type" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7" /> <line x1="9" x2="15" y1="20" y2="20" /> <line x1="12" x2="12" y1="4" y2="20" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" /> <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" /> <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" /></symbol><symbol id="i-wand-2" viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z" /> <path d="m14 7 3 3" /> <path d="M5 6v4" /> <path d="M19 14v4" /> <path d="M10 2v2" /> <path d="M7 8H3" /> <path d="M21 16h-4" /> <path d="M11 3H9" /></symbol><symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol><symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol><symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /> <path d="M9 18c-4.51 2-5-2-7-2" /></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /> <path d="M12 8v13" /> <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /> <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol><symbol id="i-banknote" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" /></symbol><symbol id="i-contact" viewBox="0 0 24 24"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <circle cx="12" cy="10" r="2" /> <line x1="8" x2="8" y1="2" y2="4" /> <line x1="16" x2="16" y1="2" y2="4" /></symbol><symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /></symbol><symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z" /> <path d="M11 3 8 9l4 13 4-13-3-6" /> <path d="M2 9h20" /></symbol><symbol id="i-key-round" viewBox="0 0 24 24"><path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z" /> <circle cx="16.5" cy="7.5" r=".5" /></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="M7 21h10" /> <path d="M12 3v18" /> <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></symbol><symbol id="i-baby" viewBox="0 0 24 24"><path d="M9 12h.01" /> <path d="M15 12h.01" /> <path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" /> <path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" /></symbol><symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2" /> <circle cx="9" cy="9" r="2" /> <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /></symbol><symbol id="i-crop" viewBox="0 0 24 24"><path d="M6 2v14a2 2 0 0 0 2 2h14" /> <path d="M18 22V8a2 2 0 0 0-2-2H2" /></symbol><symbol id="i-rotate-cw" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /></symbol><symbol id="i-scaling" viewBox="0 0 24 24"><path d="M21 3 9 15" /> <path d="M12 3H3v18h18v-9" /> <path d="M16 3h5v5" /> <path d="M14 15H9v-5" /></symbol><symbol id="i-image-down" viewBox="0 0 24 24"><circle cx="9" cy="9" r="2" /> <path d="M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10.8" /> <path d="m21 15-3.1-3.1a2 2 0 0 0-2.814.014L6 21" /> <path d="m14 19.5 3 3v-6" /> <path d="m17 22.5 3-3" /></symbol></defs></svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><defs><symbol id="i-alert-triangle" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" /> <path d="M12 9v4" /> <path d="M12 17h.01" /></symbol><symbol id="i-arrow-left-right" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4" /> <path d="M4 7h16" /> <path d="m16 21 4-4-4-4" /> <path d="M20 17H4" /></symbol><symbol id="i-binary" viewBox="0 0 24 24"><rect x="14" y="14" width="4" height="6" rx="2" /> <rect x="6" y="4" width="4" height="6" rx="2" /> <path d="M6 20h4" /> <path d="M14 10h4" /> <path d="M6 14h2v6" /> <path d="M14 4h2v6" /></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /> <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /> <path d="m3.3 7 8.7 5 8.7-5" /> <path d="M12 22V12" /></symbol><symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1" /> <path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1" /></symbol><symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" /> <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" /> <path d="M2 21h20" /> <path d="M7 8v3" /> <path d="M12 8v3" /> <path d="M17 8v3" /> <path d="M7 4h0.01" /> <path d="M12 4h0.01" /> <path d="M17 4h0.01" /></symbol><symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2" /> <line x1="8" x2="16" y1="6" y2="6" /> <line x1="16" x2="16" y1="14" y2="18" /> <path d="M16 10h.01" /> <path d="M12 10h.01" /> <path d="M8 10h.01" /> <path d="M12 14h.01" /> <path d="M8 14h.01" /> <path d="M12 18h.01" /> <path d="M8 18h.01" /></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /></symbol><symbol id="i-calendar-days" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /> <line x1="16" x2="16" y1="2" y2="6" /> <line x1="8" x2="8" y1="2" y2="6" /> <line x1="3" x2="21" y1="10" y2="10" /> <path d="M8 14h.01" /> <path d="M12 14h.01" /> <path d="M16 14h.01" /> <path d="M8 18h.01" /> <path d="M12 18h.01" /> <path d="M16 18h.01" /></symbol><symbol id="i-case-sensitive" viewBox="0 0 24 24"><path d="m3 15 4-8 4 8" /> <path d="M4 13h6" /> <circle cx="18" cy="12" r="3" /> <path d="M21 9v6" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol><symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <polyline points="12 6 12 12 16 14" /></symbol><symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol><symbol id="i-cloud-drizzle" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 19v1" /> <path d="M8 14v1" /> <path d="M16 19v1" /> <path d="M16 14v1" /> <path d="M12 21v1" /> <path d="M12 16v1" /></symbol><symbol id="i-cloud-fog" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 17H7" /> <path d="M17 21H9" /></symbol><symbol id="i-cloud-lightning" viewBox="0 0 24 24"><path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973" /> <path d="m13 12-3 5h4l-3 5" /></symbol><symbol id="i-cloud-rain" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M16 14v6" /> <path d="M8 14v6" /> <path d="M12 16v6" /></symbol><symbol id="i-cloud-snow" viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /> <path d="M8 15h.01" /> <path d="M8 19h.01" /> <path d="M12 17h.01" /> <path d="M12 21h.01" /> <path d="M16 15h.01" /> <path d="M16 19h.01" /></symbol><symbol id="i-cloud-sun" viewBox="0 0 24 24"><path d="M12 2v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="M20 12h2" /> <path d="m19.07 4.93-1.41 1.41" /> <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128" /> <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z" /></symbol><symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" /> <polyline points="8 6 2 12 8 18" /></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol><symbol id="i-crop" viewBox="0 0 24 24"><path d="M6 2v14a2 2 0 0 0 2 2h14" /> <path d="M18 22V8a2 2 0 0 0-2-2H2" /></symbol><symbol id="i-dices" viewBox="0 0 24 24"><rect width="12" height="12" x="2" y="10" rx="2" ry="2" /> <path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" /> <path d="M6 18h.01" /> <path d="M10 14h.01" /> <path d="M15 6h.01" /> <path d="M18 9h.01" /></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="7 10 12 15 17 10" /> <line x1="12" x2="12" y1="15" y2="3" /></symbol><symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" /></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /> <polyline points="14 2 14 8 20 8" /></symbol><symbol id="i-fingerprint" viewBox="0 0 24 24"><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 0 1 8 4" /> <path d="M5 19.5C5.5 18 6 15 6 12c0-.7.12-1.37.34-2" /> <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" /> <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" /> <path d="M8.65 22c.21-.66.45-1.32.57-2" /> <path d="M14 13.12c0 2.38 0 6.38-1 8.88" /> <path d="M2 16h.01" /> <path d="M21.8 16c.2-2 .131-5.354 0-6" /> <path d="M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2" /></symbol><symbol id="i-frame" viewBox="0 0 24 24"><line x1="22" x2="2" y1="6" y2="6" /> <line x1="22" x2="2" y1="18" y2="18" /> <line x1="6" x2="6" y1="2" y2="22" /> <line x1="18" x2="18" y1="2" y2="22" /></symbol><symbol id="i-fuel" viewBox="0 0 24 24"><line x1="3" x2="15" y1="22" y2="22" /> <line x1="4" x2="14" y1="9" y2="9" /> <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18" /> <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5" /></symbol><symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4" /> <path d="M3.34 19a10 10 0 1 1 17.32 0" /></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /></symbol><symbol id="i-hard-drive" viewBox="0 0 24 24"><line x1="22" x2="2" y1="12" y2="12" /> <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /> <line x1="6" x2="6.01" y1="16" y2="16" /> <line x1="10" x2="10.01" y1="16" y2="16" /></symbol><symbol id="i-hash" viewBox="0 0 24 24"><line x1="4" x2="20" y1="9" y2="9" /> <line x1="4" x2="20" y1="15" y2="15" /> <line x1="10" x2="8" y1="3" y2="21" /> <line x1="16" x2="14" y1="3" y2="21" /></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></symbol><symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /> <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></symbol><symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /> <path d="M12 7v5l4 2" /></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /> <polyline points="9 22 9 12 15 12 15 22" /></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 16v-4" /> <path d="M12 8h.01" /></symbol><symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5" /> <path d="m21 2-9.6 9.6" /> <path d="m15.5 7.5 3 3L22 7l-3-3" /></symbol><symbol id="i-landmark" viewBox="0 0 24 24"><line x1="3" x2="21" y1="22" y2="22" /> <line x1="6" x2="6" y1="18" y2="11" /> <line x1="10" x2="10" y1="18" y2="11" /> <line x1="14" x2="14" y1="18" y2="11" /> <line x1="18" x2="18" y1="18" y2="11" /> <polygon points="12 2 20 7 4 7" /></symbol><symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6" /> <path d="m4 14 6-6 2-3" /> <path d="M2 5h12" /> <path d="M7 2h1" /> <path d="m22 22-5-10-5 10" /> <path d="M14 18h6" /></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /> <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /> <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /></symbol><symbol id="i-list" viewBox="0 0 24 24"><line x1="8" x2="21" y1="6" y2="6" /> <line x1="8" x2="21" y1="12" y2="12" /> <line x1="8" x2="21" y1="18" y2="18" /> <line x1="3" x2="3.01" y1="6" y2="6" /> <line x1="3" x2="3.01" y1="12" y2="12" /> <line x1="3" x2="3.01" y1="18" y2="18" /></symbol><symbol id="i-list-ordered" viewBox="0 0 24 24"><line x1="10" x2="21" y1="6" y2="6" /> <line x1="10" x2="21" y1="12" y2="12" /> <line x1="10" x2="21" y1="18" y2="18" /> <path d="M4 6h1v4" /> <path d="M4 10h2" /> <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" /></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /> <line x1="4" x2="20" y1="18" y2="18" /></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol><symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1" /> <rect x="2" y="16" width="6" height="6" rx="1" /> <rect x="9" y="2" width="6" height="6" rx="1" /> <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /> <path d="M12 12V8" /></symbol><symbol id="i-paintbrush" viewBox="0 0 24 24"><path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3Z" /> <path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7" /> <path d="M14.5 17.5 4.5 15" /></symbol><symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" /> <circle cx="17.5" cy="10.5" r=".5" /> <circle cx="8.5" cy="7.5" r=".5" /> <circle cx="6.5" cy="12.5" r=".5" /> <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" /></symbol><symbol id="i-pause" viewBox="0 0 24 24"><rect width="4" height="16" x="6" y="4" /> <rect width="4" height="16" x="14" y="4" /></symbol><symbol id="i-percent" viewBox="0 0 24 24"><line x1="19" x2="5" y1="5" y2="19" /> <circle cx="6.5" cy="6.5" r="2.5" /> <circle cx="17.5" cy="17.5" r="2.5" /></symbol><symbol id="i-pipette" viewBox="0 0 24 24"><path d="m2 22 1-1h3l9-9" /> <path d="M3 21v-3l9-9" /> <path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z" /></symbol><symbol id="i-qr-code" viewBox="0 0 24 24"><rect width="5" height="5" x="3" y="3" rx="1" /> <rect width="5" height="5" x="16" y="3" rx="1" /> <rect width="5" height="5" x="3" y="16" rx="1" /> <path d="M21 16h-3a2 2 0 0 0-2 2v3" /> <path d="M21 21v.01" /> <path d="M12 7v3a2 2 0 0 1-2 2H7" /> <path d="M3 12h.01" /> <path d="M12 3h.01" /> <path d="M12 16v.01" /> <path d="M16 12h1" /> <path d="M21 12v.01" /> <path d="M12 21v-1" /></symbol><symbol id="i-quote" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" /> <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" /></symbol><symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1Z" /> <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /> <path d="M12 17V7" /></symbol><symbol id="i-refresh-cw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /></symbol><symbol id="i-regex" viewBox="0 0 24 24"><path d="M17 3v10" /> <path d="m12.67 5.5 8.66 5" /> <path d="m12.67 10.5 8.66-5" /> <path d="M9 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2z" /></symbol><symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4" /> <path d="M3 11v-1a4 4 0 0 1 4-4h14" /> <path d="m7 22-4-4 4-4" /> <path d="M21 13v1a4 4 0 0 1-4 4H3" /></symbol><symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /> <path d="M3 3v5h5" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /> <path d="m21 21-4.3-4.3" /></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /> <rect width="20" height="8" x="2" y="14" rx="2" ry="2" /> <line x1="6" x2="6.01" y1="6" y2="6" /> <line x1="6" x2="6.01" y1="18" y2="18" /></symbol><symbol id="i-share-2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3" /> <circle cx="6" cy="12" r="3" /> <circle cx="18" cy="19" r="3" /> <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" /> <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" /></symbol><symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22" /> <path d="m18 2 4 4-4 4" /> <path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2" /> <path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8" /> <path d="m18 14 4 4-4 4" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /> <path d="M5 3v4" /> <path d="M19 17v4" /> <path d="M3 5h4" /> <path d="M17 19h4" /></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></symbol><symbol id="i-tag" viewBox="0 0 24 24"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z" /> <path d="M7 7h.01" /></symbol><symbol id="i-thermometer" viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" /></symbol><symbol id="i-timer" viewBox="0 0 24 24"><line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" /></symbol><symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M3 6h18" /> <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /> <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /> <line x1="10" x2="10" y1="11" y2="17" /> <line x1="14" x2="14" y1="11" y2="17" /></symbol><symbol id="i-type" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7" /> <line x1="9" x2="15" y1="20" y2="20" /> <line x1="12" x2="12" y1="4" y2="20" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <circle cx="9" cy="7" r="4" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <path d="M16 3.13a4 4 0 0 1 0 7.75" /></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" /> <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" /> <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" /></symbol><symbol id="i-wand-2" viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z" /> <path d="m14 7 3 3" /> <path d="M5 6v4" /> <path d="M19 14v4" /> <path d="M10 2v2" /> <path d="M7 8H3" /> <path d="M21 16h-4" /> <path d="M11 3H9" /></symbol><symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol><symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></symbol><symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /> <path d="M9 18c-4.51 2-5-2-7-2" /></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /> <path d="M12 8v13" /> <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /> <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol><symbol id="i-banknote" viewBox="0 0 24 24"><rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" /></symbol><symbol id="i-contact" viewBox="0 0 24 24"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" /> <rect width="18" height="18" x="3" y="4" rx="2" /> <circle cx="12" cy="10" r="2" /> <line x1="8" x2="8" y1="2" y2="4" /> <line x1="16" x2="16" y1="2" y2="4" /></symbol><symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /></symbol><symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z" /> <path d="M11 3 8 9l4 13 4-13-3-6" /> <path d="M2 9h20" /></symbol><symbol id="i-key-round" viewBox="0 0 24 24"><path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4Z" /> <circle cx="16.5" cy="7.5" r=".5" /></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /> <path d="M7 21h10" /> <path d="M12 3v18" /> <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" /></symbol><symbol id="i-baby" viewBox="0 0 24 24"><path d="M9 12h.01" /> <path d="M15 12h.01" /> <path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" /> <path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" /></symbol><symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2" /> <circle cx="9" cy="9" r="2" /> <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /></symbol><symbol id="i-crop" viewBox="0 0 24 24"><path d="M6 2v14a2 2 0 0 0 2 2h14" /> <path d="M18 22V8a2 2 0 0 0-2-2H2" /></symbol><symbol id="i-rotate-cw" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /></symbol><symbol id="i-scaling" viewBox="0 0 24 24"><path d="M21 3 9 15" /> <path d="M12 3H3v18h18v-9" /> <path d="M16 3h5v5" /> <path d="M14 15H9v-5" /></symbol><symbol id="i-image-down" viewBox="0 0 24 24"><circle cx="9" cy="9" r="2" /> <path d="M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10.8" /> <path d="m21 15-3.1-3.1a2 2 0 0 0-2.814.014L6 21" /> <path d="m14 19.5 3 3v-6" /> <path d="m17 22.5 3-3" /></symbol><symbol id="i-keyboard" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2" ry="2" /> <path d="M6 8h.001" /> <path d="M10 8h.001" /> <path d="M14 8h.001" /> <path d="M18 8h.001" /> <path d="M8 12h.001" /> <path d="M12 12h.001" /> <path d="M16 12h.001" /> <path d="M7 16h10" /></symbol><symbol id="i-help-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /> <path d="M12 17h.01" /></symbol><symbol id="i-grid-3x3" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" /> <path d="M3 9h18" /> <path d="M3 15h18" /> <path d="M9 3v18" /> <path d="M15 3v18" /></symbol><symbol id="i-gamepad-2" viewBox="0 0 24 24"><line x1="6" x2="10" y1="11" y2="11" /> <line x1="8" x2="8" y1="9" y2="13" /> <line x1="15" x2="15.01" y1="12" y2="12" /> <line x1="18" x2="18.01" y1="10" y2="10" /> <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" /></symbol><symbol id="i-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1" /> <rect width="7" height="7" x="14" y="3" rx="1" /> <rect width="7" height="7" x="14" y="14" rx="1" /> <rect width="7" height="7" x="3" y="14" rx="1" /></symbol><symbol id="i-brain" viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z" /> <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z" /></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="6" /> <circle cx="12" cy="12" r="2" /></symbol><symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z" /> <path d="M6 12v5c3 3 9 3 12 0v-5" /></symbol><symbol id="i-user-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5" /> <path d="M20 21a8 8 0 0 0-16 0" /></symbol></defs></svg>
 <div id="offlineBar" hidden>اتصال اینترنت قطع است — ابزارهایی که از قبل باز کرده‌اید همچنان کار می‌کنند؛ ابزارهای نیازمند اینترنت (هواشناسی، IP، تست سرعت) تا اتصال مجدد در دسترس نیستند.</div>
 <header id="hdr">
   <div class="wrap hrow">
@@ -448,7 +451,7 @@ const $=(s,el=document)=>el.querySelector(s);
 const $$=(s,el=document)=>[...el.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ic=n=>`<svg class="icon"><use href="#i-${n}"></use></svg>`;
-const APP_VER='4.1.0';
+const APP_VER='5.0.0';
 const store={
   get(k,d){try{const v=localStorage.getItem('abzarak:'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},
   set(k,v){try{localStorage.setItem('abzarak:'+k,JSON.stringify(v))}catch(e){}}
@@ -650,7 +653,8 @@ const CATS=[
   {id:'net',name:'شبکه',icon:'network',desc:'IP، DNS، ساب‌نت و سرعت'},
   {id:'weather',name:'هواشناسی',icon:'cloud-sun',desc:'آب‌وهوای شهرهای ایران و جهان'},
   {id:'time',name:'زمان و تاریخ',icon:'calendar-days',desc:'تقویم شمسی، ساعت و تبدیل تاریخ'},
-  {id:'sec',name:'امنیت',icon:'shield',desc:'رمز، رمزنگاری و تولید داده تصادفی'}
+  {id:'sec',name:'امنیت',icon:'shield',desc:'رمز، رمزنگاری و تولید داده تصادفی'},
+  {id:'fun',name:'سرگرمی',icon:'gamepad-2',desc:'بازی، معما، کوییز و تست‌های سرگرم‌کننده'}
 ];
 const CAT=id=>CATS.find(c=>c.id===id)||CATS[0];
 const REGISTRY=[];
@@ -3497,6 +3501,754 @@ T('image-to-base64','تبدیل عکس به Base64','Image to Base64','تبدی�
   });
   $('[data-decdl]',root).addEventListener('click',()=>downloadCanvas(deccv,'decoded-image.png','image/png'));
 },{g:'برای تبدیل عکس به Base64، فایل را انتخاب کنید و رشته Data URI یا فقط بخش Base64 را کپی کنید — برای embed کردن عکس مستقیم در HTML/CSS یا JSON کاربرد دارد. برای مسیر برعکس، تب دوم را بزنید و رشته را بچسبانید.',x:'آیکون کوچک ۲ کیلوبایتی ← رشته Base64 برای <img src="data:image/png;base64,…">',faq:[['چرا حجم Base64 بیشتر از فایل اصلی است؟','چون Base64 داده دودویی را با حروف و اعداد متنی کدگذاری می‌کند که تقریباً ۳۳٪ حجم اضافه می‌کند؛ این یک رفتار طبیعی و همیشگی Base64 است.'],['چه زمانی از Base64 استفاده کنم؟','برای آیکون‌های خیلی کوچک که می‌خواهید در CSS/HTML بدون یک درخواست شبکه جداگانه embed شوند.']]});
+
+
+
+const RIDDLE_BANK=[
+['دو تا دارد، دو تا چشم ندارد؛ همیشه روی صورت ماست ولی مال چشم‌های ماست نه خودش.','عینک'],
+['دندان دارد ولی هیچ‌وقت چیزی نمی‌جود.','شانه'],
+['هرچه بیشتر از آن برداری، بزرگ‌تر می‌شود.','چاله یا گودال'],
+['هرچه بیشتر خشکش کنی، خیس‌تر می‌شود.','حوله'],
+['هر روز بالا می‌رود ولی هیچ‌وقت پایین نمی‌آید.','سن آدم'],
+['باید بشکنیمش تا بتوانیم ازش استفاده کنیم.','تخم‌مرغ'],
+['در شب می‌آید، بدون این‌که کسی صدایش کند؛ روز که می‌شود، خودش می‌رود.','ستاره'],
+['هزار چشم دارد ولی یک‌بار هم چیزی ندیده.','غربال یا آبکش'],
+['پا دارد ولی راه نمی‌رود، دست دارد ولی چیزی نمی‌گیرد.','صندلی'],
+['هرچه بزرگ‌تر می‌شود، سبک‌تر می‌شود.','شمع'],
+['اول سیاه است، بعد قرمز می‌شود، آخر سر خاکستر می‌شود.','زغال در آتش'],
+['پادشاهی است بی‌تاج که هر صبح به همه سر می‌زند و هیچ‌کس نمی‌تواند مستقیم نگاهش کند.','خورشید'],
+['هر روز سر هزاران خانه می‌زند ولی خودش در هیچ‌کدام زندگی نمی‌کند.','پستچی'],
+['چشم دارد ولی نمی‌بیند.','سوزن'],
+['زبان دارد ولی حرف نمی‌زند.','کفش'],
+['گردن دارد ولی سر ندارد.','بطری'],
+['دهان دارد ولی هیچ‌وقت غذا نمی‌خورد.','رودخانه'],
+['دست دارد ولی انگشت ندارد.','ساعت'],
+['روزها می‌خوابد و شب‌ها بیدار می‌شود.','خفاش'],
+['هرچه آب بیشتری بخورد، زودتر می‌میرد.','آتش'],
+['از آب می‌آید ولی اگر در آب بماند، خراب می‌شود.','نمک'],
+['بی‌پا می‌دود، بی‌بال می‌پرد، بی‌دهان غرش می‌کند.','ابر و رعد'],
+['هرچه بیشتر بگیری، سریع‌تر تمام می‌شود.','زمان'],
+['دو برادرند که هیچ‌وقت همدیگر را نمی‌بینند، هر دو هم کنار هم زندگی می‌کنند.','چشم‌ها'],
+['همیشه جلوی شماست ولی هیچ‌وقت نمی‌توانید بهش برسید.','آینده'],
+['خانه‌اش از شیشه است و خودش از همان خانه هم شکننده‌تر است.','تخم‌مرغ'],
+['هرچه بیشتر از آن بکاهی، بزرگ‌تر می‌شود.','سوراخ'],
+['دوقلوهایی‌اند که یکی سمت راست می‌ایستد، یکی سمت چپ؛ هیچ‌وقت جایشان را عوض نمی‌کنند.','دست راست و چپ'],
+['چیزی است که وقتی اسمش را به زبان بیاوری، دیگر وجود ندارد.','سکوت'],
+['روی میز هزاران کلمه دارد ولی خودش یک کلمه هم نمی‌گوید.','کتاب'],
+['گرم که می‌شود، آب می‌شود؛ سرد که می‌شود، سفت می‌شود.','موم'],
+['اتاقی دارد با هزاران خانهٔ شش‌ضلعی که هیچ آدمی در آن زندگی نمی‌کند.','کندوی عسل'],
+['از پشت‌سر صدایش را می‌شنوی ولی خودش را هیچ‌وقت نمی‌بینی.','پژواک'],
+['بشکهٔ خالی، صدایش از بشکهٔ پر بلندتر است؛ دلیلش چیست؟','چون پر که باشد صدا را در خودش جذب می‌کند'],
+['با یک ضربه می‌شکند ولی با هزاران ضربهٔ منظم، محکم‌تر هم ساخته می‌شود.','دیوار آجری'],
+['رنگش سفید است، وقتی آب می‌شود رد پا نمی‌گذارد.','برف'],
+['هرچه پیرتر می‌شود، باارزش‌تر می‌شود و جایش توی ویترین است.','عتیقه'],
+['از دهان وارد می‌شود ولی غذا نیست؛ از گلو بیرون می‌آید و شنیده می‌شود.','آواز'],
+['تا پیش خودت نگهش داری در امان است؛ به کسی که بگویی، دیگر مال خودت نیست.','راز'],
+['نه پا دارد نه بال، ولی از این شهر به آن شهر می‌رود.','نامه'],
+['روز که می‌شود کوچک می‌شود، شب که می‌شود بزرگ می‌شود.','سایه']
+];
+
+T('number-guess','بازی حدس عدد','Number Guessing Game','یک عدد تصادفی را در ذهن می‌گیرد؛ با کمترین حدس آن را پیدا کنید','fun','target',['حدس عدد','بازی حدس','number guess','بازی فکری'],function(root,t){
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div class="seg" role="tablist">
+      <button type="button" data-r="50" class="on">۱ تا ۵۰</button>
+      <button type="button" data-r="100">۱ تا ۱۰۰</button>
+      <button type="button" data-r="1000">۱ تا ۱۰۰۰</button>
+    </div>
+    <p style="text-align:center;margin-top:14px;color:var(--muted);font-size:13.5px" data-status>یک عدد بین ۱ تا ۵۰ در ذهن گرفتم؛ حدس بزنید!</p>
+    <div class="fgrid">
+      <div class="field full"><label for="ngIn">حدس شما</label><div class="iwrap"><input id="ngIn" inputmode="numeric" autocomplete="off"></div></div>
+    </div>
+    <div class="pactions" style="justify-content:center"><button type="button" class="btn pri" data-guess>${ic('target')} حدس بزن</button>
+    <button type="button" class="btn ghost" data-new>${ic('rotate-ccw')} بازی جدید</button></div>
+    <div class="imginfo"><span>تعداد حدس: <b data-count>۰</b></span><span>بهترین رکورد: <b data-best>—</b></span></div>
+    <div data-history style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center"></div>
+  </div></div>`;
+  const statusEl=$('[data-status]',root),inp=$('#ngIn',root),countEl=$('[data-count]',root),bestEl=$('[data-best]',root),histEl=$('[data-history]',root);
+  let range=50,target=0,count=0,over=false;
+  function bestKey(){return 'ngBest'+range}
+  function showBest(){const b=store.get(bestKey(),null);bestEl.textContent=b?faD(b)+' حدس':'—'}
+  function newGame(){
+    target=1+Math.floor(Math.random()*range);count=0;over=false;
+    countEl.textContent='۰';histEl.innerHTML='';inp.value='';inp.disabled=false;
+    statusEl.textContent=`یک عدد بین ۱ تا ${faD(range)} در ذهن گرفتم؛ حدس بزنید!`;
+    statusEl.style.color='var(--muted)';
+    showBest();inp.focus();
+  }
+  function guess(){
+    if(over)return;
+    const g=pnum(inp.value);
+    if(g===null||g<1||g>range||!Number.isInteger(g)){toast('عددی بین ۱ تا '+range+' وارد کنید.');return}
+    count++;countEl.textContent=faD(count);
+    const chip=document.createElement('span');
+    chip.style.cssText='padding:4px 10px;border-radius:999px;font-size:12.5px;font-weight:700';
+    if(g===target){
+      chip.style.cssText+=';background:var(--acc);color:#fff';chip.textContent=faD(g);histEl.append(chip);
+      over=true;inp.disabled=true;
+      statusEl.textContent=`آفرین! عدد ${faD(target)} بود — در ${faD(count)} حدس پیدا کردید.`;
+      statusEl.style.color='var(--acc)';
+      const prevBest=store.get(bestKey(),null);
+      if(!prevBest||count<prevBest){store.set(bestKey(),count);toast('رکورد جدید! 🎉');}
+      showBest();
+    }else{
+      const hi=g<target;
+      chip.style.cssText+=`;background:var(--acc-soft);color:${hi?'var(--acc)':'var(--err)'}`;
+      chip.textContent=faD(g)+(hi?' ▲':' ▼');
+      histEl.append(chip);
+      statusEl.textContent=hi?'عدد بزرگ‌تری امتحان کنید.':'عدد کوچک‌تری امتحان کنید.';
+      statusEl.style.color='var(--ink)';
+      inp.value='';inp.focus();
+    }
+  }
+  $$('[data-r]',root).forEach(b=>b.addEventListener('click',()=>{
+    $$('[data-r]',root).forEach(x=>x.classList.toggle('on',x===b));
+    range=+b.dataset.r;newGame();
+  }));
+  $('[data-guess]',root).addEventListener('click',guess);
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')guess()});
+  $('[data-new]',root).addEventListener('click',newGame);
+  newGame();
+},{g:'یک بازهٔ عددی انتخاب کنید؛ سیستم یک عدد تصادفی در آن بازه در نظر می‌گیرد. با هر حدس، راهنمایی «بزرگ‌تر» یا «کوچک‌تر» می‌گیرید تا عدد را پیدا کنید. بهترین رکوردتان در هر بازه ذخیره می‌شود.',x:'بازهٔ ۱ تا ۱۰۰ را معمولاً می‌توان در ۷ حدس یا کمتر با روش دودویی (نصف‌کردن بازه) پیدا کرد'});
+
+T('riddles','چیستان و معما','Riddles & Puzzles','مجموعه‌ای از چیستان‌های فارسی برای سرگرمی و تیزهوشی','fun','help-circle',['چیستان','معما','ریدل','riddle','جدول چیستان','تست هوش'],function(root,t){
+  const BANK=RIDDLE_BANK;
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div style="text-align:center;min-height:120px;display:flex;flex-direction:column;justify-content:center">
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:8px" data-idx></p>
+      <p style="font-size:18px;font-weight:700;line-height:1.9" data-q></p>
+    </div>
+    <div data-ans hidden style="margin-top:14px;padding:14px;background:var(--acc-soft);border-radius:var(--r-sm);text-align:center">
+      <b style="color:var(--acc)" data-a></b>
+    </div>
+    <div class="pactions" style="justify-content:center">
+      <button type="button" class="btn pri" data-reveal>${ic('help-circle')} دیدن جواب</button>
+      <button type="button" class="btn ghost" data-next>${ic('chevron-left')} چیستان بعدی</button>
+    </div>
+  </div></div>`;
+  const qEl=$('[data-q]',root),aEl=$('[data-a]',root),ansBox=$('[data-ans]',root),idxEl=$('[data-idx]',root),revealBtn=$('[data-reveal]',root);
+  let order=[...Array(BANK.length).keys()].sort(()=>Math.random()-.5),pos=0,seen=0;
+  function show(){
+    const r=BANK[order[pos]];
+    qEl.textContent=r[0];aEl.textContent=r[1];ansBox.hidden=true;
+    seen++;idxEl.textContent=`چیستان ${faD(seen)} از ${faD(BANK.length)}`;
+  }
+  revealBtn.addEventListener('click',()=>{ansBox.hidden=false});
+  $('[data-next]',root).addEventListener('click',()=>{
+    pos++;if(pos>=order.length){order=[...Array(BANK.length).keys()].sort(()=>Math.random()-.5);pos=0}
+    show();
+  });
+  show();
+},{g:'متن چیستان را بخوانید و حدس بزنید؛ با دکمهٔ «دیدن جواب» پاسخ را ببینید و با «چیستان بعدی» ادامه دهید.',x:'«دو تا دارد، دو تا چشم ندارد؛ همیشه روی صورت ماست ولی مال خودش نیست» ← عینک'});
+
+
+
+const TYPING_BANK=[
+'باران آرام روی شیشه پنجره می‌بارید.',
+'او هر روز صبح زود بیدار می‌شود و پیاده‌روی می‌کند.',
+'کتاب خوب بهترین همراه شب‌های تنهایی است.',
+'ما باید همیشه به حرف‌های دیگران با دقت گوش بدهیم.',
+'آسمان شب پر از ستاره‌های درخشان بود.',
+'یادگیری زبان جدید نیاز به تمرین روزانه و صبر زیاد دارد.',
+'بچه‌ها در حیاط مدرسه با خوشحالی بازی می‌کردند.',
+'چای داغ در روزهای سرد زمستان لذت خاصی دارد.',
+'او تصمیم گرفت امسال یک شهر جدید را سفر کند.',
+'صبر و پشتکار کلید موفقیت در هر کاری است.',
+'باغبان هر روز به گل‌های باغچه آب می‌داد.',
+'دوستی‌های واقعی در سختی‌ها شناخته می‌شوند.',
+'نور خورشید از لابه‌لای درختان به زمین می‌تابید.',
+'او با تلاش فراوان توانست به هدف خود برسد.',
+'موسیقی آرام حال و هوای اتاق را تغییر داد.',
+'هر کسی باید مسئولیت کارهای خودش را بپذیرد.',
+'مسافران خسته منتظر رسیدن قطار بودند.',
+'آشپزی یک هنر است که با عشق بهتر می‌شود.',
+'کوهنوردان صبح زود راه افتادند تا به قله برسند.',
+'خواندن روزنامه هر روز اطلاعات مفیدی به ما می‌دهد.'
+];
+
+const QUIZ_BANK=[
+['بلندترین قله ایران کدام است؟',['دماوند','سبلان','علم‌کوه','زردکوه'],0],
+['پایتخت فرانسه کدام شهر است؟',['برلین','مادرید','پاریس','رم'],2],
+['آب از چند عنصر تشکیل شده است؟',['یک','دو','سه','چهار'],1],
+['بزرگ‌ترین اقیانوس جهان کدام است؟',['اطلس','هند','آرام (اقیانوسیه)','منجمد شمالی'],2],
+['نزدیک‌ترین سیاره به خورشید کدام است؟',['زهره','عطارد','زمین','مریخ'],1],
+['خلیج فارس بین ایران و کدام شبه‌جزیره قرار دارد؟',['شبه‌جزیره عربستان','شبه‌جزیره سینا','شبه‌جزیره بالکان','شبه‌جزیره کریمه'],0],
+['واحد پول ژاپن چه نام دارد؟',['وون','ین','یوان','روپیه'],1],
+['کدام گاز بیشترین حجم هوای کره زمین را تشکیل می‌دهد؟',['اکسیژن','کربن‌دی‌اکسید','نیتروژن','هیدروژن'],2],
+['بزرگ‌ترین کویر ایران کدام است؟',['کویر لوت','دشت کویر','کویر مرنجاب','کویر مصر'],0],
+['نویسنده شاهنامه کیست؟',['سعدی','فردوسی','حافظ','مولانا'],1],
+['کدام‌یک از این‌ها یک عدد اول است؟',['۹','۱۵','۱۷','۲۱'],2],
+['بزرگ‌ترین جزیره ایران در خلیج فارس کدام است؟',['کیش','هرمز','قشم','لاوان'],2],
+['قلب انسان از چند حفره تشکیل شده است؟',['دو','سه','چهار','پنج'],2],
+['طولانی‌ترین رودخانه جهان کدام است؟',['آمازون','نیل','میسیسیپی','یانگ‌تسه'],1],
+['نخستین المپیک مدرن در کدام شهر برگزار شد؟',['لندن','پاریس','آتن','رم'],2],
+['کدام سیاره به سیاره سرخ معروف است؟',['زهره','مریخ','مشتری','زحل'],1],
+['واحد اندازه‌گیری توان الکتریکی چیست؟',['ولت','آمپر','وات','اهم'],2],
+['بزرگ‌ترین دریاچه داخلی ایران (پیش از خشکی بخشی از آن) کدام بود؟',['دریاچه ارومیه','دریاچه زاینده‌رود','دریاچه بختگان','دریاچه پریشان'],0],
+['کدام حیوان بلندترین گردن را در میان پستانداران دارد؟',['اسب','زرافه','شتر','فیل'],1],
+['چند قاره در جهان وجود دارد؟',['پنج','شش','هفت','هشت'],2],
+['نماد شیمیایی طلا چیست؟',['Ag','Au','Fe','Pt'],1],
+['کدام کشور بیشترین جمعیت جهان را دارد؟',['آمریکا','هند','چین','اندونزی'],1],
+['کدام سیاره حلقه‌های معروفی دارد که با چشم غیرمسلح هم دیده می‌شود؟',['مریخ','زحل','نپتون','عطارد'],1],
+['سریع‌ترین حیوان خشکی جهان کدام است؟',['شیر','اسب','یوزپلنگ','گورخر'],2],
+['پل خواجو یکی از بناهای تاریخی کدام شهر ایران است؟',['شیراز','اصفهان','یزد','تبریز'],1],
+['کدام‌یک از این فلزات در دمای اتاق مایع است؟',['آهن','جیوه','مس','روی'],1],
+['استخوان ران جزو کدام دسته از استخوان‌هاست؟',['کوتاه','دراز','پهن','نامنظم'],1],
+['میدان نقش جهان در کدام شهر ایران قرار دارد؟',['شیراز','اصفهان','کرمان','مشهد'],1],
+['چند رنگ اصلی در رنگین‌کمان دیده می‌شود؟',['پنج','شش','هفت','هشت'],2],
+['بزرگ‌ترین صحرای گرم جهان کدام است؟',['کویر لوت','صحرای آفریقا (سحارا)','صحرای گبی','صحرای کالاهاری'],1],
+['کدام ورزش با توپ و چوب روی چمن با دروازه کوچک انجام می‌شود؟',['کریکت','گلف','بیسبال','هاکی روی چمن'],1],
+['کدام سلول خونی وظیفه اصلی انتقال اکسیژن را دارد؟',['گلبول سفید','پلاکت','گلبول قرمز','پلاسما'],2]
+];
+
+const PERSONALITY_QS=[
+['یک روز تعطیل بی‌برنامه داری؛ چیکار می‌کنی؟',[['می‌رم لب دریا یا استخر','آب'],['باغچه رو مرتب می‌کنم یا تو خونه می‌مونم','خاک'],['می‌زنم بیرون، بی‌هدف قدم می‌زنم','باد'],['یه کار هیجان‌انگیز و پرانرژی شروع می‌کنم','آتش']]],
+['تو جمع دوستانت معمولاً چه نقشی داری؟',[['شنوندهٔ خوب و آرامش‌بخش جمع','آب'],['کسی که همه رو کنار هم نگه می‌داره','خاک'],['کسی که ایده‌های جدید میاره','باد'],['کسی که جمع رو به حرکت درمیاره','آتش']]],
+['وقتی عصبانی می‌شی چطوری؟',[['آروم آروم، ولی عمیق ناراحت می‌شم','آب'],['سکوت می‌کنم و با خودم کنار میام','خاک'],['زود فراموش می‌کنم و رد می‌شم','باد'],['یهو منفجر می‌شم ولی زود هم آروم می‌شم','آتش']]],
+['کدوم محیط برات آرامش‌بخش‌تره؟',[['کنار رودخانه یا دریا','آب'],['وسط جنگل یا باغ','خاک'],['بالای کوه، جایی که باد میاد','باد'],['کنار آتیش، شب‌نشینی','آتش']]],
+['تصمیم‌گیری برات معمولاً چطوریه؟',[['با احساسم تصمیم می‌گیرم','آب'],['با دقت و بعد از فکر زیاد','خاک'],['سریع و بر اساس شهود','باد'],['قاطع و بدون تردید','آتش']]],
+['دوستات چه صفتی رو بیشتر بهت نسبت می‌دن؟',[['مهربون و حساس','آب'],['قابل‌اعتماد و صبور','خاک'],['بامزه و غیرقابل‌پیش‌بینی','باد'],['پرانرژی و رهبر جمع','آتش']]],
+['تو یه پروژه گروهی، کدوم کار رو ترجیح می‌دی؟',[['هماهنگی و حفظ روحیه تیم','آب'],['برنامه‌ریزی دقیق و اجرا','خاک'],['تولید ایده و طوفان فکری','باد'],['رهبری و پیش‌بردن کار','آتش']]],
+['رنگ موردعلاقه‌ت از این بین کدومه؟',[['آبی','آب'],['سبز یا قهوه‌ای','خاک'],['سفید یا زرد کم‌رنگ','باد'],['قرمز یا نارنجی','آتش']]]
+];
+const PERSONALITY_RESULT={
+  'آب':{title:'عنصر آب 💧',desc:'تو آدم احساسی، مهربون و باهوش از نظر عاطفی هستی. آرامش رو به جمع میاری و حرف دل آدم‌ها رو خوب می‌فهمی. گاهی هم بهتره یکم به خودت هم فکر کنی!'},
+  'خاک':{title:'عنصر خاک 🌱',desc:'تو پایدار، قابل‌اعتماد و صبوری. آدم‌ها روت حساب می‌کنن چون همیشه هستی. گاهی لازمه از منطقه امن خودت بیرون بیای و ریسک کنی.'},
+  'باد':{title:'عنصر باد 🌬️',desc:'تو پر از ایده، کنجکاو و انعطاف‌پذیری. زود با آدم‌های جدید جور می‌شی و از روتین خسته می‌شی. گاهی هم یکم تمرکز بیشتر بهت کمک می‌کنه!'},
+  'آتش':{title:'عنصر آتش 🔥',desc:'تو پرانرژی، شجاع و طبیعتاً رهبری. وقتی یه چیزی رو بخوای، تا نگیریش ول نمی‌کنی. فقط حواست باشه گاهی باید صبر هم کرد.'}
+};
+
+T('typing-speed','تست سرعت تایپ فارسی','Persian Typing Speed Test','اندازه‌گیری سرعت تایپ فارسی (کلمه در دقیقه) و درصد دقت','fun','keyboard',['تست تایپ','سرعت تایپ','typing speed','تایپ ده انگشتی','wpm'],function(root,t){
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div style="font-size:17px;line-height:2.1;padding:16px;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-sm);min-height:90px" data-target dir="rtl"></div>
+    <div class="field full" style="margin-top:14px"><label for="tsIn">همین‌جا تایپ کنید</label>
+      <div class="iwrap"><textarea id="tsIn" rows="3" placeholder="تایپ را شروع کنید تا تایمر فعال شود…" autocomplete="off" spellcheck="false"></textarea></div></div>
+    <div class="imginfo">
+      <span>زمان: <b data-time>۰</b> ثانیه</span>
+      <span>سرعت: <b data-wpm style="color:var(--acc)">۰</b> کلمه/دقیقه</span>
+      <span>دقت: <b data-acc>۱۰۰٪</b></span>
+    </div>
+    <div class="pactions" style="justify-content:center"><button type="button" class="btn ghost" data-new>${ic('rotate-ccw')} متن جدید</button></div>
+    <div data-result hidden style="margin-top:14px;text-align:center;padding:16px;background:var(--acc-soft);border-radius:var(--r-sm)">
+      <b style="font-size:20px;color:var(--acc)" data-finaltxt></b>
+    </div>
+  </div></div>`;
+  const targetEl=$('[data-target]',root),inp=$('#tsIn',root),timeEl=$('[data-time]',root),wpmEl=$('[data-wpm]',root),accEl=$('[data-acc]',root);
+  const resultBox=$('[data-result]',root),finalTxt=$('[data-finaltxt]',root);
+  let text='',startT=null,timer=null,done=false,typedErrors=0;
+  function renderTarget(typed){
+    let html='';
+    for(let i=0;i<text.length;i++){
+      const ch=text[i];
+      let cls='';
+      if(i<typed.length)cls=typed[i]===ch?'ok':'bad';
+      else if(i===typed.length)cls='cur';
+      html+=`<span class="${cls}">${esc(ch)}</span>`;
+    }
+    targetEl.innerHTML=html;
+  }
+  function tick(){
+    const secs=(Date.now()-startT)/1000;
+    timeEl.textContent=faD(Math.floor(secs));
+    const typed=inp.value;
+    const words=typed.trim().length/5;
+    const wpm=secs>0?Math.round(words/(secs/60)):0;
+    wpmEl.textContent=faD(wpm);
+  }
+  function newText(){
+    text=TYPING_BANK[Math.floor(Math.random()*TYPING_BANK.length)];
+    startT=null;done=false;typedErrors=0;
+    clearInterval(timer);timer=null;
+    inp.value='';inp.disabled=false;resultBox.hidden=true;
+    timeEl.textContent='۰';wpmEl.textContent='۰';accEl.textContent='۱۰۰٪';
+    renderTarget('');inp.focus();
+  }
+  inp.addEventListener('input',()=>{
+    if(done)return;
+    if(!startT){startT=Date.now();timer=setInterval(tick,250)}
+    const typed=inp.value;
+    renderTarget(typed);
+    let errs=0;for(let i=0;i<typed.length&&i<text.length;i++)if(typed[i]!==text[i])errs++;
+    const acc=typed.length?Math.round(100*(typed.length-errs)/typed.length):100;
+    accEl.textContent=faD(acc)+'٪';
+    if(typed===text){
+      done=true;clearInterval(timer);inp.disabled=true;
+      const secs=(Date.now()-startT)/1000;
+      const wpm=Math.round((text.length/5)/(secs/60));
+      wpmEl.textContent=faD(wpm);timeEl.textContent=faD(secs.toFixed(1));
+      resultBox.hidden=false;
+      finalTxt.textContent=`${faD(wpm)} کلمه در دقیقه با ${accEl.textContent} دقت — در ${faD(secs.toFixed(1))} ثانیه 🎉`;
+      const best=store.get('typingBest',0);
+      if(wpm>best){store.set('typingBest',wpm);toast('رکورد جدید سرعت تایپ! 🎉')}
+    }
+  });
+  $('[data-new]',root).addEventListener('click',newText);
+  newText();
+},{g:'متن نمونه را همان‌طور که نوشته شده تایپ کنید؛ تایمر با اولین حرف شروع می‌شود. حروف درست سبز و اشتباه قرمز نشان داده می‌شوند. وقتی متن را کامل و درست تایپ کنید، سرعت (کلمه در دقیقه) و درصد دقت نهایی نمایش داده می‌شود.',x:'یک متن ۵۰ کاراکتری را در ۱۵ ثانیه تایپ‌کردن تقریباً معادل ۴۰ کلمه در دقیقه است'});
+
+T('trivia-quiz','کوییز اطلاعات عمومی','General Knowledge Quiz','کوییز چندگزینه‌ای اطلاعات عمومی با امتیازدهی و نتیجه نهایی','fun','graduation-cap',['کوییز','اطلاعات عمومی','مسابقه فرهنگی','quiz','آزمون عمومی'],function(root,t){
+  const N=10;
+  let order=[...Array(QUIZ_BANK.length).keys()].sort(()=>Math.random()-.5).slice(0,N);
+  let qi=0,score=0,answered=false;
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div data-qphase>
+    <div class="imginfo"><span>سوال <b data-qn>۱</b> از ${faD(N)}</span><span>امتیاز: <b data-score style="color:var(--acc)">۰</b></span></div>
+    <p style="font-size:17px;font-weight:700;margin:16px 0;line-height:1.8" data-q></p>
+    <div data-opts style="display:flex;flex-direction:column;gap:10px"></div>
+    <div class="pactions" style="justify-content:center"><button type="button" class="btn pri" data-next hidden>${ic('chevron-left')} سوال بعدی</button></div>
+    </div>
+    <div data-final hidden style="margin-top:16px;text-align:center;padding:20px;background:var(--acc-soft);border-radius:var(--r-sm)">
+      <div style="font-size:28px;font-weight:800;color:var(--acc)" data-finalscore></div>
+      <p style="margin-top:8px;color:var(--muted)" data-finalmsg></p>
+      <button type="button" class="btn pri" style="margin-top:12px" data-restart>${ic('rotate-ccw')} دوباره بازی کن</button>
+    </div>
+  </div></div>`;
+  const qEl=$('[data-q]',root),optsEl=$('[data-opts]',root),nextBtn=$('[data-next]',root),qnEl=$('[data-qn]',root),scoreEl=$('[data-score]',root);
+  const finalBox=$('[data-final]',root),finalScore=$('[data-finalscore]',root),finalMsg=$('[data-finalmsg]',root);
+  function showQ(){
+    answered=false;nextBtn.hidden=true;
+    const [q,opts,correct]=QUIZ_BANK[order[qi]];
+    qEl.textContent=q;qnEl.textContent=faD(qi+1);
+    const optOrder=opts.map((o,i)=>i).sort(()=>Math.random()-.5);
+    optsEl.innerHTML=optOrder.map(i=>`<button type="button" class="btn ghost" style="justify-content:flex-start;width:100%" data-i="${i}">${esc(opts[i])}</button>`).join('');
+    $$('[data-i]',optsEl).forEach(b=>b.addEventListener('click',()=>{
+      if(answered)return;answered=true;
+      const picked=+b.dataset.i;
+      $$('[data-i]',optsEl).forEach(x=>{
+        const xi=+x.dataset.i;
+        if(xi===correct)x.style.cssText+='background:var(--acc-soft);border-color:var(--acc);color:var(--acc);font-weight:800';
+        else if(xi===picked)x.style.cssText+='background:var(--err-soft);border-color:var(--err);color:var(--err)';
+      });
+      if(picked===correct){score++;scoreEl.textContent=faD(score);toast('درست! ✓')}
+      nextBtn.hidden=false;
+    }));
+  }
+  nextBtn.addEventListener('click',()=>{
+    qi++;
+    if(qi>=N){
+      $('[data-qphase]',root).style.display='none';
+      finalBox.hidden=false;
+      finalScore.textContent=`${faD(score)} از ${faD(N)}`;
+      const pct=score/N;
+      finalMsg.textContent=pct>=0.8?'عالی! اطلاعات عمومی‌ت حرف نداره 🏆':pct>=0.5?'خوب بود! جای پیشرفت هست 👍':'بد نبود، یه بار دیگه امتحان کن 🙂';
+      const best=store.get('triviaBest',0);
+      if(score>best)store.set('triviaBest',score);
+      return;
+    }
+    showQ();
+  });
+  $('[data-restart]',root).addEventListener('click',()=>{
+    order=[...Array(QUIZ_BANK.length).keys()].sort(()=>Math.random()-.5).slice(0,N);
+    qi=0;score=0;scoreEl.textContent='۰';finalBox.hidden=true;
+    $('[data-qphase]',root).style.display='';
+    showQ();
+  });
+  showQ();
+},{g:'به هر سوال چهارگزینه‌ای پاسخ دهید؛ گزینه درست بعد از انتخاب شما سبز می‌شود. در پایان ۱۰ سوال، امتیاز نهایی‌تان را می‌بینید.',x:'۸ پاسخ درست از ۱۰ سوال = امتیاز خوب، بالای ۸۰٪ عالی محسوب می‌شود'});
+
+T('personality-quiz','شخصیت‌شناسی عناصر چهارگانه','Four Elements Personality Quiz','کوییز سرگرمی برای کشف عنصر شخصیتی شما بین آب، خاک، باد و آتش','fun','user-round',['شخصیت شناسی','تست شخصیت','کوییز شخصیت','personality quiz','عناصر چهارگانه'],function(root,t){
+  let qi=0,scores={'آب':0,'خاک':0,'باد':0,'آتش':0};
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div style="background:var(--warn);color:#201a07;font-size:12px;font-weight:700;padding:8px 12px;border-radius:9px;text-align:center;margin-bottom:14px">
+      ⚠️ این کوییز فقط برای سرگرمی است، نه یک ابزار علمی یا روان‌شناختی.
+    </div>
+    <div data-qphase>
+    <div class="imginfo"><span>سوال <b data-qn>۱</b> از ${faD(PERSONALITY_QS.length)}</span></div>
+    <p style="font-size:17px;font-weight:700;margin:14px 0;line-height:1.8" data-q></p>
+    <div data-opts style="display:flex;flex-direction:column;gap:10px"></div>
+    </div>
+    <div data-final hidden style="margin-top:10px;text-align:center;padding:22px;background:var(--acc-soft);border-radius:var(--r)">
+      <div style="font-size:26px;font-weight:800;color:var(--acc)" data-ftitle></div>
+      <p style="margin-top:10px;line-height:1.9" data-fdesc></p>
+      <button type="button" class="btn pri" style="margin-top:14px" data-restart>${ic('rotate-ccw')} دوباره</button>
+    </div>
+  </div></div>`;
+  const qEl=$('[data-q]',root),optsEl=$('[data-opts]',root),qnEl=$('[data-qn]',root);
+  const finalBox=$('[data-final]',root),ftitle=$('[data-ftitle]',root),fdesc=$('[data-fdesc]',root);
+  function showQ(){
+    const [q,opts]=PERSONALITY_QS[qi];
+    qEl.textContent=q;qnEl.textContent=faD(qi+1);
+    optsEl.innerHTML=opts.map((o,i)=>`<button type="button" class="btn ghost" style="justify-content:flex-start;width:100%" data-i="${i}">${esc(o[0])}</button>`).join('');
+    $$('[data-i]',optsEl).forEach(b=>b.addEventListener('click',()=>{
+      const [,el]=opts[+b.dataset.i];
+      scores[el]++;qi++;
+      if(qi>=PERSONALITY_QS.length){finish();return}
+      showQ();
+    }));
+  }
+  function finish(){
+    $('[data-qphase]',root).style.display='none';
+    let top='آب';for(const k in scores)if(scores[k]>scores[top])top=k;
+    const r=PERSONALITY_RESULT[top];
+    finalBox.hidden=false;ftitle.textContent=r.title;fdesc.textContent=r.desc;
+  }
+  $('[data-restart]',root).addEventListener('click',()=>{
+    qi=0;scores={'آب':0,'خاک':0,'باد':0,'آتش':0};
+    finalBox.hidden=true;$('[data-qphase]',root).style.display='';
+    showQ();
+  });
+  showQ();
+},{g:'به هر سوال یکی از چهار گزینه را بر اساس چیزی که بیشتر به شما نزدیک‌تر است انتخاب کنید. در پایان، عنصر شخصیتی غالب شما (آب، خاک، باد یا آتش) نمایش داده می‌شود — صرفاً یک سرگرمی است.',x:'بیشترین پاسخ‌های «آتش» ← شخصیت پرانرژی و رهبر جمع'});
+
+
+
+T('tic-tac-toe','بازی دوز (X/O)','Tic-Tac-Toe','بازی دوز کلاسیک با ربات هوشمند یا دو نفره روی یک گوشی','fun','grid-3x3',['دوز','ایکس او','tic tac toe','بازی دو نفره','xo'],function(root,t){
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div class="seg" role="tablist">
+      <button type="button" data-mode="cpu" class="on">مقابل ربات</button>
+      <button type="button" data-mode="pvp">دو نفره</button>
+    </div>
+    <p style="text-align:center;margin-top:12px;font-size:14px;font-weight:700" data-status>نوبت شما (X)</p>
+    <div data-board style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:300px;margin:16px auto"></div>
+    <div class="imginfo"><span>برد شما (X): <b data-sx>۰</b></span><span>مساوی: <b data-sd>۰</b></span><span data-slabel>برد ربات (O): <b data-so>۰</b></span></div>
+    <div class="pactions" style="justify-content:center"><button type="button" class="btn ghost" data-reset>${ic('rotate-ccw')} دور جدید</button></div>
+  </div></div>`;
+  const boardEl=$('[data-board]',root),statusEl=$('[data-status]',root);
+  const sxEl=$('[data-sx]',root),soEl=$('[data-so]',root),sdEl=$('[data-sd]',root),slabel=$('[data-slabel]',root);
+  let mode='cpu',cells=Array(9).fill(''),turn='X',over=false,sx=0,so=0,sd=0;
+  const WIN=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  function winner(b){
+    for(const[a,c,d] of WIN)if(b[a]&&b[a]===b[c]&&b[a]===b[d])return b[a];
+    return b.every(x=>x)?'draw':null;
+  }
+  function render(){
+    boardEl.innerHTML=cells.map((c,i)=>`<button type="button" data-cell="${i}" style="aspect-ratio:1;font-size:32px;font-weight:800;border:2px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer;color:${c==='X'?'var(--acc)':'var(--err)'}" ${c||over?'disabled':''}>${c}</button>`).join('');
+    $$('[data-cell]',boardEl).forEach(b=>b.addEventListener('click',()=>play(+b.dataset.cell)));
+  }
+  function cpuMove(){
+    const empties=cells.map((c,i)=>c?-1:i).filter(i=>i>=0);
+    // 1) win if possible  2) block opponent  3) center  4) corner  5) random
+    const tryFind=sym=>{
+      for(const i of empties){const cp=[...cells];cp[i]=sym;if(winner(cp)===sym)return i}
+      return -1;
+    };
+    let m=tryFind('O');
+    if(m<0)m=tryFind('X');
+    if(m<0&&cells[4]==='')m=4;
+    if(m<0){const corners=[0,2,6,8].filter(i=>cells[i]==='');if(corners.length)m=corners[Math.floor(Math.random()*corners.length)]}
+    if(m<0)m=empties[Math.floor(Math.random()*empties.length)];
+    cells[m]='O';
+  }
+  function play(i){
+    if(over||cells[i])return;
+    cells[i]=turn;
+    const w=winner(cells);
+    if(w){finish(w);return}
+    if(mode==='pvp'){turn=turn==='X'?'O':'X';statusEl.textContent=`نوبت ${turn}`;render();return}
+    turn='O';render();
+    setTimeout(()=>{
+      if(over)return;
+      cpuMove();
+      const w2=winner(cells);
+      if(w2){finish(w2);return}
+      turn='X';statusEl.textContent='نوبت شما (X)';render();
+    },350);
+  }
+  function finish(w){
+    over=true;
+    if(w==='draw'){sd++;sdEl.textContent=faD(sd);statusEl.textContent='مساوی شد! 🤝'}
+    else if(w==='X'){sx++;sxEl.textContent=faD(sx);statusEl.textContent=mode==='cpu'?'بردید! 🎉':'برنده X شد! 🎉'}
+    else{so++;soEl.textContent=faD(so);statusEl.textContent=mode==='cpu'?'ربات برد! 🤖':'برنده O شد! 🎉'}
+    render();
+  }
+  function newRound(){cells=Array(9).fill('');turn='X';over=false;statusEl.textContent='نوبت شما (X)';render()}
+  $$('[data-mode]',root).forEach(b=>b.addEventListener('click',()=>{
+    $$('[data-mode]',root).forEach(x=>x.classList.toggle('on',x===b));
+    mode=b.dataset.mode;
+    slabel.innerHTML=mode==='cpu'?`برد ربات (O): <b data-so>${faD(so)}</b>`:`برد O: <b data-so>${faD(so)}</b>`;
+    newRound();
+  }));
+  $('[data-reset]',root).addEventListener('click',newRound);
+  newRound();
+},{g:'روی خانه‌های خالی کلیک کنید تا علامت بگذارید. سه‌تا در یک ردیف، ستون یا قطر ببرید. می‌توانید مقابل ربات بازی کنید یا با یک دوست روی همین گوشی، نوبتی بازی کنید.',x:'سه X در یک قطر ← برد فوری، بدون نیاز به تکمیل کل صفحه'});
+
+T('memory-game','بازی حافظه (ورق‌های جفت)','Memory Match Game','ورق‌ها را برگردانید و جفت‌های یکسان را با کمترین تعداد تلاش پیدا کنید','fun','brain',['بازی حافظه','ورق جفت','memory game','تقویت حافظه','concentration'],function(root,t){
+  const EMOJI=['🍎','🍋','🍇','🍓','🍉','🥝','🍒','🍑','🥥','🍍','🌟','🎈'];
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div class="seg" role="tablist">
+      <button type="button" data-size="4" class="on">آسان (۴×۴)</button>
+      <button type="button" data-size="6">سخت (۴×۶)</button>
+    </div>
+    <div class="imginfo"><span>تلاش‌ها: <b data-moves>۰</b></span><span>زمان: <b data-time>۰</b> ثانیه</span><span>بهترین: <b data-best>—</b></span></div>
+    <div data-board style="display:grid;gap:8px;margin:16px auto;max-width:360px"></div>
+    <div class="pactions" style="justify-content:center"><button type="button" class="btn ghost" data-reset>${ic('rotate-ccw')} بازی جدید</button></div>
+    <div data-win hidden style="margin-top:14px;text-align:center;padding:16px;background:var(--acc-soft);border-radius:var(--r-sm)">
+      <b style="color:var(--acc);font-size:17px" data-wintxt></b>
+    </div>
+  </div></div>`;
+  const boardEl=$('[data-board]',root),movesEl=$('[data-moves]',root),timeEl=$('[data-time]',root),bestEl=$('[data-best]',root);
+  const winBox=$('[data-win]',root),winTxt=$('[data-wintxt]',root);
+  let cols=4,rows=4,cards=[],flipped=[],matched=0,moves=0,timer=null,secs=0,busy=false;
+  function bestKey(){return 'memBest'+cols+'x'+rows}
+  function showBest(){const b=store.get(bestKey(),null);bestEl.textContent=b?faD(b)+' تلاش':'—'}
+  function build(){
+    clearInterval(timer);secs=0;timeEl.textContent='۰';moves=0;movesEl.textContent='۰';matched=0;flipped=[];busy=false;
+    winBox.hidden=true;
+    const pairs=(cols*rows)/2;
+    const symbols=EMOJI.slice(0,pairs);
+    cards=[...symbols,...symbols].sort(()=>Math.random()-.5).map(s=>({s,open:false,done:false}));
+    boardEl.style.gridTemplateColumns=`repeat(${cols},1fr)`;
+    showBest();
+    render();
+    timer=setInterval(()=>{secs++;timeEl.textContent=faD(secs)},1000);
+  }
+  function render(){
+    boardEl.innerHTML=cards.map((c,i)=>`<button type="button" data-c="${i}" style="aspect-ratio:1;font-size:26px;border-radius:10px;border:2px solid var(--line);cursor:pointer;background:${c.open||c.done?'var(--acc-soft)':'var(--card)'};transition:.15s" ${c.done?'disabled':''}>${c.open||c.done?c.s:''}</button>`).join('');
+    $$('[data-c]',boardEl).forEach(b=>b.addEventListener('click',()=>flip(+b.dataset.c)));
+  }
+  function flip(i){
+    if(busy||cards[i].open||cards[i].done)return;
+    cards[i].open=true;flipped.push(i);render();
+    if(flipped.length===2){
+      busy=true;moves++;movesEl.textContent=faD(moves);
+      const[a,b]=flipped;
+      if(cards[a].s===cards[b].s){
+        cards[a].done=true;cards[b].done=true;matched++;flipped=[];busy=false;render();
+        if(matched===cards.length/2)finish();
+      }else{
+        setTimeout(()=>{cards[a].open=false;cards[b].open=false;flipped=[];busy=false;render()},700);
+      }
+    }
+  }
+  function finish(){
+    clearInterval(timer);
+    winTxt.textContent=`آفرین! در ${faD(moves)} تلاش و ${faD(secs)} ثانیه تمام شد 🎉`;
+    winBox.hidden=false;
+    const best=store.get(bestKey(),null);
+    if(!best||moves<best){store.set(bestKey(),moves);toast('رکورد جدید! 🎉')}
+    showBest();
+  }
+  $$('[data-size]',root).forEach(b=>b.addEventListener('click',()=>{
+    $$('[data-size]',root).forEach(x=>x.classList.toggle('on',x===b));
+    rows=+b.dataset.size;cols=4;build();
+  }));
+  $('[data-reset]',root).addEventListener('click',build);
+  build();
+},{g:'روی دو ورق کلیک کنید تا برگردند؛ اگر یکسان بودند باز می‌مانند، وگرنه دوباره بسته می‌شوند. سعی کنید با کمترین تعداد تلاش همه جفت‌ها را پیدا کنید.',x:'حالت آسان ۴×۴ (۸ جفت) را حرفه‌ای‌ها معمولاً زیر ۱۴ تلاش تمام می‌کنند'});
+
+
+
+T('snake-game','بازی مار','Snake Game','بازی کلاسیک مار با کنترل کیبورد، لمسی و افزایش تدریجی سرعت','fun','gamepad-2',['بازی مار','snake game','مار و سیب','بازی موبایل'],function(root,t){
+  const N=18;
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div class="imginfo"><span>امتیاز: <b data-score>۰</b></span><span>بهترین: <b data-best>—</b></span></div>
+    <div style="display:flex;justify-content:center;margin:14px 0">
+      <canvas data-cv width="360" height="360" style="width:100%;max-width:360px;background:var(--bg);border:2px solid var(--line);border-radius:var(--r-sm);touch-action:none"></canvas>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,56px);grid-template-rows:repeat(2,44px);gap:6px;justify-content:center;margin:0 auto 10px">
+      <div></div><button type="button" data-dir="up" class="btn ghost sm" style="padding:0">${ic('chevron-left')}</button><div></div>
+      <button type="button" data-dir="right" class="btn ghost sm" style="padding:0">${ic('chevron-left')}</button>
+      <button type="button" data-dir="down" class="btn ghost sm" style="padding:0">${ic('chevron-left')}</button>
+      <button type="button" data-dir="left" class="btn ghost sm" style="padding:0">${ic('chevron-left')}</button>
+    </div>
+    <div class="pactions" style="justify-content:center"><button type="button" class="btn pri" data-start>${ic('gamepad-2')} شروع بازی</button>
+    <button type="button" class="btn ghost" data-pause hidden>مکث</button></div>
+    <p class="fhint" style="text-align:center;margin-top:8px">کنترل با کلیدهای جهت‌نما یا دکمه‌های بالا / کشیدن انگشت روی صفحه</p>
+    <div data-over hidden style="margin-top:14px;text-align:center;padding:16px;background:var(--acc-soft);border-radius:var(--r-sm)">
+      <b style="color:var(--acc);font-size:18px" data-overtxt></b>
+    </div>
+  </div></div>`;
+  const cv=$('[data-cv]',root),ctx=cv.getContext('2d');
+  const scoreEl=$('[data-score]',root),bestEl=$('[data-best]',root),overBox=$('[data-over]',root),overTxt=$('[data-overtxt]',root);
+  const startBtn=$('[data-start]',root),pauseBtn=$('[data-pause]',root);
+  const CELL=cv.width/N;
+  let snake,dir,nextDir,food,score,loop,speed,running,paused;
+  function showBest(){const b=store.get('snakeBest',0);bestEl.textContent=b?faD(b):'—'}
+  function placeFood(){
+    let p;
+    do{p={x:Math.floor(Math.random()*N),y:Math.floor(Math.random()*N)}}
+    while(snake.some(s=>s.x===p.x&&s.y===p.y));
+    food=p;
+  }
+  function reset(){
+    snake=[{x:8,y:9},{x:7,y:9},{x:6,y:9}];dir={x:1,y:0};nextDir=dir;score=0;speed=160;running=false;paused=false;
+    scoreEl.textContent='۰';overBox.hidden=true;pauseBtn.hidden=true;startBtn.hidden=false;startBtn.textContent='▶ شروع بازی';
+    showBest();placeFood();draw();
+  }
+  function draw(){
+    ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--bg');
+    ctx.fillRect(0,0,cv.width,cv.height);
+    ctx.fillStyle='#e0574a';
+    ctx.beginPath();ctx.arc((food.x+.5)*CELL,(food.y+.5)*CELL,CELL*.4,0,7);ctx.fill();
+    snake.forEach((s,i)=>{
+      ctx.fillStyle=i===0?'#0c7a5b':'#12946f';
+      ctx.fillRect(s.x*CELL+1,s.y*CELL+1,CELL-2,CELL-2);
+    });
+  }
+  function tick(){
+    if(paused)return;
+    dir=nextDir;
+    const head={x:snake[0].x+dir.x,y:snake[0].y+dir.y};
+    if(head.x<0||head.x>=N||head.y<0||head.y>=N||snake.some(s=>s.x===head.x&&s.y===head.y)){gameOver();return}
+    snake.unshift(head);
+    if(head.x===food.x&&head.y===food.y){
+      score++;scoreEl.textContent=faD(score);placeFood();
+      if(speed>70){speed-=4;clearInterval(loop);loop=setInterval(tick,speed)}
+    }else snake.pop();
+    draw();
+  }
+  function gameOver(){
+    running=false;clearInterval(loop);
+    overBox.hidden=false;overTxt.textContent=`باختید! امتیاز: ${faD(score)} 🐍`;
+    pauseBtn.hidden=true;startBtn.hidden=false;startBtn.textContent='▶ بازی دوباره';
+    const best=store.get('snakeBest',0);
+    if(score>best){store.set('snakeBest',score);toast('رکورد جدید! 🎉')}
+    showBest();
+  }
+  function start(){
+    reset();running=true;startBtn.hidden=true;pauseBtn.hidden=false;pauseBtn.textContent='مکث';
+    loop=setInterval(tick,speed);
+  }
+  function setDir(x,y){
+    if(!running||paused)return;
+    if(dir.x===-x&&dir.y===-y)return; // no 180 reversal
+    nextDir={x,y};
+  }
+  startBtn.addEventListener('click',start);
+  pauseBtn.addEventListener('click',()=>{
+    if(!running)return;
+    paused=!paused;pauseBtn.textContent=paused?'ادامه':'مکث';
+  });
+  const DIRS={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
+  $$('[data-dir]',root).forEach(b=>{
+    const[x,y]=DIRS[b.dataset.dir];
+    b.addEventListener('click',()=>setDir(x,y));
+    b.style.transform={up:'rotate(90deg)',down:'rotate(-90deg)',left:'rotate(0deg)',right:'rotate(180deg)'}[b.dataset.dir];
+  });
+  window.addEventListener('keydown',e=>{
+    if(!root.isConnected)return;
+    const map={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],w:[0,-1],s:[0,1],a:[-1,0],d:[1,0]};
+    if(map[e.key]){e.preventDefault();setDir(...map[e.key])}
+  });
+  let tsx=0,tsy=0;
+  cv.addEventListener('touchstart',e=>{const t=e.touches[0];tsx=t.clientX;tsy=t.clientY},{passive:true});
+  cv.addEventListener('touchend',e=>{
+    const t=e.changedTouches[0],dx=t.clientX-tsx,dy=t.clientY-tsy;
+    if(Math.abs(dx)<20&&Math.abs(dy)<20)return;
+    if(Math.abs(dx)>Math.abs(dy))setDir(dx>0?1:-1,0);else setDir(0,dy>0?1:-1);
+  },{passive:true});
+  reset();
+},{g:'با دکمه «شروع بازی» مار را به حرکت در بیاورید. با کلیدهای جهت‌نما (یا دکمه‌های روی صفحه، یا کشیدن انگشت روی گوشی) مسیر را عوض کنید. با خوردن هر سیب، امتیاز می‌گیرید و سرعت کمی بیشتر می‌شود؛ به دیوار یا خودتان نخورید.',x:'امتیاز ۱۰ یعنی مار طولی برابر با ۱۳ خانه پیدا کرده — سرعت تا آن‌جا چند بار افزایش یافته است'});
+
+
+
+T('game-2048','بازی ۲۰۴۸','2048 Game','بازی پازل کشویی ۲۰۴۸ — کاشی‌های یکسان را ترکیب کنید تا به ۲۰۴۸ برسید','fun','layout-grid',['۲۰۴۸','2048','بازی پازل','بازی کشویی'],function(root,t){
+  const N=4;
+  root.innerHTML=`<div class="fade"><div class="panel">
+    <div class="imginfo"><span>امتیاز: <b data-score>۰</b></span><span>بهترین: <b data-best>—</b></span></div>
+    <div style="display:flex;justify-content:center;margin:14px 0">
+      <div data-grid style="position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;max-width:340px;aspect-ratio:1;background:var(--line);padding:8px;border-radius:var(--r-sm);touch-action:none"></div>
+    </div>
+    <div class="pactions" style="justify-content:center"><button type="button" class="btn ghost" data-reset>${ic('rotate-ccw')} بازی جدید</button></div>
+    <p class="fhint" style="text-align:center;margin-top:8px">با کلیدهای جهت‌نما یا کشیدن انگشت روی صفحه حرکت دهید</p>
+    <div data-msg hidden style="margin-top:14px;text-align:center;padding:16px;background:var(--acc-soft);border-radius:var(--r-sm)">
+      <b style="color:var(--acc);font-size:18px" data-msgtxt></b>
+      <div class="pactions" style="justify-content:center;margin-top:10px"><button type="button" class="btn pri" data-continue hidden>ادامه بازی</button></div>
+    </div>
+  </div></div>`;
+  const gridEl=$('[data-grid]',root),scoreEl=$('[data-score]',root),bestEl=$('[data-best]',root);
+  const msgBox=$('[data-msg]',root),msgTxt=$('[data-msgtxt]',root),contBtn=$('[data-continue]',root);
+  let grid,score,over,won,wonAck;
+  const COLORS={2:'#eee4da',4:'#ede0c8',8:'#f2b179',16:'#f59563',32:'#f67c5f',64:'#f65e3b',128:'#edcf72',256:'#edcc61',512:'#edc850',1024:'#edc53f',2048:'#edc22e'};
+  function showBest(){const b=store.get('g2048Best',0);bestEl.textContent=b?faD(b):'—'}
+  function empties(){const r=[];for(let y=0;y<N;y++)for(let x=0;x<N;x++)if(!grid[y][x])r.push([x,y]);return r}
+  function spawn(){
+    const e=empties();if(!e.length)return;
+    const[x,y]=e[Math.floor(Math.random()*e.length)];
+    grid[y][x]=Math.random()<0.9?2:4;
+  }
+  function reset(){
+    grid=Array.from({length:N},()=>Array(N).fill(0));
+    score=0;over=false;won=false;wonAck=false;
+    scoreEl.textContent='۰';msgBox.hidden=true;contBtn.hidden=true;
+    showBest();spawn();spawn();render();
+  }
+  function render(){
+    gridEl.innerHTML='';
+    for(let y=0;y<N;y++)for(let x=0;x<N;x++){
+      const v=grid[y][x];
+      const cell=document.createElement('div');
+      cell.style.cssText=`border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:${v>512?20:v>64?24:28}px;background:${v?COLORS[v]||'#3c3a32':'var(--card)'};color:${v<=4?'#6b6358':v?'#fff':'transparent'}`;
+      cell.textContent=v?faD(v):'';
+      gridEl.appendChild(cell);
+    }
+  }
+  function slideLine(line){
+    const vals=line.filter(v=>v);
+    let gained=0;
+    for(let i=0;i<vals.length-1;i++){
+      if(vals[i]&&vals[i]===vals[i+1]){vals[i]*=2;gained+=vals[i];vals[i+1]=0;i++}
+    }
+    const merged=vals.filter(v=>v);
+    while(merged.length<N)merged.push(0);
+    const moved=merged.some((v,i)=>v!==line[i]);
+    return{line:merged,gained,moved};
+  }
+  function move(dir){
+    if(over)return;
+    let changed=false,gained=0;
+    if(dir==='left'||dir==='right'){
+      for(let y=0;y<N;y++){
+        let row=grid[y].slice();
+        if(dir==='right')row=row.reverse();
+        const r=slideLine(row);
+        if(r.moved)changed=true;
+        gained+=r.gained;
+        grid[y]=dir==='right'?r.line.reverse():r.line;
+      }
+    }else{
+      for(let x=0;x<N;x++){
+        let col=grid.map(row=>row[x]);
+        if(dir==='down')col=col.reverse();
+        const r=slideLine(col);
+        if(r.moved)changed=true;
+        gained+=r.gained;
+        const out=dir==='down'?r.line.reverse():r.line;
+        for(let y=0;y<N;y++)grid[y][x]=out[y];
+      }
+    }
+    if(!changed)return;
+    score+=gained;scoreEl.textContent=faD(score);
+    spawn();render();
+    if(!won&&grid.some(row=>row.some(v=>v>=2048))){
+      won=true;
+      if(!wonAck){
+        msgBox.hidden=false;msgTxt.textContent='بردید! به ۲۰۴۸ رسیدید 🏆';contBtn.hidden=false;
+        const best=store.get('g2048Best',0);if(score>best){store.set('g2048Best',score);showBest()}
+        return;
+      }
+    }
+    if(!canMove()){
+      over=true;msgBox.hidden=false;contBtn.hidden=true;
+      msgTxt.textContent=`بازی تمام شد! امتیاز نهایی: ${faD(score)}`;
+      const best=store.get('g2048Best',0);
+      if(score>best){store.set('g2048Best',score);toast('رکورد جدید! 🎉')}
+      showBest();
+    }
+  }
+  function canMove(){
+    for(let y=0;y<N;y++)for(let x=0;x<N;x++){
+      if(!grid[y][x])return true;
+      if(x<N-1&&grid[y][x]===grid[y][x+1])return true;
+      if(y<N-1&&grid[y][x]===grid[y+1][x])return true;
+    }
+    return false;
+  }
+  contBtn.addEventListener('click',()=>{wonAck=true;msgBox.hidden=true});
+  $('[data-reset]',root).addEventListener('click',reset);
+  window.addEventListener('keydown',e=>{
+    if(!root.isConnected)return;
+    const map={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',w:'up',s:'down',a:'left',d:'right'};
+    if(map[e.key]){e.preventDefault();move(map[e.key])}
+  });
+  let tsx=0,tsy=0;
+  gridEl.addEventListener('touchstart',e=>{const tt=e.touches[0];tsx=tt.clientX;tsy=tt.clientY},{passive:true});
+  gridEl.addEventListener('touchend',e=>{
+    const tt=e.changedTouches[0],dx=tt.clientX-tsx,dy=tt.clientY-tsy;
+    if(Math.abs(dx)<24&&Math.abs(dy)<24)return;
+    if(Math.abs(dx)>Math.abs(dy))move(dx>0?'right':'left');else move(dy>0?'down':'up');
+  },{passive:true});
+  reset();
+},{g:'با کلیدهای جهت‌نما یا کشیدن انگشت، همه کاشی‌ها را به یک سمت می‌لغزانید؛ کاشی‌های با عدد یکسان که به هم برخورد کنند با هم جمع می‌شوند. هدف رسیدن به کاشی ۲۰۴۸ است. وقتی صفحه پر شود و دیگر حرکتی ممکن نباشد، بازی تمام می‌شود.',x:'دو کاشی ۱۰۲۴ که به هم بخورند ← یک کاشی ۲۰۴۸ و برد بازی'});
 
 /* ==================== پاک‌سازی رجیستری ==================== */
 for(let i=REGISTRY.length-1;i>=0;i--){if(typeof REGISTRY[i].mount!=='function')REGISTRY.splice(i,1)}
